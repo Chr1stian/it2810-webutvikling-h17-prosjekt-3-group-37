@@ -51,18 +51,20 @@ deleteItem(key) {
   render() {
     return (
 
-        <div className="todoListAll">
-          <div className="todoListContainer">
-            <form onSubmit={this.addItem}>
-              <input ref={(a) => this._inputElement = a}
-              placeholder="enter task">
-              </input>
-              <button type="submit">add</button>
-            </form>
+          <div className="todoListAll">
+            <div className="todoListContainer">
+              <form onSubmit={this.addItem}>
+                <input ref={(a) => this._inputElement = a}
+                placeholder="enter task">
+                </input>
+                <button type="submit">add</button>
+              </form>
+            </div>
+            <TodoItems entries={this.state.items}
+              delete={this.deleteItem}/>
           </div>
-          <TodoItems entries={this.state.items}
-            delete={this.deleteItem}/>
-        </div>
+
+
     );
   }
 };

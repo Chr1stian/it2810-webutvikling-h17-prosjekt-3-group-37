@@ -1,9 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import Navbar from './containers/Navbar.js';
-import Appointments from './containers/Appointments.js';
 import registerServiceWorker from './registerServiceWorker';
+import DesignContainer from './containers/design'
 
-ReactDOM.render(<Navbar />, document.getElementById('root'));
+const App = () => (
+  <DesignContainer />
+)
+
+ReactDOM.render(<App />, document.getElementById('root'));
 registerServiceWorker();

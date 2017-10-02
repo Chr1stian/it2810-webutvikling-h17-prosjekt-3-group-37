@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import Card from 'material-ui/Card';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import getMuiTheme from 'material-ui/styles/getMuiTheme';
 
 class TodoItems extends React.Component {
   constructor(props, context) {
@@ -13,8 +16,12 @@ class TodoItems extends React.Component {
   }
 
   createTasks(item) {
-    return <li onClick={(e) => this.delete(item.key, e)}
-      key={item.key}>{item.text}</li>
+    return (
+      <Card key={item.key}>
+        <li onClick={(e) => this.delete(item.key, e)}
+          key={item.key}>{item.text}</li>
+      </Card>
+    )
   }
 
   render() {
@@ -22,11 +29,15 @@ class TodoItems extends React.Component {
     let listItems = todoEntries.map(this.createTasks);
 
     return (
-      <ul className="theList">
-        {listItems}
+      <MuiThemeProvider muiTheme={getMuiTheme()}>
+
+          <ul className="theList">
+            {listItems}
 
 
-      </ul>
+          </ul>
+
+      </MuiThemeProvider>
     );
   }
 };
