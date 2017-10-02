@@ -13,26 +13,23 @@ class Navbar extends Component {
     this.openTodo = this.openTodo.bind(this);
   }
   openAppointments(){
-    document.getElementById('avtale').style.backgroundColor = "#CDCDCD";
-    document.getElementById('avtale').style.color = "#222";
+    document.getElementById('avtale').style.backgroundColor = "#99A1A6";
+    document.getElementById('avtale').style.color = "#222";    
 
-    document.getElementById('todo').style.backgroundColor = "#222";
-    document.getElementById('todo').style.color = "#CDCDCD";
+    document.getElementById('todo').style = "";
 
-    document.getElementById('notes').style.backgroundColor = "#222";
-    document.getElementById('notes').style.color = "#CDCDCD";
+    document.getElementById('notes').style = "";
 
     ReactDOM.render(<Appointments />, document.getElementById('app-area'));
   }
   openTodo(){
-    document.getElementById('avtale').style.backgroundColor = "#222";
-    document.getElementById('avtale').style.color = "#CDCDCD";
-
-    document.getElementById('todo').style.backgroundColor = "#CDCDCD";
+    document.getElementById('todo').style.backgroundColor = "#99A1A6";
     document.getElementById('todo').style.color = "#222";
 
-    document.getElementById('notes').style.backgroundColor = "#222";
-    document.getElementById('notes').style.color = "#CDCDCD";
+
+    document.getElementById('avtale').style = "";
+
+    document.getElementById('notes').style = "";
 
     ReactDOM.render(<TodoList />, document.getElementById('app-area'));
   }

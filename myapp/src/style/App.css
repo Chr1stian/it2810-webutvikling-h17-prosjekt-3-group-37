@@ -1,7 +1,7 @@
 html, body{
   margin: 0;
   padding: 0;
-  background-color: #CDCDCD;
+  background-color: #99A1A6;
 }
 
 .App {
@@ -27,23 +27,17 @@ html, body{
   padding: 0;
 }
 
-.active {
-  background-color: #CDCDCD;
-  color: #222;
-}
-
 .App-navbar li {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-left: 10px;
   cursor: pointer;
   color: #E3E4DB;
   width: 100px;
+  
 }
 
 .App-navbar li:hover {
-  margin-left: 10px;
   cursor: pointer;
   background-color: #CDCDCD;
   color: #222;
