@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import logo from './../logo.svg';
+import './../App.css';
 import Appointments from './Appointments.js';
 import ReactDOM from 'react-dom';
 
@@ -20,7 +20,7 @@ class App extends Component {
           <ul className="App-navbar">
             <li>Notater</li>
             <li>Todo</li>
-            <li id="avtale" className="active" onClick={this.openAppointments}>Avtaler</li>
+            <li id="avtale" onClick={this.openAppointments}>Avtaler</li>
           </ul>
         </header>
 
