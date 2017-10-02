@@ -14,7 +14,7 @@ class Navbar extends Component {
   }
   openAppointments(){
     document.getElementById('avtale').style.backgroundColor = "#99A1A6";
-    document.getElementById('avtale').style.color = "#222";    
+    document.getElementById('avtale').style.color = "#EEEEEE";
 
     document.getElementById('todo').style = "";
 
@@ -24,7 +24,7 @@ class Navbar extends Component {
   }
   openTodo(){
     document.getElementById('todo').style.backgroundColor = "#99A1A6";
-    document.getElementById('todo').style.color = "#222";
+    document.getElementById('todo').style.color = "#EEEEEE";
 
 
     document.getElementById('avtale').style = "";
