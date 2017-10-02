@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import TodoItems from './TodoItems';
-import './TodoList.css';
+import TodoItems from './../components/TodoItems';
+import './../style/TodoList.css';
 
 class TodoList extends React.Component {
   constructor(props, context){
@@ -60,8 +60,8 @@ deleteItem(key) {
             </form>
           </div>
           <TodoItems entries={this.state.items}
-          delete={this.deleteItem}/>
-      </div>
+            delete={this.deleteItem}/>
+        </div>
     );
   }
 };
