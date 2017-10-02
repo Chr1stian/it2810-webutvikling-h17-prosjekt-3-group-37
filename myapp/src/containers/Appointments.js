@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './App.css';
+import './../style/App.css';
 import Moment from 'react-moment';
 import Popup from 'react-popup';
 
@@ -28,7 +28,7 @@ export class Appointments extends Component {
           <table>
             <tr>
               <th id="change">Date</th>
-              <th>Title</th> 
+              <th>Title</th>
               <th>Time</th>
               <th>Place</th>
             </tr>
