@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 
-
 class TodoItems extends React.Component {
   constructor(props, context) {
     super(props, context);
