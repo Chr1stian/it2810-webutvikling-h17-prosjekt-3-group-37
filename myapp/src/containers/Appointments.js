@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './../App.css';
+import './../style/App.css';
 import Moment from 'react-moment';
 import Popup from 'react-popup';
 
