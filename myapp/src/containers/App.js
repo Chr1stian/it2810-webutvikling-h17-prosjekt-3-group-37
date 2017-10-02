@@ -12,9 +12,27 @@ class App extends Component {
     this.openTodo = this.openTodo.bind(this);
   }
   openAppointments(){
+    document.getElementById('avtale').style.backgroundColor = "#CDCDCD";
+    document.getElementById('avtale').style.color = "#222";
+
+    document.getElementById('todo').style.backgroundColor = "#222";
+    document.getElementById('todo').style.color = "#CDCDCD";
+
+    document.getElementById('notes').style.backgroundColor = "#222";
+    document.getElementById('notes').style.color = "#CDCDCD";
+
     ReactDOM.render(<Appointments />, document.getElementById('app-area'));
   }
   openTodo(){
+    document.getElementById('avtale').style.backgroundColor = "#222";
+    document.getElementById('avtale').style.color = "#CDCDCD";
+
+    document.getElementById('todo').style.backgroundColor = "#CDCDCD";
+    document.getElementById('todo').style.color = "#222";
+
+    document.getElementById('notes').style.backgroundColor = "#222";
+    document.getElementById('notes').style.color = "#CDCDCD";
+
     ReactDOM.render(<TodoList />, document.getElementById('app-area'));
   }
 
@@ -23,7 +41,7 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
           <ul className="App-navbar">
-            <li>Notater</li>
+            <li id="notes" >Notater</li>
             <li id="todo" onClick={this.openTodo}>Todo</li>
             <li id="avtale" onClick={this.openAppointments}>Avtaler</li>
           </ul>
