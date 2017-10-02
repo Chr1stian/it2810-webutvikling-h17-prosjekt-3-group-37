@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import logo from './../logo.svg';
-import './../style/App.css';
+import logo from './logo.svg';
+import './App.css';
 import Appointments from './Appointments.js';
 import ReactDOM from 'react-dom';
 import TodoList from './TodoList';
@@ -22,13 +22,19 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-          <ul className="App-navbar">
+          <img src={logo} className="App-logo" alt="logo" />
+          <h1 className="App-title">Welcome to React</h1>
+        </header>
+        <p className="App-intro">
+          <ul>
             <li>Notater</li>
             <li id="todo" onClick={this.openTodo}>Todo</li>
             <li id="avtale" onClick={this.openAppointments}>Avtaler</li>
           </ul>
-        </header>
+          <div className="App-area">
 
+          </div>
+        </p>
       </div>
     );
   }
