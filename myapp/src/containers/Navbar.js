@@ -5,7 +5,8 @@ import Appointments from './Appointments.js';
 import ReactDOM from 'react-dom';
 import TodoList from './TodoList';
 
-class App extends Component {
+
+class Navbar extends Component {
   constructor(props){
     super(props);
     this.openAppointments = this.openAppointments.bind(this);
@@ -52,4 +53,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default Navbar;
