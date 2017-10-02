@@ -17,19 +17,13 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          <ul>
+          <ul className="App-navbar">
             <li>Notater</li>
             <li>Todo</li>
-            <li id="avtale" onClick={this.openAppointments}>Avtaler</li>
+            <li id="avtale" className="active" onClick={this.openAppointments}>Avtaler</li>
           </ul>
-          <div className="App-area">
+        </header>
 
-          </div>
-        </p>
       </div>
     );
   }
