@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
+import ReactDOM from 'react-dom';
 import Weather from './../components/weatherWidget';
+
 
 class Home extends Component {
   constructor(props){
@@ -9,7 +11,10 @@ class Home extends Component {
 
   render() {
     return(
-      <Weather />
+      <div className="weatherHere">
+        <Weather />
+      </div>
+
     );
   };
 
