@@ -60,7 +60,7 @@ class Weather extends React.Component {
       <MuiThemeProvider muiTheme={getMuiTheme()}>
         <Card className="WeatherWidget">
           <CardMedia>
-            <img className="weatherIcon" src={require("./../img/weather/clear-day.png")} />
+            <img alt="weatherIcon" className="weatherIcon" src={require("./../img/weather/clear-day.png")} />
           </CardMedia>
           <CardTitle title="Trondheim" />
           <CardText>
