@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import TodoItems from './../components/TodoItems';
 import './../style/TodoList.css';
 
-class TodoList extends React.Component {
+class TodoList extends Component {
   constructor(props, context){
     super(props, context);
 

@@ -3,7 +3,7 @@ import Card from 'material-ui/Card';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 
-class TodoItems extends React.Component {
+class TodoItems extends Component {
   constructor(props, context) {
     super(props, context);
 
