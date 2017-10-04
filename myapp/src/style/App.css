@@ -52,3 +52,13 @@ html, body{
 .WeatherWidget {
   width: 200px;
 }
+
+.weatherIcon {
+  width: 50px;
+  margin-right: 10px;
+  margin-top: 10px;
+}
+
+.weatherIconDiv {
+  float: right;
+}

@@ -1,5 +1,6 @@
 import React from 'react';
 import DarkSkyApi from 'dark-sky-api';
+import WeatherIcon from './WeatherIcons';
 import { Card, CardMedia, CardText, CardTitle } from 'material-ui/Card';
 import Divider from 'material-ui/Divider';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
@@ -12,12 +13,11 @@ class Weather extends React.Component {
     this.state = {
       temp: "Loading..",
       summary: "Loading..",
-      icon: "./../img/weather/clear-day.png",
+      icon: "clear-day",
     }
 
     this.getWeather = this.getWeather.bind(this);
     this.onLoad = this.onLoad.bind(this);
-    this.getIcon = this.getIcon.bind(this);
   }
 
   componentWillMount() {
@@ -47,26 +47,29 @@ class Weather extends React.Component {
         return item;
       }
       DarkSkyApi.loadCurrent().then(
-          data => {this.onLoad([(data.apparentTemperature.toString().split('.')[0] + "℃"),data.summary,('./../img/weather/' + data.icon + ".png")])}
+          data => {this.onLoad([(data.apparentTemperature.toString().split('.')[0] + "℃"),
+          data.summary,
+          data.icon
+])}
         );
     }
 
-  getIcon(){
-    return
-  }
+
 
   render() {
+    console.log(this.state.icon);
     return(
       <MuiThemeProvider muiTheme={getMuiTheme()}>
         <Card className="WeatherWidget">
-          <CardMedia>
-            <img alt="weatherIcon" className="weatherIcon" src={require("./../img/weather/clear-day.png")} />
+          <CardMedia className="weatherIconDiv">
+            <WeatherIcon imgSrc={this.state.icon} />
           </CardMedia>
+
           <CardTitle title="Trondheim" />
+          <Divider />
           <CardText>
             Temperature: {this.state.temp}
           </CardText>
-          <Divider />
           <CardText>
             Summary: {this.state.summary}
           </CardText>
