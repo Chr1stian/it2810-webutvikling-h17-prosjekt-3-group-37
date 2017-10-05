@@ -20,11 +20,7 @@ export default class Notes extends Component {
 
 	addNote = () => {
 		const text = document.getElementById("addText").value
-		if ( text == "") {
-
-		}
-
-		else {
+		if (text !== "") {
 			const {notelist} = this.state
 			notelist.push({ID: uuid.v4(), text: text})
 			this.setState({notelist: notelist})
