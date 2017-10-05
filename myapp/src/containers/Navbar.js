@@ -3,6 +3,7 @@ import './../style/App.css';
 import Appointments from './Appointments.js';
 import ReactDOM from 'react-dom';
 import TodoList from './TodoList';
+import Notes from './Notes'
 
 
 class Navbar extends Component {
@@ -41,7 +42,7 @@ class Navbar extends Component {
 
     document.getElementById('appointment').style = "";
 
-    ReactDOM.render(<Appointments />, document.getElementById('app-area'));
+    ReactDOM.render(<Notes />, document.getElementById('app-area'));
   }
 
   render() {

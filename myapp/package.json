@@ -3,8 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "material-ui": "^0.19.3",
     "moment": "^2.18.1",
     "moment-range": "^3.0.3",
+    "mui-react": "0.0.10",
     "react": "^16.0.0",
     "react-datepicker": "^0.55.0",
     "react-dom": "^16.0.0",
