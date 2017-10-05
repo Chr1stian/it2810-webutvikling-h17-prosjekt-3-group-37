@@ -34,11 +34,31 @@ html, body{
   cursor: pointer;
   color: #E3E4DB;
   width: 100px;
-  
+
 }
 
 .App-navbar li:hover {
   cursor: pointer;
   background-color: #CDCDCD;
   color: #222;
+}
+
+.weatherHere {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+}
+
+.WeatherWidget {
+  width: 200px;
+}
+
+.weatherIcon {
+  width: 50px;
+  margin-right: 10px;
+  margin-top: 10px;
+}
+
+.weatherIconDiv {
+  float: right;
 }

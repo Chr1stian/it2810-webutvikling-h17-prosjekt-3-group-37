@@ -3,15 +3,19 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "dark-sky-api": "^0.6.21",
+    "material-ui": "^0.19.3",
     "moment": "^2.18.1",
     "moment-range": "^3.0.3",
     "react": "^16.0.0",
     "react-datepicker": "^0.55.0",
     "react-dom": "^16.0.0",
+    "react-forecast": "0.0.7",
     "react-input-calendar": "^0.4.1",
     "react-moment": "^0.6.5",
     "react-popup": "^0.8.0",
-    "react-scripts": "1.0.14"
+    "react-scripts": "1.0.14",
+    "react-weather": "^0.1.3"
   },
   "scripts": {
     "start": "react-scripts start",
