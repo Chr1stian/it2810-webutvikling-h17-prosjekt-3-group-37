@@ -29,9 +29,9 @@ class WeatherIcon extends React.Component {
     let iconSrc = (this.state.icon === 'clear-day');
     let source;
     if(iconSrc){
-      source = require("./../img/weather/clear-day.png");
+      source = require("./../img/weather/loading2.gif");
     }else {
-      source = require("./../img/weather/partly-cloudy-night.png");
+      source = require(("./../img/weather/" + this.state.icon + ".png"));
 
     }
     console.log(iconSrc);
