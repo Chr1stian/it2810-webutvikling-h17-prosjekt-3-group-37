@@ -5,6 +5,7 @@ import { Card, CardMedia, CardText, CardTitle } from 'material-ui/Card';
 import Divider from 'material-ui/Divider';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
+import myAppTheme from 'material-ui/styles/baseThemes/myAppTheme';
 
 class Weather extends React.Component {
   constructor(){
@@ -46,7 +47,13 @@ class Weather extends React.Component {
         item.day = item.dateTime.format('ddd');
         return item;
       }
-      DarkSkyApi.loadCurrent().then(
+
+      const position = {
+        latitude: 63.4305,
+        longitude: 10.3951
+      };
+
+      DarkSkyApi.loadCurrent(position).then(
           data => {this.onLoad([(data.apparentTemperature.toString().split('.')[0] + "℃"),
           data.summary,
           data.icon
@@ -59,7 +66,7 @@ class Weather extends React.Component {
   render() {
     console.log(this.state.icon);
     return(
-      <MuiThemeProvider muiTheme={getMuiTheme()}>
+      <MuiThemeProvider muiTheme={getMuiTheme(myAppTheme)}>
         <Card className="WeatherWidget">
           <CardMedia className="weatherIconDiv">
             <WeatherIcon imgSrc={this.state.icon} />
