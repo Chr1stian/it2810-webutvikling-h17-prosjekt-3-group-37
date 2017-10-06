@@ -3,12 +3,7 @@ import './../style/note.css';
 
 export default class Note extends Component {
 
-	constructor(props){
-		super(props)
-
-
-
-	}
+	
 
 	deleteNote = () => {
 		this.props.deleteNote(this.props.note)
