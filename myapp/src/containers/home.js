@@ -37,7 +37,7 @@ class Home extends Component {
                 "linear-gradient(to bottom, #090401 50%,#4B1D06 100%)"
               ]
     this.state = {
-      color : listWheather[parseInt(Moment().format('H'))],
+      color : listWheather[parseInt(Moment().format('H'), 10)],
       date: Moment().format('H'),
       colorList: listWheather,
     };
@@ -51,10 +51,9 @@ class Home extends Component {
   */
 
   componentDidMount() {
-    let hour = parseInt(this.state.date);
     const {colorList} = this.state;
     this.intervalId = setInterval(() => {
-      this.setState({ date: Moment().format('H'), color: colorList[parseInt(this.state.date)]});
+      this.setState({ date: Moment().format('H'), color: colorList[parseInt(this.state.date, 10)]});
       console.log("hello");
     }, 360000);
   }
