@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './../style/App.css';
-import Moment from 'react-moment';
+//import Moment from 'react-moment';
 import moment from 'moment';
 import DatePicker from 'react-datepicker';
 
@@ -54,8 +54,8 @@ export class Appointments extends Component {
       alert("Appointment start-time must be before end-time");
     }
     else{
-      this.setState({appointmentList: [{title: this.state.title, date: this.state.startDate.format('DD-MM-YYYY'), from: this.state.hour + ":" + this.state.minute, to: this.state.tohour + ":" + this.state.tominute, place: this.state.place}]});
-      alert('Your Appointment: ' + '\n' + "Title: " + this.state.appointmentList[0].title + '\n' + 'Date: ' + this.state.appointmentList[0].date + '\n' + 'From: ' + this.state.appointmentList[0].from + ' To: ' + this.state.appointmentList[0].to + '\n' + 'Place : ' + this.state.appointmentList[0].place);
+      //this.setState({appointmentList: [{title: this.state.title, date: this.state.startDate.format('DD-MM-YYYY'), from: this.state.hour + ":" + this.state.minute, to: this.state.tohour + ":" + this.state.tominute, place: this.state.place}]});
+      //alert('Your Appointment: ' + '\n' + "Title: " + this.state.appointmentList[0].title + '\n' + 'Date: ' + this.state.appointmentList[0].date + '\n' + 'From: ' + this.state.appointmentList[0].from + ' To: ' + this.state.appointmentList[0].to + '\n' + 'Place : ' + this.state.appointmentList[0].place);
       //console.log(this.state.appointmentList[0]);
       //console.log(this.state.appointmentList[0].title);
       //alert('Your Appointment: ' + '\n' + "Title: " + this.state.title + '\n' + 'Date: ' + this.state.startDate.format('DD-MM-YYYY') + '\n' + 'From: ' + this.state.hour + this.state.minute + ' To: ' + this.state.tohour + this.state.tominute + '\n' + 'Place : ' + this.state.place);
@@ -125,7 +125,7 @@ export class Appointments extends Component {
               dateFormat="DD/MM/YYYY"
               selected={this.state.startDate}
               onChange={this.handleChange}
-              minDate={new Date()} 
+              minDate={new Date()}
               />
               </label>
               <label> From:
@@ -202,7 +202,7 @@ export class Appointments extends Component {
               <input type="submit" value="Submit" />
             </form>
 
-            
+
           </div>
 
       </div>
