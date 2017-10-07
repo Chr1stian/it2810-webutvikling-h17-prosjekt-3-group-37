@@ -16,38 +16,39 @@ class Navbar extends Component {
     this.openHome = this.openHome.bind(this);
   }
   openAppointments(){
-    document.getElementById('appointment').style.backgroundColor = "#99A1A6";
-    document.getElementById('appointment').style.color = "#222";
+
+    document.getElementById('appointment').style.textDecoration = "underline";
 
     document.getElementById('todo').style = "";
-
     document.getElementById('notes').style = "";
 
     ReactDOM.render(<Appointments />, document.getElementById('app-area'));
   }
   openTodo(){
-    document.getElementById('todo').style.backgroundColor = "#99A1A6";
-    document.getElementById('todo').style.color = "#222";
+    document.getElementById('todo').style.textDecoration = "underline";
+
 
     document.getElementById('appointment').style = "";
-
     document.getElementById('notes').style = "";
 
     ReactDOM.render(<TodoList />, document.getElementById('app-area'));
   }
 
   openNotes() {
-    document.getElementById('notes').style.backgroundColor = "#99A1A6";
-    document.getElementById('notes').style.color = "#222";
+    document.getElementById('notes').style.textDecoration = "underline";
 
     document.getElementById('todo').style = "";
-
     document.getElementById('appointment').style = "";
 
     ReactDOM.render(<Notes />, document.getElementById('app-area'));
   }
 
   openHome() {
+    document.getElementById('todo').style = "";
+    document.getElementById('appointment').style = "";
+    document.getElementById('notes').style = "";
+
+
     ReactDOM.render(<Home />, document.getElementById('app-area'));
   }
 

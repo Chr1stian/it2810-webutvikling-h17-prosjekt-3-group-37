@@ -3,6 +3,7 @@ import React from 'react';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import Navbar from './Navbar';
+import Home from './home';
 
 const muiTheme = getMuiTheme({
   palette: {
@@ -15,7 +16,9 @@ const DesignContainer = () => (
   <MuiThemeProvider muiTheme={muiTheme}>
     <div>
       <Navbar />
-      <div id="app-area"></div>
+      <div id="app-area">
+        <Home />
+      </div>
     </div>
 
   </MuiThemeProvider>
