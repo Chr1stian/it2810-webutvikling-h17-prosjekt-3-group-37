@@ -6,6 +6,7 @@ import Divider from 'material-ui/Divider';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
+import Clock from './../components/Clock';
 
 class Weather extends React.Component {
   constructor(){
@@ -15,6 +16,7 @@ class Weather extends React.Component {
       temp: "Loading..",
       summary: "Loading..",
       icon: "loading",
+      title: "Trondheim"
     }
 
     this.getWeather = this.getWeather.bind(this);
@@ -35,6 +37,7 @@ class Weather extends React.Component {
       temp: input[0],
       summary: input[1],
       icon: input[2],
+      title: input[3],
     })
   }
 
@@ -56,7 +59,8 @@ class Weather extends React.Component {
       DarkSkyApi.loadCurrent(position).then(
           data => {this.onLoad([(data.apparentTemperature.toString().split('.')[0] + "℃"),
           data.summary,
-          data.icon
+          data.icon,
+          ("Trondheim ")
 ])}
         );
     }
@@ -69,18 +73,22 @@ class Weather extends React.Component {
       <MuiThemeProvider muiTheme={getMuiTheme(darkBaseTheme)}>
         <Card className="WeatherWidget">
           <CardMedia className="weatherIconDiv">
-            <WeatherIcon imgSrc={this.state.icon} />
+            <WeatherIcon className="weatherIconPosition" imgSrc={this.state.icon} />
           </CardMedia>
 
-          <CardTitle title="Trondheim" />
+          <CardTitle title={this.state.title} />
+
           <Divider />
           <CardText>
             Temperature: {this.state.temp}
           </CardText>
           <CardText>
-            Summary: {this.state.summary}
+            Summary: {this.state.summary} {this.state.temp}
           </CardText>
+          <Divider />
+          <Clock />
         </Card>
+
       </MuiThemeProvider>
   );
 }

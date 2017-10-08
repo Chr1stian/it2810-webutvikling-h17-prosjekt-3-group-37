@@ -32,18 +32,12 @@ class WeatherIcon extends React.Component {
       source = require("./../img/weather/loading2.gif");
     }else {
       source = require(("./../img/weather/" + this.state.icon + ".png"));
-
     }
     console.log(iconSrc);
     return(
-
-      <img alt="weatherIcon" className="weatherIcon" src={source} />
-
-
+        <img alt="weatherIcon" className="weatherIcon" src={source} />
     );
 }
-
-
 }
 
 
