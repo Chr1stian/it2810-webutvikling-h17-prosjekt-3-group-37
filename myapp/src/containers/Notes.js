@@ -2,6 +2,11 @@ import React, { Component } from 'react';
 import Note from './../components/Note';
 import './../style/notes.css';
 import uuid from 'uuid';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import getMuiTheme from 'material-ui/styles/getMuiTheme';
+import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card';
+import FlatButton from 'material-ui/FlatButton'
+import TextField from 'material-ui/TextField'
 
 export default class Notes extends Component {
 
@@ -9,21 +14,29 @@ export default class Notes extends Component {
 		super(props);
 
 		this.state = {
-			notelist: [{ID: uuid.v4() , text: "Dette er første note"}, {ID: uuid.v4(), text: "Dette er andre note"}]
+			notelist: [{ID: uuid.v4(), title: "Clean your room", text: "It's important"}/*, {ID: uuid.v4(),title: "Tittel1", text: "Dette er andre note"}*/]
 		}
 	}
 
 	componentWillMount = () => {
-		//hente ut fra lagring
-		//sette state evt tom liste
+	    //localStorage.clear()
+	    let notelist = JSON.parse(localStorage.getItem('notes'))
+	    this.setState({
+	        notelist: notelist || []
+	    })
 	}
 
 	addNote = () => {
-		const text = document.getElementById("addText").value
-		if (text !== "") {
+		const title = document.getElementById("title-field").value
+		const text = document.getElementById("comment-field").value
+		if (title !=="") {
 			const {notelist} = this.state
-			notelist.push({ID: uuid.v4(), text: text})
+			notelist.push({ID: uuid.v4(),title: title, text: text, finished: false})
 			this.setState({notelist: notelist})
+			localStorage.setItem('notes',JSON.stringify(notelist))
+			document.getElementById("title-field").value = ""
+
+			document.getElementById("comment-field").value = ""
 		}
 
 	}
@@ -33,7 +46,22 @@ export default class Notes extends Component {
 		const i = notelist.indexOf(note)
 		notelist.splice(i,1)
 		this.setState({notelist: notelist})
+		localStorage.setItem('notes',JSON.stringify(notelist))
 
+		console.log("Hei")
+
+	}
+
+	editNote = (note) => {
+		console.log("Hei")
+		const {notelist} = this.state
+		const i = notelist.indexOf(note)
+		//notelist[i] = ({ID: note.ID, title: note.title, text: note.text, finished: !note.finished})
+		notelist[i].finished = !notelist[i].finished
+		this.setState({notelist: notelist})
+		localStorage.setItem('notes',JSON.stringify(notelist))
+
+		console.log(!note.finished)
 	}
 
 
@@ -42,13 +70,26 @@ export default class Notes extends Component {
 	render() {
 		const { notelist } = this.state
 		return (
-			<div>
-				<div className="noteCreator">
-					<input id="addText" type="text"/>
-					<button onClick = {this.addNote}>Legg til note</button>
-				</div>
-				{ notelist.map((note) => <Note key={note.ID} note={note} addNote={this.addNote} deleteNote={this.deleteNote}/>) }
-			</div>
+
+      <MuiThemeProvider muiTheme={getMuiTheme()}>
+      <div className="creatorContainer">
+		<Card className="noteCreator">
+			<CardActions className="noteCreatorContent">
+					<TextField id="title-field" hintText="What task?"/>
+					<TextField id="comment-field" hintText="optional comment" />
+				<FlatButton onClick = {this.addNote}>add</FlatButton>
+			</CardActions>
+		</Card>
+		</div>
+
+		<div className="noteContainer">
+			{ notelist.filter(function (note) {return !note.finished}).map((note) => <Note key={note.ID} note={note} editNote={this.editNote} deleteNote={this.deleteNote}/>) }
+			{ notelist.filter(function (note) {return note.finished}).map((note) => <Note key={note.ID} note={note} editNote={this.editNote} deleteNote={this.deleteNote}/>) }
+
+
+
+		</div>
+		</MuiThemeProvider>
 		)
 	}
 }

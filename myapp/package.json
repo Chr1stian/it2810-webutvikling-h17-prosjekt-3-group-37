@@ -3,7 +3,6 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-
     "dark-sky-api": "^0.6.21",
     "material-ui": "^0.19.3",
     "moment": "^2.18.1",

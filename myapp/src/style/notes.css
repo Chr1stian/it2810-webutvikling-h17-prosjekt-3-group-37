@@ -1,0 +1,56 @@
+.inputs {
+	display: flex;
+	flex-direction: row;
+}
+
+.input {
+}
+
+.noteCreator {
+	max-width: 90%;
+	margin-top: 20px;
+	margin-left: auto;
+	margin-right: auto;
+
+}
+
+
+.app-area {
+}
+
+.note {
+	box-sizing: border-box;
+	margin-left: 10px;
+	margin-right: 10px;
+	margin-bottom: 20px;
+}
+
+/*.note div:hover {
+  background-color: #ff9999;
+  cursor: pointer;
+}*/
+
+.noteContainer {
+	/*bottom: 0;*/
+	width: 80%;
+	margin-right: auto;
+	margin-left: auto;
+    display: flex;
+    flex-flow: row wrap;
+    margin-top: 20px;
+    justify-content: center;
+
+
+}
+
+.creatorContainer {
+	margin-left: auto;
+	margin-right: auto;
+	display: flex;
+	flex-flow: row wrap;
+
+}
+
+/*.noteContainer div {
+    flex: 1;
+}*/
