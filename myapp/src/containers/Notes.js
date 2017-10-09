@@ -35,8 +35,9 @@ export default class Notes extends Component {
 			this.setState({notelist: notelist})
 			localStorage.setItem('notes',JSON.stringify(notelist))
 			document.getElementById("title-field").value = ""
-
 			document.getElementById("comment-field").value = ""
+			document.getElementById("title-field").placeholder = "What task?"
+			document.getElementById("comment-field").placeholder = "optional comment"
 		}
 
 	}
@@ -70,7 +71,6 @@ export default class Notes extends Component {
 	render() {
 		const { notelist } = this.state
 		return (
-
       <MuiThemeProvider muiTheme={getMuiTheme()}>
       <div className="creatorContainer">
 		<Card className="noteCreator">

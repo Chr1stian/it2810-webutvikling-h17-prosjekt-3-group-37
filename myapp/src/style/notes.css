@@ -6,8 +6,15 @@
 .input {
 }
 
+.cardText {
+	margin-left: auto;
+}
+
+.noteButtons {
+	margin-left: auto;
+}
+
 .noteCreator {
-	max-width: 90%;
 	margin-top: 20px;
 	margin-left: auto;
 	margin-right: auto;
@@ -18,11 +25,14 @@
 .app-area {
 }
 
+.note div {
+	display: flex;
+	justify-content: space-between;
+	width: 100%;
+}
+
 .note {
-	box-sizing: border-box;
-	margin-left: 10px;
-	margin-right: 10px;
-	margin-bottom: 20px;
+	margin-bottom: 10px;
 }
 
 /*.note div:hover {
@@ -32,13 +42,12 @@
 
 .noteContainer {
 	/*bottom: 0;*/
-	width: 80%;
+	width: 40%;
 	margin-right: auto;
 	margin-left: auto;
     display: flex;
-    flex-flow: row wrap;
+    flex-direction: column;
     margin-top: 20px;
-    justify-content: center;
 
 
 }
@@ -51,6 +60,62 @@
 
 }
 
-/*.noteContainer div {
-    flex: 1;
-}*/
+@media screen and (max-width: 1200px){
+
+	.noteContainer {
+		width: 60%;
+
+
+	}
+}
+
+@media screen and (max-width: 900px){
+
+	.noteContainer {
+		width: 75%;
+
+
+	}
+}
+
+@media screen and (max-width: 800px){
+	.noteContainer {
+		width: 85%;
+	}
+}
+
+@media screen and (max-width: 700px){
+	.noteContainer {
+		width: 95%;
+	}
+
+	.noteCreator {
+		margin-left: 10px;
+		margin-right: 10px;
+	}
+}
+
+@media screen and (max-width: 670px){
+	.noteContainer {
+		width: 100%;
+
+	}
+
+	.note div{
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: flex-start;
+	}
+
+	.note {
+		
+	margin-left: 10px;
+	margin-right: 10px
+	}
+
+	.noteButtons {
+	margin-left: 0;
+}
+
+
+}

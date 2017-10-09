@@ -30,7 +30,7 @@ export default class Note extends Component {
 				<Card className="note">
 					<div>
 						<CardHeader title={note.title} />
-						<CardText>{ note.text }</CardText>
+						<CardText className="cardText">{ note.text }</CardText>
 						<CardActions className="noteButtons">
 							<FlatButton onClick = {this.editNote}>done</FlatButton>
 							<FlatButton onClick = {this.deleteNote}>delete</FlatButton>
