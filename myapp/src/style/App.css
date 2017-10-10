@@ -34,7 +34,16 @@ html, body{
   cursor: pointer;
   color: #E3E4DB;
   width: 100px;
+}
 
+.App-navbar li a {
+  text-decoration: none;
+  color: #E3E4DB;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .App-navbar li:hover {
@@ -43,6 +52,7 @@ html, body{
   /*background-color: #CDCDCD;
   color: #222;*/
 }
+
 
 .weatherHere {
   display: flex;
