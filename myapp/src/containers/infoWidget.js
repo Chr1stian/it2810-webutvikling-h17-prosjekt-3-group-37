@@ -52,9 +52,9 @@ class Weather extends React.Component {
       }
 
       const position = {
-        latitude: 59.3326 ,
-        longitude: 18.0649
-      };
+      latitude: 63.4305,
+      longitude: 10.3951
+    };
 
       DarkSkyApi.loadCurrent(position).then(
           data => {this.onLoad([(data.apparentTemperature.toString().split('.')[0] + "℃"),
