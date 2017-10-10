@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Card, CardMedia, CardText, CardTitle, CardActions} from 'material-ui/Card';
-import FlatButton from 'material-ui/FlatButton';
+import RaisedButton from 'material-ui/RaisedButton';
 
 class AppointmentsHome extends Component {
 
@@ -11,7 +11,7 @@ class AppointmentsHome extends Component {
       <div>
         <CardTitle title="Appointment"></CardTitle>
         <CardText>Latest appointment</CardText>
-        <FlatButton label="Action1"/>
+        <RaisedButton label="Go to your appointments" style={{'display':'flex'}}/>
       </div>
     )
 
