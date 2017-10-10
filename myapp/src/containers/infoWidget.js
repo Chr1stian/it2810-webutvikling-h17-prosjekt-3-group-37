@@ -28,7 +28,7 @@ class InfoWidget extends React.Component {
   }
 
   componentDidMount() {
-    console.log("runs");
+    console.log("InfoWidget is running");
     this.getWeather();
   }
 
@@ -68,7 +68,6 @@ class InfoWidget extends React.Component {
 
 
   render() {
-    console.log(this.state.icon);
     let trainingStatus;
     if (this.state.icon === "clear-day") {
       trainingStatus = "The nice weather says you should get out!"
