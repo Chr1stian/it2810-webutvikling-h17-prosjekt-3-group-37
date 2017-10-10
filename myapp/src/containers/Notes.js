@@ -49,12 +49,10 @@ export default class Notes extends Component {
 		this.setState({notelist: notelist})
 		localStorage.setItem('notes',JSON.stringify(notelist))
 
-		console.log("Hei")
 
 	}
 
 	editNote = (note) => {
-		console.log("Hei")
 		const {notelist} = this.state
 		const i = notelist.indexOf(note)
 		//notelist[i] = ({ID: note.ID, title: note.title, text: note.text, finished: !note.finished})
@@ -65,6 +63,14 @@ export default class Notes extends Component {
 		console.log(!note.finished)
 	}
 
+	toggleDone = () => {
+		let setvalue = "none"
+		if (document.getElementById("done").style.display=="none"){
+			setvalue = "flex"
+		}
+		document.getElementById("done").style.display=setvalue
+
+	}
 
 
 
@@ -82,11 +88,15 @@ export default class Notes extends Component {
 		</Card>
 		</div>
 
-		<div className="noteContainer">
+		<div className="noteContainer" id="notdone">
 			{ notelist.filter(function (note) {return !note.finished}).map((note) => <Note key={note.ID} note={note} editNote={this.editNote} deleteNote={this.deleteNote}/>) }
+			<div>
+			<FlatButton onClick = {this.toggleDone}>show finished notes</FlatButton>
+			</div>
+
+		</div>
+		<div className="noteContainer" id="done">
 			{ notelist.filter(function (note) {return note.finished}).map((note) => <Note key={note.ID} note={note} editNote={this.editNote} deleteNote={this.deleteNote}/>) }
-
-
 
 		</div>
 		</MuiThemeProvider>

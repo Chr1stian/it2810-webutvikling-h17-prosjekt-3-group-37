@@ -6,12 +6,34 @@
 .input {
 }
 
+#done .note div {
+	background-color: #aaddbb;
+}
+
+.noteText {
+	display: flex;
+	justify-content: space-between;
+	flex-grow: 100;
+
+}
+
+
+
+
+
 .cardText {
-	margin-left: auto;
+	flex-grow: 100;
+	text-align: right;
+}
+
+.cardHeader {
+	flex-grow: 100;
 }
 
 .noteButtons {
-	margin-left: auto;
+	display: flex;
+	flex-direction: row;
+
 }
 
 .noteCreator {
@@ -25,10 +47,13 @@
 .app-area {
 }
 
-.note div {
+.button div {
+	text-align: center;
+}
+
+.note > div > div {
 	display: flex;
 	justify-content: space-between;
-	width: 100%;
 }
 
 .note {
