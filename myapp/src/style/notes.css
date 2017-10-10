@@ -1,0 +1,156 @@
+.inputs {
+	display: flex;
+	flex-direction: row;
+}
+
+.input {
+}
+
+#notdone .note button {
+	background-color: #555555 !important;
+}
+
+#done button {
+	background-color: #44994a !important;
+
+}
+
+#done .note > div {
+	background-color: #66BB6A;
+}
+
+.noteText {
+	display: flex;
+	justify-content: space-between;
+	flex-grow: 100;
+
+}
+
+
+
+
+
+.cardText {
+	flex-grow: 100;
+	text-align: right;
+}
+
+.cardHeader {
+	flex-grow: 100;
+}
+
+.noteButtons {
+	display: flex;
+	flex-direction: row;
+	flex-grow: 0;
+
+}
+
+.noteCreator {
+	margin-top: 20px;
+	margin-left: auto;
+	margin-right: auto;
+
+}
+
+
+.app-area {
+}
+
+.button div {
+	text-align: center;
+}
+
+.note > div > div {
+	display: flex;
+	justify-content: space-between;
+}
+
+.note {
+	margin-bottom: 10px;
+}
+
+/*.note div:hover {
+  background-color: #ff9999;
+  cursor: pointer;
+}*/
+
+.noteContainer {
+	/*bottom: 0;*/
+	width: 40%;
+	margin-right: auto;
+	margin-left: auto;
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+
+
+}
+
+.creatorContainer {
+	margin-left: auto;
+	margin-right: auto;
+	display: flex;
+	flex-flow: row wrap;
+
+}
+
+@media screen and (max-width: 1200px){
+
+	.noteContainer {
+		width: 60%;
+
+
+	}
+}
+
+@media screen and (max-width: 900px){
+
+	.noteContainer {
+		width: 75%;
+
+
+	}
+}
+
+@media screen and (max-width: 800px){
+	.noteContainer {
+		width: 85%;
+	}
+}
+
+@media screen and (max-width: 700px){
+	.noteContainer {
+		width: 95%;
+	}
+
+	.noteCreator {
+		margin-left: 10px;
+		margin-right: 10px;
+	}
+}
+
+@media screen and (max-width: 670px){
+	.noteContainer {
+		width: 100%;
+
+	}
+
+	.note div{
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: flex-start;
+	}
+
+	.note {
+		
+	margin-left: 10px;
+	margin-right: 10px
+	}
+
+	.noteButtons {
+	margin-left: 0;
+}
+
+
+}
