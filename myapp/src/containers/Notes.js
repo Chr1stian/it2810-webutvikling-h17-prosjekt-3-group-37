@@ -4,7 +4,7 @@ import './../style/notes.css';
 import uuid from 'uuid';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
-import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card';
+import {Card, CardActions} from 'material-ui/Card';
 import FlatButton from 'material-ui/FlatButton'
 import TextField from 'material-ui/TextField'
 import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme'
@@ -67,7 +67,7 @@ export default class Notes extends Component {
 	toggleDone = () => {
 		let setvalue = "none"
 		let setText = "show finished tasks"
-		if (document.getElementById("done").style.display=="none"){
+		if (document.getElementById("done").style.display==="none"){
 			setvalue = "flex"
 			setText = "hide finished tasks"
 

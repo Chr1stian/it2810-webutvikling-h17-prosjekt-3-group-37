@@ -1,16 +1,11 @@
 import React, { Component } from 'react';
 import './../style/note.css';
-import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card';
+import {Card, CardActions, CardHeader, CardText} from 'material-ui/Card';
 import FlatButton from 'material-ui/FlatButton'
 
 export default class Note extends Component {
 
-	constructor(props){
-		super(props)
-
-
-
-	}
+	
 
 	deleteNote = () => {
 		this.props.deleteNote(this.props.note)
