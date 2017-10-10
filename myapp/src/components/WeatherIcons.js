@@ -2,7 +2,6 @@ import React from 'react';
 
 class WeatherIcon extends React.Component {
   constructor(props){
-    console.log(props);
     super();
     this.state = {
       icon: props.imgSrc,
@@ -33,7 +32,6 @@ class WeatherIcon extends React.Component {
     }else {
       source = require(("./../img/weather/" + this.state.icon + ".png"));
     }
-    console.log(iconSrc);
     return(
         <img alt="weatherIcon" className="weatherIcon" src={source} />
     );
