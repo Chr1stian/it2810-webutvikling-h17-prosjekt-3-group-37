@@ -45,6 +45,7 @@ export default class Appointments extends Component {
   render() {
     let { appointmentList } = this.state;
     return (
+      <MuiThemeProvider muiTheme={getMuiTheme(darkBaseTheme)}>
       <div className="Appointments">
         <header className="Appointments-header">
           <h1 className="Appointments-title">Your Appointments</h1>
@@ -62,7 +63,7 @@ export default class Appointments extends Component {
           </table>
 
           <div className="Create-Appointment">
-          <MuiThemeProvider muiTheme={getMuiTheme(darkBaseTheme)}>
+
             <h1 className="Appointments-title">Create new appointment</h1>
             <div>
               <TextField id="titleText" hintText="Enter title" />
@@ -71,10 +72,9 @@ export default class Appointments extends Component {
               <TextField id="placeText" hintText="Enter place/address" />
               <button id="addAppointment" onClick={this.addAppointment}>Add Appointment</button>
             </div>
-            </MuiThemeProvider>
           </div>
-
       </div>
+      </MuiThemeProvider>
     );
   }
 }
