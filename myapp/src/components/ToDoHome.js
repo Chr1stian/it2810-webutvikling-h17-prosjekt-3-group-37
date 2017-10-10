@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Card, CardMedia, CardText, CardTitle } from 'material-ui/Card';
+import { CardText, CardTitle } from 'material-ui/Card';
 
 class ToDoHome extends Component {
 

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Card, CardMedia, CardText, CardTitle, CardActions} from 'material-ui/Card';
+import { CardText, CardTitle} from 'material-ui/Card';
 import RaisedButton from 'material-ui/RaisedButton';
 
 class AppointmentsHome extends Component {

@@ -5,7 +5,7 @@ import AppointmentsHome from './../components/AppointmentsHome';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
-import { Card, CardMedia, CardText, CardTitle } from 'material-ui/Card';
+import { Card } from 'material-ui/Card';
 
 class HomeNavigation extends Component {
 
