@@ -13,8 +13,8 @@ class Weather extends React.Component {
     super();
 
     this.state = {
-      temp: "Loading..",
-      summary: "Loading..",
+      temp: " Loading",
+      summary: "Loading ",
       icon: "loading",
       title: "Trondheim"
     }
@@ -69,6 +69,13 @@ class Weather extends React.Component {
 
   render() {
     console.log(this.state.icon);
+    let trainingStatus;
+    if (this.state.icon === "clear-day") {
+      trainingStatus = "The nice weather says you should get out!"
+    }else {
+      trainingStatus = "Not so good weather today, so stay inside!"
+    }
+
     return(
       <MuiThemeProvider muiTheme={getMuiTheme(darkBaseTheme)}>
         <Card className="WeatherWidget">
@@ -76,14 +83,14 @@ class Weather extends React.Component {
             <WeatherIcon className="weatherIconPosition" imgSrc={this.state.icon} />
           </CardMedia>
 
-          <CardTitle title={this.state.title} />
+          <CardTitle titleColor={'#fff'} title={this.state.title} />
 
           <Divider />
-          <CardText>
-            Temperature: {this.state.temp}
+          <CardText style={{'fontSize':  '25px', 'textAlign' : 'center'}}>
+            {this.state.summary} | {this.state.temp}
           </CardText>
-          <CardText>
-            Summary: {this.state.summary} {this.state.temp}
+          <CardText style={{'textAlign' : 'center'}}>
+            {trainingStatus}
           </CardText>
           <Divider />
           <Clock />

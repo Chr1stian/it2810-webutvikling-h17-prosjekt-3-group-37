@@ -43,6 +43,7 @@ class Home extends Component {
     this.intervalId = setInterval(() => {
       this.setState({ date: Moment().format('H'), color: colorList[parseInt(this.state.date, 10)]});
       console.log("hello");
+      
     }, 360000);
   }
 
