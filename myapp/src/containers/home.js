@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import InfoWidget from './infoWidget';
 import Moment from 'moment';
+import HomeNavigation from './HomeNavigation'
 
 class Home extends Component {
   constructor(props){
@@ -52,7 +53,7 @@ class Home extends Component {
       <div style={{ background: this.state.color, height: "calc(100vh - 4em)"}} className="background-color">
         <div className="weatherHere">
           <InfoWidget />
-          <InfoWidget />
+          <HomeNavigation />
         </div>
       </div>
     );

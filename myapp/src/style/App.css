@@ -52,7 +52,7 @@ html, body{
   height: 100%;
 }
 
-.WeatherWidget {
+.infoWidget {
   width: 300px;
 }
 
@@ -75,6 +75,12 @@ html, body{
 
 #cardTextRight {
   float: right;
+}
+
+.navigationCard {
+  width: 300px;
+  margin-left: 15px;
+  margin-top: 15px;
 }
 
 *:before, &:after{

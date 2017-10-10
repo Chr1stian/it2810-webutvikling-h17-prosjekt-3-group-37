@@ -78,7 +78,7 @@ class InfoWidget extends React.Component {
 
     return(
       <MuiThemeProvider muiTheme={getMuiTheme(darkBaseTheme)}>
-        <Card className="WeatherWidget">
+        <Card className="infoWidget">
           <CardMedia className="weatherIconDiv">
             <WeatherIcon className="weatherIconPosition" imgSrc={this.state.icon} />
           </CardMedia>
@@ -86,8 +86,8 @@ class InfoWidget extends React.Component {
           <CardTitle titleColor={'#fff'} title={this.state.title} />
 
 
-          <CardText style={{'fontSize':  '20px', 'padding-top': '0'}}>
-            <span id="cardTextLeft">{this.state.summary}</span> <span id="cardTextRight"> {this.state.temp} </span>
+          <CardText style={{'fontSize':  '20px', 'paddingTop': '0'}}>
+            <span id="cardTextLeft">{this.state.temp}</span> <span id="cardTextRight"> {this.state.summary} </span>
           </CardText>
           <Divider />
           <CardText style={{'textAlign' : 'center'}}>
