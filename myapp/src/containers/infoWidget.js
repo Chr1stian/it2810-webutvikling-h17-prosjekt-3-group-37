@@ -52,8 +52,8 @@ class Weather extends React.Component {
       }
 
       const position = {
-        latitude: 63.4305,
-        longitude: 10.3951
+        latitude: 59.3326 ,
+        longitude: 18.0649
       };
 
       DarkSkyApi.loadCurrent(position).then(
@@ -85,10 +85,11 @@ class Weather extends React.Component {
 
           <CardTitle titleColor={'#fff'} title={this.state.title} />
 
-          <Divider />
-          <CardText style={{'fontSize':  '25px', 'textAlign' : 'center'}}>
-            {this.state.summary} | {this.state.temp}
+
+          <CardText style={{'fontSize':  '20px', 'padding-top': '0'}}>
+            <span id="cardTextLeft">{this.state.summary}</span> <span id="cardTextRight"> {this.state.temp} </span>
           </CardText>
+          <Divider />
           <CardText style={{'textAlign' : 'center'}}>
             {trainingStatus}
           </CardText>

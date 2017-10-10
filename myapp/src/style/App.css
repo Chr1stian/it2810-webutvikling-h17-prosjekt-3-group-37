@@ -58,7 +58,7 @@ html, body{
 
 .weatherIcon {
   width: 50px;
-  margin-top: 13px;
+  margin-top: 10px;
   margin-right: 15px;
   filter: brightness(0) invert(1);
 
@@ -71,6 +71,14 @@ html, body{
 .weatherIconPosition {
   display: flex;
   justify-content: center;
+}
+
+#cardTextRight {
+  float: right;
+}
+
+#cardTextleft {
+
 }
 
 *:before, &:after{
