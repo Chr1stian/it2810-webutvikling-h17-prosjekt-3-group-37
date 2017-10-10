@@ -7,6 +7,7 @@ import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card';
 import FlatButton from 'material-ui/FlatButton'
 import TextField from 'material-ui/TextField'
+import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme'
 
 export default class Notes extends Component {
 
@@ -65,10 +66,14 @@ export default class Notes extends Component {
 
 	toggleDone = () => {
 		let setvalue = "none"
+		let setText = "show finished tasks"
 		if (document.getElementById("done").style.display=="none"){
 			setvalue = "flex"
+			setText = "hide finished tasks"
+
 		}
 		document.getElementById("done").style.display=setvalue
+		document.getElementById("toggleDone").innerHTML = setText
 
 	}
 
@@ -76,8 +81,9 @@ export default class Notes extends Component {
 
 	render() {
 		const { notelist } = this.state
+		console.log(notelist[0])
 		return (
-      <MuiThemeProvider muiTheme={getMuiTheme()}>
+      <MuiThemeProvider muiTheme={getMuiTheme(darkBaseTheme)}>
       <div className="creatorContainer">
 		<Card className="noteCreator">
 			<CardActions className="noteCreatorContent">
@@ -91,7 +97,7 @@ export default class Notes extends Component {
 		<div className="noteContainer" id="notdone">
 			{ notelist.filter(function (note) {return !note.finished}).map((note) => <Note key={note.ID} note={note} editNote={this.editNote} deleteNote={this.deleteNote}/>) }
 			<div>
-			<FlatButton onClick = {this.toggleDone}>show finished notes</FlatButton>
+			<FlatButton id="toggleDone" onClick = {this.toggleDone}>hide finished tasks</FlatButton>
 			</div>
 
 		</div>
