@@ -8,7 +8,7 @@ import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
 import Clock from './../components/Clock';
 
-class Weather extends React.Component {
+class InfoWidget extends React.Component {
   constructor(){
     super();
 
@@ -107,4 +107,4 @@ class Weather extends React.Component {
 
 
 
-export default Weather;
+export default InfoWidget;

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Weather from './infoWidget';
+import InfoWidget from './infoWidget';
 import Moment from 'moment';
 
 class Home extends Component {
@@ -43,7 +43,7 @@ class Home extends Component {
     this.intervalId = setInterval(() => {
       this.setState({ date: Moment().format('H'), color: colorList[parseInt(this.state.date, 10)]});
       console.log("hello");
-      
+
     }, 360000);
   }
 
@@ -51,7 +51,8 @@ class Home extends Component {
     return(
       <div style={{ background: this.state.color, height: "calc(100vh - 4em)"}} className="background-color">
         <div className="weatherHere">
-          <Weather />
+          <InfoWidget />
+          <InfoWidget />
         </div>
       </div>
     );
