@@ -1,10 +1,6 @@
 import React, { Component } from 'react';
 import './../style/App.css';
-import Appointments from './Appointments.js';
-import Home from './home.js'
-import ReactDOM from 'react-dom';
-import TodoList from './TodoList';
-import Notes from './Notes'
+import { Link } from 'react-router-dom';
 
 
 class Navbar extends Component {
@@ -18,38 +14,29 @@ class Navbar extends Component {
   openAppointments(){
 
     document.getElementById('appointment').style.textDecoration = "underline";
-
     document.getElementById('todo').style = "";
     document.getElementById('notes').style = "";
 
-    ReactDOM.render(<Appointments />, document.getElementById('app-area'));
   }
   openTodo(){
     document.getElementById('todo').style.textDecoration = "underline";
-
-
     document.getElementById('appointment').style = "";
     document.getElementById('notes').style = "";
 
-    ReactDOM.render(<TodoList />, document.getElementById('app-area'));
   }
 
   openNotes() {
     document.getElementById('notes').style.textDecoration = "underline";
-
     document.getElementById('todo').style = "";
     document.getElementById('appointment').style = "";
 
-    ReactDOM.render(<Notes />, document.getElementById('app-area'));
+
   }
 
   openHome() {
     document.getElementById('todo').style = "";
     document.getElementById('appointment').style = "";
     document.getElementById('notes').style = "";
-
-
-    ReactDOM.render(<Home />, document.getElementById('app-area'));
   }
 
   render() {
@@ -57,10 +44,10 @@ class Navbar extends Component {
       <div className="App">
         <header className="App-header">
           <ul className="App-navbar">
-            <li id="home" onClick={this.openHome}>Home</li>
-            <li id="notes" onClick={this.openNotes}>Notater</li>
-            <li id="todo" onClick={this.openTodo}>Todo</li>
-            <li id="appointment" onClick={this.openAppointments}>Avtaler</li>
+            <li id="home" onClick={this.openHome}><Link className="navLink" to="/">Home</Link></li>
+            <li id="notes" onClick={this.openNotes}><Link className="navLink" to="/notes">Notes</Link></li>
+            <li id="todo" onClick={this.openTodo}><Link className="navLink" to="/todo">Todo</Link></li>
+            <li id="appointment" onClick={this.openAppointments}><Link className="navLink" to="/appointment">Appointment</Link></li>
           </ul>
         </header>
 
