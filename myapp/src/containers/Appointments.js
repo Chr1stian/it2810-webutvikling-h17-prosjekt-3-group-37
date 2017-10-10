@@ -6,6 +6,7 @@ import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
 import DatePicker from 'material-ui/DatePicker';
 import TextField from 'material-ui/TextField';
 import TimePicker from 'material-ui/TimePicker';
+import FlatButton from 'material-ui/FlatButton';
 import uuid from 'uuid';
 import AppointmentListItem from './../components/AppointmentListItem';
 
@@ -17,9 +18,12 @@ export default class Appointments extends Component {
     }
   }
 
+
   componentWillMount = () => {
-    //hente ut fra lagring
-    //sette state evt tom liste
+    let appointmentList = JSON.parse(localStorage.getItem('appointments'));
+    this.setState({
+          appointmentList: appointmentList || []
+      })
   }
 
   addAppointment = () => {
@@ -36,10 +40,20 @@ export default class Appointments extends Component {
         let {appointmentList} = this.state;
         appointmentList.push({ID: uuid.v4(), title: title, date: date, fromTime: fromTime, toTime: toTime, place: place});
         this.setState({appointmentList: appointmentList});
+        localStorage.setItem('appointments',JSON.stringify(appointmentList));
+        this.clearAddAppointmentFields();
       }
     }else{
       alert("All fields must be filled");
     }
+  }
+
+  clearAddAppointmentFields() {
+    document.getElementById('titleText').value = "";
+    document.getElementById('dateValue').value = undefined;
+    document.getElementById('fromTime').value = undefined;
+    document.getElementById('toTime').value = undefined;
+    document.getElementById('placeText').value = "";
   }
 
   render() {
@@ -70,7 +84,7 @@ export default class Appointments extends Component {
               <DatePicker id="dateValue" hintText="Select Date"/>
               <TimePicker id="fromTime" format="24hr" hintText="Select start-time" minutesStep={15}/> <TimePicker id="toTime" format="24hr" hintText="Select end-time" minutesStep={15}/>
               <TextField id="placeText" hintText="Enter place/address" />
-              <button id="addAppointment" onClick={this.addAppointment}>Add Appointment</button>
+              <FlatButton id="addAppointment" onClick={this.addAppointment}>Add Appointment</FlatButton>
             </div>
           </div>
       </div>
