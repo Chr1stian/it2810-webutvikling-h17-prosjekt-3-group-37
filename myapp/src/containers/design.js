@@ -10,12 +10,6 @@ import TodoContainer from './TodoContainer';
 import Appointments from './Appointments.js';
 import Moment from 'moment';
 
-const muiTheme = getMuiTheme({
-  palette: {
-    primary1Color: 'rgb(10, 79, 117)',
-    alternateTextColor: 'rgb(246, 170, 111)',
-  },
-});
 
 class DesignContainer extends Component {
 constructor(props){
@@ -63,7 +57,7 @@ componentDidMount() {
 
   render() {
     return(
-      <MuiThemeProvider muiTheme={muiTheme}>
+      <MuiThemeProvider muiTheme={getMuiTheme(darkBaseTheme)}>
         <div>
           <BrowserRouter >
             <div>

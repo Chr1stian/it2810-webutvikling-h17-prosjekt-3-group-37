@@ -16,7 +16,7 @@ class Navbar extends Component {
     document.getElementById('todocontainer').style = "";
     document.getElementById('notes').style = "";
   }
-  
+
   openTodo(){
     document.getElementById('todocontainer').style.textDecoration = "underline";
     document.getElementById('appointment').style = "";
