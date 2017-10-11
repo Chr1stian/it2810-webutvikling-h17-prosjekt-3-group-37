@@ -108,7 +108,7 @@ export default class Appointments extends Component {
             <h1 className="Appointments-title">Create new appointment</h1>
             <div>
               <TextField id="titleText" hintText="Enter title" />
-              <DatePicker id="dateValue" hintText="Select Date" DateTimeFormat={DateTimeFormat} locale="en-GB"  />
+              <DatePicker id="dateValue" hintText="Select Date" DateTimeFormat={DateTimeFormat} locale="en-GB" minDate={new Date()} />
               <TimePicker id="fromTime" format="24hr" hintText="Select start-time" minutesStep={15}/> <TimePicker id="toTime" format="24hr" hintText="Select end-time" minutesStep={15}/>
               <TextField id="placeText" hintText="Enter place/address" />
               <FlatButton id="addAppointment" onClick={this.addAppointment}>Add Appointment</FlatButton>
