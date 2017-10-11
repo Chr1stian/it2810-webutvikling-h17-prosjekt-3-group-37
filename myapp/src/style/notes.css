@@ -6,17 +6,35 @@
 .input {
 }
 
+.noteCreator button {
+	background-color: #555555 !important;
+}
+
 #notdone .note button {
 	background-color: #555555 !important;
 }
 
+#toggleDone {
+	background-color: #555555 !important;
+	height: auto !important;
+	margin-top: 20px !important;
+	margin-bottom: -20px !important;
+}
+
+#toggleDone div {
+	margin-left : 20px;
+	margin-right: 20px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
 #done button {
-	background-color: #44994a !important;
+	background-color: #007a87 !important;
 
 }
 
 #done .note > div {
-	background-color: #66BB6A;
+	background-color: #0097a7;
 }
 
 .noteText {
@@ -33,6 +51,7 @@
 .cardText {
 	flex-grow: 100;
 	text-align: right;
+	font-style: italic;
 }
 
 .cardHeader {
@@ -82,7 +101,7 @@
 	margin-left: auto;
     display: flex;
     flex-direction: column;
-    margin-top: 20px;
+    margin-top: 30px;
 
 
 }
@@ -125,18 +144,21 @@
 	}
 
 	.noteCreator {
-		margin-left: 10px;
-		margin-right: 10px;
 	}
+
+
 }
 
-@media screen and (max-width: 670px){
+@media screen and (max-width: 630px){
 	.noteContainer {
 		width: 100%;
 
+	}	.noteCreator {
+		margin-left: 10px;
+		margin-right: 10px;
 	}
 
-	.note div{
+	.note > div > div{
 	display: flex;
 	flex-flow: row wrap;
 	justify-content: flex-start;
@@ -150,7 +172,11 @@
 
 	.noteButtons {
 	margin-left: 0;
-}
+}	
+
+	#toggleDone {
+		margin-left: 10px !important;
+	}
 
 
 }
