@@ -16,7 +16,7 @@ class Navbar extends Component {
     document.getElementById('todocontainer').style = "";
     document.getElementById('notes').style = "";
   }
-  
+
   openTodo(){
     document.getElementById('todocontainer').style.textDecoration = "underline";
     document.getElementById('appointment').style = "";
@@ -41,9 +41,9 @@ class Navbar extends Component {
         <header className="App-header">
           <ul className="App-navbar">
             <li id="home" onClick={this.openHome}><Link className="navLink" to="/">Home</Link></li>
-            <li id="todocontainer" onClick={this.openTodo}><Link className="navLink" to="/todo">Todo</Link></li>
-            <li id="notes" onClick={this.openNotes}><Link className="navLink" to="/notes">Notes</Link></li>
-            <li id="appointment" onClick={this.openAppointments}><Link className="navLink" to="/appointment">Appointment</Link></li>
+            <li id="todocontainer" onClick={this.openTodo}><Link className="navLink" to="/todo">Todos</Link></li>
+            <li id="notes" onClick={this.openNotes}><Link className="navLink" to="/notes">Note</Link></li>
+            <li id="appointment" onClick={this.openAppointments}><Link className="navLink" to="/appointment">Appointments</Link></li>
           </ul>
         </header>
 
