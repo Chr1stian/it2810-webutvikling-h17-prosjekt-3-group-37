@@ -6,11 +6,11 @@
 .input {
 }
 
-.noteCreator button {
+.todoItemCreator button {
 	background-color: #555555 !important;
 }
 
-#notdone .note button {
+#notdone .todoItem button {
 	background-color: #555555 !important;
 }
 
@@ -33,11 +33,11 @@
 
 }
 
-#done .note > div {
+#done .todoItem > div {
 	background-color: #0097a7;
 }
 
-.noteText {
+.todoItemText {
 	display: flex;
 	justify-content: space-between;
 	flex-grow: 100;
@@ -58,14 +58,14 @@
 	flex-grow: 100;
 }
 
-.noteButtons {
+.todoItemButtons {
 	display: flex;
 	flex-direction: row;
 	flex-grow: 0;
 
 }
 
-.noteCreator {
+.todoItemCreator {
 	margin-top: 20px;
 	margin-left: auto;
 	margin-right: auto;
@@ -80,21 +80,21 @@
 	text-align: center;
 }
 
-.note > div > div {
+.todoItem > div > div {
 	display: flex;
 	justify-content: space-between;
 }
 
-.note {
+.todoItem {
 	margin-bottom: 10px;
 }
 
 /*.note div:hover {
-  background-color: #ff9999;
+  background-color:	 #ff9999;
   cursor: pointer;
 }*/
 
-.noteContainer {
+.todoItemContainer {
 	/*bottom: 0;*/
 	width: 40%;
 	margin-right: auto;
@@ -116,7 +116,7 @@
 
 @media screen and (max-width: 1200px){
 
-	.noteContainer {
+	.todoItemContainer {
 		width: 60%;
 
 
@@ -125,7 +125,7 @@
 
 @media screen and (max-width: 900px){
 
-	.noteContainer {
+	.todoItemContainer {
 		width: 75%;
 
 
@@ -133,46 +133,46 @@
 }
 
 @media screen and (max-width: 800px){
-	.noteContainer {
+	.todoItemContainer {
 		width: 85%;
 	}
 }
 
 @media screen and (max-width: 700px){
-	.noteContainer {
+	.todoItemContainer {
 		width: 95%;
 	}
 
-	.noteCreator {
+	.todoItemCreator {
 	}
 
 
 }
 
 @media screen and (max-width: 630px){
-	.noteContainer {
+	.todoItemContainer {
 		width: 100%;
 
-	}	.noteCreator {
+	}	.todoItemCreator {
 		margin-left: 10px;
 		margin-right: 10px;
 	}
 
-	.note > div > div{
+	.todoItem > div > div{
 	display: flex;
 	flex-flow: row wrap;
 	justify-content: flex-start;
 	}
 
-	.note {
-
+	.todoItem {
+		
 	margin-left: 10px;
 	margin-right: 10px
 	}
 
-	.noteButtons {
+	.todoItemButtons {
 	margin-left: 0;
-}
+}	
 
 	#toggleDone {
 		margin-left: 10px !important;
