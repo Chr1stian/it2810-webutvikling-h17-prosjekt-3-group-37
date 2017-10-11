@@ -60,7 +60,7 @@ export default class Appointments extends Component {
         let sortedAppointmentList = appointmentList.sort((a, b) => Date.parse(new Date(a.date.split("/").reverse().join("-"))) - Date.parse(new Date(b.date.split("/").reverse().join("-"))));
         this.setState({appointmentList: sortedAppointmentList});
         localStorage.setItem('appointments',JSON.stringify(sortedAppointmentList));
-        this.clearAddAppointmentFields();
+        window.location.reload();
       }
     }else{
       alert("All fields must be filled");
@@ -73,14 +73,6 @@ export default class Appointments extends Component {
     appointmentList.splice(i,1);
     this.setState({appointmentList: appointmentList});
     localStorage.setItem('appointments',JSON.stringify(appointmentList));
-  }
-
-  clearAddAppointmentFields = () => {
-    document.getElementById('titleText').value = "";
-    document.getElementById('dateValue').value = undefined;
-    document.getElementById('fromTime').value = undefined;
-    document.getElementById('toTime').value = undefined;
-    document.getElementById('placeText').value = "";
   }
 
   removeOldAppointments = () => {
