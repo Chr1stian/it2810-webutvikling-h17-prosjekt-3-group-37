@@ -10,6 +10,7 @@ import FlatButton from 'material-ui/FlatButton';
 import uuid from 'uuid';
 import AppointmentListItem from './../components/AppointmentListItem';
 import areIntlLocalesSupported from 'intl-locales-supported';
+import Moment from 'moment';
 
 let DateTimeFormat;
 /**
@@ -29,6 +30,10 @@ export default class Appointments extends Component {
     this.state = {
       appointmentList: [{ID: uuid.v4() , title: "Dette er første avtale", date: "10/10/2017", fromTime: "13:45", toTime: "14:00", place: "Gløshaugen"}, {ID: uuid.v4() , title: "Dette er andre avtale", date: "10/10/2017", fromTime: "14:30", toTime: "14:45", place: "Kalvskinnet"}]
     }
+  }
+
+  componentDidMount() {
+    this.removeOldAppointments();
   }
 
 
@@ -70,12 +75,20 @@ export default class Appointments extends Component {
     localStorage.setItem('appointments',JSON.stringify(appointmentList));
   }
 
-  clearAddAppointmentFields() {
+  clearAddAppointmentFields = () => {
     document.getElementById('titleText').value = "";
     document.getElementById('dateValue').value = undefined;
     document.getElementById('fromTime').value = undefined;
     document.getElementById('toTime').value = undefined;
     document.getElementById('placeText').value = "";
+  }
+
+  removeOldAppointments = () => {
+    let {appointmentList} = this.state;
+    let today = new Date();
+    let changedList = appointmentList.filter(function (appointment) {return (appointment.date.split("/").join("-")) >= (Moment(today).format("DD/MM/YYYY")).split("/").join("-")});
+    this.setState({appointmentList: changedList});
+    localStorage.setItem('appointments',JSON.stringify(changedList));
   }
 
   render() {
@@ -103,7 +116,7 @@ export default class Appointments extends Component {
             <h1 className="Appointments-title">Create new appointment</h1>
             <div>
               <TextField id="titleText" hintText="Enter title" />
-              <DatePicker id="dateValue" hintText="Select Date" DateTimeFormat={DateTimeFormat} locale="en-GB" minDate={new Date()} />
+              <DatePicker id="dateValue" hintText="Select Date" DateTimeFormat={DateTimeFormat} locale="en-GB"  />
               <TimePicker id="fromTime" format="24hr" hintText="Select start-time" minutesStep={15}/> <TimePicker id="toTime" format="24hr" hintText="Select end-time" minutesStep={15}/>
               <TextField id="placeText" hintText="Enter place/address" />
               <FlatButton id="addAppointment" onClick={this.addAppointment}>Add Appointment</FlatButton>
