@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import Note from './../components/Note';
-import './../style/notes.css';
+import TodoItem from './../components/TodoItem';
+import './../style/todocontainer.css';
 import uuid from 'uuid';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
@@ -9,32 +9,32 @@ import FlatButton from 'material-ui/FlatButton'
 import TextField from 'material-ui/TextField'
 import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme'
 
-export default class Notes extends Component {
+export default class TodoContainer extends Component {
 
 	constructor(props){
 		super(props);
 
 		this.state = {
-			notelist: [{ID: uuid.v4(), title: "Clean your room", text: "It's important"}/*, {ID: uuid.v4(),title: "Tittel1", text: "Dette er andre note"}*/]
+			todolist: []
 		}
 	}
 
 	componentWillMount = () => {
 	    //localStorage.clear()
-	    let notelist = JSON.parse(localStorage.getItem('notes'))
+	    let todolist = JSON.parse(localStorage.getItem('todoitems'))
 	    this.setState({
-	        notelist: notelist || []
+	        todolist: todolist || []
 	    })
 	}
 
-	addNote = () => {
+	addTodoItem = () => {
 		const title = document.getElementById("title-field").value
 		const text = document.getElementById("comment-field").value
 		if (title !=="") {
-			const {notelist} = this.state
-			notelist.push({ID: uuid.v4(),title: title, text: text, finished: false})
-			this.setState({notelist: notelist})
-			localStorage.setItem('notes',JSON.stringify(notelist))
+			const {todolist} = this.state
+			todolist.push({ID: uuid.v4(),title: title, text: text, finished: false})
+			this.setState({todolist: todolist})
+			localStorage.setItem('todoitems',JSON.stringify(todolist))
 			document.getElementById("title-field").value = ""
 			document.getElementById("comment-field").value = ""
 			document.getElementById("title-field").placeholder = "What task?"
@@ -43,25 +43,24 @@ export default class Notes extends Component {
 
 	}
 
-	deleteNote = (note) => {
-		const {notelist} = this.state
-		const i = notelist.indexOf(note)
-		notelist.splice(i,1)
-		this.setState({notelist: notelist})
-		localStorage.setItem('notes',JSON.stringify(notelist))
+	deleteTodoItem = (todoItem) => {
+		const {todolist} = this.state
+		const i = todolist.indexOf(todoItem)
+		todolist.splice(i,1)
+		this.setState({todolist: todolist})
+		localStorage.setItem('todoitems',JSON.stringify(todolist))
 
 
 	}
 
-	editNote = (note) => {
-		const {notelist} = this.state
-		const i = notelist.indexOf(note)
-		//notelist[i] = ({ID: note.ID, title: note.title, text: note.text, finished: !note.finished})
-		notelist[i].finished = !notelist[i].finished
-		this.setState({notelist: notelist})
-		localStorage.setItem('notes',JSON.stringify(notelist))
+	editTodoItem = (todoItem) => {
+		const {todolist} = this.state
+		const i = todolist.indexOf(todoItem)
+		todolist[i].finished = !todolist[i].finished
+		this.setState({todolist: todolist})
+		localStorage.setItem('todoitems',JSON.stringify(todolist))
 
-		console.log(!note.finished)
+
 	}
 
 	toggleDone = () => {
@@ -80,30 +79,30 @@ export default class Notes extends Component {
 
 
 	render() {
-		const { notelist } = this.state
-		console.log(notelist[0])
+		const { todolist } = this.state
+		console.log(todolist[0])
 		return (
       <MuiThemeProvider muiTheme={getMuiTheme(darkBaseTheme)}>
      	<div>
       <div className="creatorContainer">
-		<Card className="noteCreator">
-			<CardActions className="noteCreatorContent">
+		<Card className="todoItemCreator">
+			<CardActions className="todoItemCreatorContent">
 					<TextField id="title-field" hintText="What task?"/>
 					<TextField id="comment-field" hintText="optional comment" />
-				<FlatButton onClick = {this.addNote}>add</FlatButton>
+				<FlatButton onClick = {this.addTodoItem}>add</FlatButton>
 			</CardActions>
 		</Card>
 		</div>
 
-		<div className="noteContainer" id="notdone">
-			{ notelist.filter(function (note) {return !note.finished}).map((note) => <Note key={note.ID} note={note} editNote={this.editNote} deleteNote={this.deleteNote}/>) }
+		<div className="todoItemContainer" id="notdone">
+			{ todolist.filter(function (todoItem) {return !todoItem.finished}).map((todoItem) => <TodoItem key={todoItem.ID} todoItem={todoItem} editTodoItem={this.editTodoItem} deleteTodoItem={this.deleteTodoItem}/>) }
 			<div>
 			<FlatButton id="toggleDone" onClick = {this.toggleDone}>hide finished tasks</FlatButton>
 			</div>
 
 		</div>
-		<div className="noteContainer" id="done">
-			{ notelist.filter(function (note) {return note.finished}).map((note) => <Note key={note.ID} note={note} editNote={this.editNote} deleteNote={this.deleteNote}/>) }
+		<div className="todoItemContainer" id="done">
+			{ todolist.filter(function (todoItem) {return todoItem.finished}).map((todoItem) => <TodoItem key={todoItem.ID} todoItem={todoItem} editTodoItem={this.editTodoItem} deleteTodoItem={this.deleteTodoItem}/>) }
 
 		</div>
 		</div>

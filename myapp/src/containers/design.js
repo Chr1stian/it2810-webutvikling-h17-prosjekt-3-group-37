@@ -6,7 +6,7 @@ import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
 import Navbar from './Navbar';
 import Home from './home';
 import TodoList from './TodoList';
-import Notes from './Notes';
+import TodoContainer from './TodoContainer';
 import Appointments from './Appointments.js';
 
 const DesignContainer = () => (
@@ -20,8 +20,8 @@ const DesignContainer = () => (
           <Switch>
 
             <Route exact path="/" component={Home} />
-            <Route path="/todo" component={TodoList} />
-            <Route path="/notes" component={Notes} />
+            <Route path="/todo" component={TodoContainer} />
+            <Route path="/notes" component={TodoList} />
             <Route path="/appointment" component={Appointments} />
 
           </Switch>
