@@ -6,8 +6,24 @@
 .input {
 }
 
+.noteCreator button {
+	background-color: #555555 !important;
+}
+
 #notdone .note button {
 	background-color: #555555 !important;
+}
+
+#toggleDone {
+	background-color: #555555 !important;
+	height: auto !important;
+}
+
+#toggleDone div {
+	margin-left : 20px;
+	margin-right: 20px;
+	margin-top: 5px;
+	margin-bottom: 5px;
 }
 
 #done button {
@@ -125,18 +141,21 @@
 	}
 
 	.noteCreator {
-		margin-left: 10px;
-		margin-right: 10px;
 	}
+
+
 }
 
-@media screen and (max-width: 670px){
+@media screen and (max-width: 630px){
 	.noteContainer {
 		width: 100%;
 
+	}	.noteCreator {
+		margin-left: 10px;
+		margin-right: 10px;
 	}
 
-	.note div{
+	.note > div > div{
 	display: flex;
 	flex-flow: row wrap;
 	justify-content: flex-start;
@@ -150,7 +169,11 @@
 
 	.noteButtons {
 	margin-left: 0;
-}
+}	
+
+	#toggleDone {
+		margin-left: 10px !important;
+	}
 
 
 }
