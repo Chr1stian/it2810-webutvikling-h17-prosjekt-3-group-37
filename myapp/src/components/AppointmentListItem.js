@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
+import FlatButton from 'material-ui/FlatButton';
 
 export default class AppointmentListItem extends Component {
 
 	
 
-	//deleteAppointment = () => {
-		//this.props.deleteAppointment(this.props.note)
+	deleteAppointment = () => {
+		this.props.deleteAppointment(this.props.appointment);
 
-	//}
+	}
 
 
 	render() {
@@ -18,6 +19,7 @@ export default class AppointmentListItem extends Component {
               		<td>{appointment.title}</td>
               		<td>{appointment.fromTime} - {appointment.toTime}</td>
               		<td>{appointment.place}</td>
+              		<td><FlatButton onClick = {this.deleteAppointment}>Delete</FlatButton></td>
             	</tr>
 			)
 

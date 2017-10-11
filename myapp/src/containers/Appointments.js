@@ -62,6 +62,14 @@ export default class Appointments extends Component {
     }
   }
 
+  deleteAppointment = (appointment) => {
+    let {appointmentList} = this.state;
+    let i = appointmentList.indexOf(appointment);
+    appointmentList.splice(i,1);
+    this.setState({appointmentList: appointmentList});
+    localStorage.setItem('appointments',JSON.stringify(appointmentList));
+  }
+
   clearAddAppointmentFields() {
     document.getElementById('titleText').value = "";
     document.getElementById('dateValue').value = undefined;
@@ -86,7 +94,7 @@ export default class Appointments extends Component {
                 <th>Time</th>
                 <th>Place</th>
               </tr>
-              { appointmentList.map((item) => <AppointmentListItem appointment={item} key={item.ID} />) }
+              { appointmentList.map((item) => <AppointmentListItem appointment={item} key={item.ID} deleteAppointment={this.deleteAppointment}/>) }
             </tbody>
           </table>
 
