@@ -12,25 +12,21 @@ class Navbar extends Component {
     this.openHome = this.openHome.bind(this);
   }
   openAppointments(){
-
     document.getElementById('appointment').style.textDecoration = "underline";
     document.getElementById('todo').style = "";
     document.getElementById('notes').style = "";
-
   }
+  
   openTodo(){
     document.getElementById('todo').style.textDecoration = "underline";
     document.getElementById('appointment').style = "";
     document.getElementById('notes').style = "";
-
   }
 
   openNotes() {
     document.getElementById('notes').style.textDecoration = "underline";
     document.getElementById('todo').style = "";
     document.getElementById('appointment').style = "";
-
-
   }
 
   openHome() {

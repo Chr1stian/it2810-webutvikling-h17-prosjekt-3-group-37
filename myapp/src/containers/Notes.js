@@ -73,7 +73,7 @@ export default class Notes extends Component {
 
 		}
 		document.getElementById("done").style.display=setvalue
-		document.getElementById("toggleDone").innerHTML = setText
+		document.getElementById("toggleDone").getElementsByTagName("div")[0].innerHTML = setText
 
 	}
 
@@ -84,6 +84,7 @@ export default class Notes extends Component {
 		console.log(notelist[0])
 		return (
       <MuiThemeProvider muiTheme={getMuiTheme(darkBaseTheme)}>
+     	<div>
       <div className="creatorContainer">
 		<Card className="noteCreator">
 			<CardActions className="noteCreatorContent">
@@ -104,6 +105,7 @@ export default class Notes extends Component {
 		<div className="noteContainer" id="done">
 			{ notelist.filter(function (note) {return note.finished}).map((note) => <Note key={note.ID} note={note} editNote={this.editNote} deleteNote={this.deleteNote}/>) }
 
+		</div>
 		</div>
 		</MuiThemeProvider>
 		)

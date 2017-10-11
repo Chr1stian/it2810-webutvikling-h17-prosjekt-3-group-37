@@ -6,8 +6,23 @@ import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
 import DatePicker from 'material-ui/DatePicker';
 import TextField from 'material-ui/TextField';
 import TimePicker from 'material-ui/TimePicker';
+import FlatButton from 'material-ui/FlatButton';
 import uuid from 'uuid';
 import AppointmentListItem from './../components/AppointmentListItem';
+import areIntlLocalesSupported from 'intl-locales-supported';
+import Moment from 'moment';
+
+let DateTimeFormat;
+/**
+ * Use the native Intl.DateTimeFormat if available, or a polyfill if not.
+ */
+if (areIntlLocalesSupported(['en-GB'])) {
+  DateTimeFormat = global.Intl.DateTimeFormat;
+} else {
+  const IntlPolyfill = require('intl');
+  DateTimeFormat = IntlPolyfill.DateTimeFormat;
+  require('intl/locale-data/jsonp/en-GB');
+}
 
 export default class Appointments extends Component {
   constructor(props){
@@ -17,9 +32,16 @@ export default class Appointments extends Component {
     }
   }
 
+  componentDidMount() {
+    this.removeOldAppointments();
+  }
+
+
   componentWillMount = () => {
-    //hente ut fra lagring
-    //sette state evt tom liste
+    let appointmentList = JSON.parse(localStorage.getItem('appointments'));
+    this.setState({
+          appointmentList: appointmentList || []
+      })
   }
 
   addAppointment = () => {
@@ -35,11 +57,30 @@ export default class Appointments extends Component {
       }else{
         let {appointmentList} = this.state;
         appointmentList.push({ID: uuid.v4(), title: title, date: date, fromTime: fromTime, toTime: toTime, place: place});
-        this.setState({appointmentList: appointmentList});
+        let sortedAppointmentList = appointmentList.sort((a, b) => Date.parse(new Date(a.date.split("/").reverse().join("-"))) - Date.parse(new Date(b.date.split("/").reverse().join("-"))));
+        this.setState({appointmentList: sortedAppointmentList});
+        localStorage.setItem('appointments',JSON.stringify(sortedAppointmentList));
+        window.location.reload();
       }
     }else{
       alert("All fields must be filled");
     }
+  }
+
+  deleteAppointment = (appointment) => {
+    let {appointmentList} = this.state;
+    let i = appointmentList.indexOf(appointment);
+    appointmentList.splice(i,1);
+    this.setState({appointmentList: appointmentList});
+    localStorage.setItem('appointments',JSON.stringify(appointmentList));
+  }
+
+  removeOldAppointments = () => {
+    let {appointmentList} = this.state;
+    let today = new Date();
+    let changedList = appointmentList.filter(function (appointment) {return (appointment.date.split("/").join("-")) >= (Moment(today).format("DD/MM/YYYY")).split("/").join("-")});
+    this.setState({appointmentList: changedList});
+    localStorage.setItem('appointments',JSON.stringify(changedList));
   }
 
   render() {
@@ -58,7 +99,7 @@ export default class Appointments extends Component {
                 <th>Time</th>
                 <th>Place</th>
               </tr>
-              { appointmentList.map((item) => <AppointmentListItem appointment={item} key={item.ID} />) }
+              { appointmentList.map((item) => <AppointmentListItem appointment={item} key={item.ID} deleteAppointment={this.deleteAppointment}/>) }
             </tbody>
           </table>
 
@@ -67,10 +108,10 @@ export default class Appointments extends Component {
             <h1 className="Appointments-title">Create new appointment</h1>
             <div>
               <TextField id="titleText" hintText="Enter title" />
-              <DatePicker id="dateValue" hintText="Select Date"/>
+              <DatePicker id="dateValue" hintText="Select Date" DateTimeFormat={DateTimeFormat} locale="en-GB" minDate={new Date()} />
               <TimePicker id="fromTime" format="24hr" hintText="Select start-time" minutesStep={15}/> <TimePicker id="toTime" format="24hr" hintText="Select end-time" minutesStep={15}/>
               <TextField id="placeText" hintText="Enter place/address" />
-              <button id="addAppointment" onClick={this.addAppointment}>Add Appointment</button>
+              <FlatButton id="addAppointment" onClick={this.addAppointment}>Add Appointment</FlatButton>
             </div>
           </div>
       </div>

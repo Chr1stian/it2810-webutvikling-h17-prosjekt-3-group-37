@@ -1,23 +1,34 @@
 import React, { Component } from 'react';
+import FlatButton from 'material-ui/FlatButton';
+import Moment from 'moment';
+
 
 export default class AppointmentListItem extends Component {
+	deleteAppointment = () => {
+		this.props.deleteAppointment(this.props.appointment);
+	}
 
-	
-
-	//deleteAppointment = () => {
-		//this.props.deleteAppointment(this.props.note)
-
-	//}
 
 
 	render() {
 		let {appointment} = this.props;
+		let date = null;
+		let today = new Date();
+		var isToday = (Moment(today).format("DD/MM/YYYY") === appointment.date);
+	    if (isToday) {
+	      date = "Today";
+	    } else {
+	      date = appointment.date;
+	    }
+
+
 		return (
 				<tr className="appointment">
+              		<td>{date}</td>
               		<td>{appointment.title}</td>
-              		<td>{appointment.date}</td>
               		<td>{appointment.fromTime} - {appointment.toTime}</td>
               		<td>{appointment.place}</td>
+              		<td><FlatButton onClick = {this.deleteAppointment}>Delete</FlatButton></td>
             	</tr>
 			)
 

@@ -25,7 +25,7 @@ export default class Note extends Component {
 				<Card className="note">
 					<div>
 						<div className="noteText">
-						<CardHeader classname ="cardHeader" title={note.title} />
+						<CardHeader className ="cardHeader" title={note.title} />
 						<CardText className="cardText">{ note.text }</CardText>
 						</div>
 						<CardActions className="noteButtons">
