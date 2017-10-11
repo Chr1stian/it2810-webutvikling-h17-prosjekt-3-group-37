@@ -4,6 +4,10 @@ html, body{
   background-color: #99A1A6;
 }
 
+#app-area {
+  height: 100vh;
+}
+
 .App {
   text-align: center;
 }
