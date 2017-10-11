@@ -1,18 +1,22 @@
 import React from 'react';
 import DarkSkyApi from 'dark-sky-api';
-import WeatherIcon from './WeatherIcons';
+import WeatherIcon from './../components/WeatherIcons';
 import { Card, CardMedia, CardText, CardTitle } from 'material-ui/Card';
 import Divider from 'material-ui/Divider';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
-class Weather extends React.Component {
+import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
+import Clock from './../components/Clock';
+
+class InfoWidget extends React.Component {
   constructor(){
     super();
 
     this.state = {
-      temp: "Loading..",
-      summary: "Loading..",
+      temp: " Loading",
+      summary: "Loading ",
       icon: "loading",
+      title: "Trondheim"
     }
 
     this.getWeather = this.getWeather.bind(this);
@@ -24,7 +28,7 @@ class Weather extends React.Component {
   }
 
   componentDidMount() {
-    console.log("runs");
+    console.log("InfoWidget is running");
     this.getWeather();
   }
 
@@ -33,6 +37,7 @@ class Weather extends React.Component {
       temp: input[0],
       summary: input[1],
       icon: input[2],
+      title: input[3],
     })
   }
 
@@ -47,14 +52,15 @@ class Weather extends React.Component {
       }
 
       const position = {
-        latitude: 63.4305,
-        longitude: 10.3951
-      };
+      latitude: 63.4305,
+      longitude: 10.3951
+    };
 
       DarkSkyApi.loadCurrent(position).then(
           data => {this.onLoad([(data.apparentTemperature.toString().split('.')[0] + "℃"),
           data.summary,
-          data.icon
+          data.icon,
+          ("Trondheim ")
 ])}
         );
     }
@@ -62,23 +68,34 @@ class Weather extends React.Component {
 
 
   render() {
-    console.log(this.state.icon);
+    let trainingStatus;
+    if (this.state.icon === "clear-day") {
+      trainingStatus = "The nice weather says you should get out!"
+    }else {
+      trainingStatus = "Not so good weather today, so stay inside!"
+    }
+
     return(
-      <MuiThemeProvider muiTheme={getMuiTheme()}>
-        <Card className="WeatherWidget">
+      <MuiThemeProvider muiTheme={getMuiTheme(darkBaseTheme)}>
+        <Card className="infoWidget">
           <CardMedia className="weatherIconDiv">
-            <WeatherIcon imgSrc={this.state.icon} />
+            <WeatherIcon className="weatherIconPosition" imgSrc={this.state.icon} />
           </CardMedia>
 
-          <CardTitle title="Trondheim" />
+          <CardTitle titleColor={'#fff'} title={this.state.title} />
+
+
+          <CardText style={{'fontSize':  '20px', 'paddingTop': '0'}}>
+            <span id="cardTextLeft">{this.state.temp}</span> <span id="cardTextRight"> {this.state.summary} </span>
+          </CardText>
           <Divider />
-          <CardText>
-            Temperature: {this.state.temp}
+          <CardText style={{'textAlign' : 'center'}}>
+            {trainingStatus}
           </CardText>
-          <CardText>
-            Summary: {this.state.summary}
-          </CardText>
+          <Divider />
+          <Clock />
         </Card>
+
       </MuiThemeProvider>
   );
 }
@@ -89,4 +106,4 @@ class Weather extends React.Component {
 
 
 
-export default Weather;
+export default InfoWidget;

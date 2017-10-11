@@ -1,15 +1,11 @@
 import React, { Component } from 'react';
-import Weather from './../components/weatherWidget';
+import InfoWidget from './infoWidget';
 import Moment from 'moment';
-
+import HomeNavigation from './HomeNavigation'
 
 class Home extends Component {
   constructor(props){
     super();
-    /*
-    this.changeColor = this.changeColor.bind(this);
-    this.componentDidMount = this.componentDidMount.bind(this);
-    */
 
     const listWheather = ["linear-gradient(to bottom, #020111 85%,#191621 100%)",
                 "linear-gradient(to bottom, #020111 85%,#191621 100%)",
@@ -43,36 +39,20 @@ class Home extends Component {
     };
   }
 
-/*
-  componentDidMount() {
-    this.intervalId = setInterval(
-      this.changeColor(), 1000);
-  }
-  */
-
   componentDidMount() {
     const {colorList} = this.state;
     this.intervalId = setInterval(() => {
       this.setState({ date: Moment().format('H'), color: colorList[parseInt(this.state.date, 10)]});
-      console.log("hello");
+
     }, 360000);
   }
 
-/*
-  changeColor(){
-    const {colorList} = this.state;
-
-      this.setState({
-        color: colorList[hour]
-    });
-  }
-*/
   render() {
     return(
       <div style={{ background: this.state.color, height: "calc(100vh - 4em)"}} className="background-color">
         <div className="weatherHere">
-          <Weather />
-
+          <InfoWidget />
+          <HomeNavigation />
         </div>
       </div>
     );
