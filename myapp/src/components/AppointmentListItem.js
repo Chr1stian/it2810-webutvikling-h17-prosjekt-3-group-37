@@ -14,8 +14,8 @@ export default class AppointmentListItem extends Component {
 		let {appointment} = this.props;
 		return (
 				<tr className="appointment">
-              		<td>{appointment.title}</td>
               		<td>{appointment.date}</td>
+              		<td>{appointment.title}</td>
               		<td>{appointment.fromTime} - {appointment.toTime}</td>
               		<td>{appointment.place}</td>
             	</tr>

@@ -9,6 +9,19 @@ import TimePicker from 'material-ui/TimePicker';
 import FlatButton from 'material-ui/FlatButton';
 import uuid from 'uuid';
 import AppointmentListItem from './../components/AppointmentListItem';
+import areIntlLocalesSupported from 'intl-locales-supported';
+
+let DateTimeFormat;
+/**
+ * Use the native Intl.DateTimeFormat if available, or a polyfill if not.
+ */
+if (areIntlLocalesSupported(['en-GB'])) {
+  DateTimeFormat = global.Intl.DateTimeFormat;
+} else {
+  const IntlPolyfill = require('intl');
+  DateTimeFormat = IntlPolyfill.DateTimeFormat;
+  require('intl/locale-data/jsonp/en-GB');
+}
 
 export default class Appointments extends Component {
   constructor(props){
@@ -39,8 +52,9 @@ export default class Appointments extends Component {
       }else{
         let {appointmentList} = this.state;
         appointmentList.push({ID: uuid.v4(), title: title, date: date, fromTime: fromTime, toTime: toTime, place: place});
-        this.setState({appointmentList: appointmentList});
-        localStorage.setItem('appointments',JSON.stringify(appointmentList));
+        let sortedAppointmentList = appointmentList.sort((a, b) => Date.parse(new Date(a.date.split("/").reverse().join("-"))) - Date.parse(new Date(b.date.split("/").reverse().join("-"))));
+        this.setState({appointmentList: sortedAppointmentList});
+        localStorage.setItem('appointments',JSON.stringify(sortedAppointmentList));
         this.clearAddAppointmentFields();
       }
     }else{
@@ -81,7 +95,7 @@ export default class Appointments extends Component {
             <h1 className="Appointments-title">Create new appointment</h1>
             <div>
               <TextField id="titleText" hintText="Enter title" />
-              <DatePicker id="dateValue" hintText="Select Date"/>
+              <DatePicker id="dateValue" hintText="Select Date" DateTimeFormat={DateTimeFormat} locale="en-GB" />
               <TimePicker id="fromTime" format="24hr" hintText="Select start-time" minutesStep={15}/> <TimePicker id="toTime" format="24hr" hintText="Select end-time" minutesStep={15}/>
               <TextField id="placeText" hintText="Enter place/address" />
               <FlatButton id="addAppointment" onClick={this.addAppointment}>Add Appointment</FlatButton>
