@@ -7,12 +7,18 @@ class ToDoHome extends Component {
 
 
   render(){
-
+    let todolist = JSON.parse(localStorage.getItem('notes'));
+    let TodoList = todolist || [];
+    let newestTodo = "Lucky you, have nothing todo";
+    if(TodoList.length > 0){
+        console.log(TodoList[0].title);
+        newestTodo = ("Remember to: " + TodoList[0].title)
+    }
     return(
-      let getValue = localStorage.getItem('value');
+
       <div>
-      <CardTitle title="ToDo"></CardTitle>
-      <CardText>Latest todo</CardText>
+      <CardTitle style={{'paddingBottom':'0'}} title="ToDo"></CardTitle>
+      <CardText>{newestTodo}</CardText>
       <RaisedButton style={{'display':'flex'}}>
         <Link className="navLink" to="/todo">EDIT YOUR TODOS</Link>
       </RaisedButton>
