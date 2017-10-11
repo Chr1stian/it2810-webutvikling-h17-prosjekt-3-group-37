@@ -17,6 +17,8 @@
 #toggleDone {
 	background-color: #555555 !important;
 	height: auto !important;
+	margin-top: 20px !important;
+	margin-bottom: -20px !important;
 }
 
 #toggleDone div {
@@ -27,12 +29,12 @@
 }
 
 #done button {
-	background-color: #44994a !important;
+	background-color: #007a87 !important;
 
 }
 
 #done .note > div {
-	background-color: #66BB6A;
+	background-color: #0097a7;
 }
 
 .noteText {
@@ -49,6 +51,7 @@
 .cardText {
 	flex-grow: 100;
 	text-align: right;
+	font-style: italic;
 }
 
 .cardHeader {
@@ -98,7 +101,7 @@
 	margin-left: auto;
     display: flex;
     flex-direction: column;
-    margin-top: 20px;
+    margin-top: 30px;
 
 
 }
