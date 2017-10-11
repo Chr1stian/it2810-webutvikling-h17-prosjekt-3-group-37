@@ -6,7 +6,7 @@ import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
 import Navbar from './Navbar';
 import Home from './home';
 import TodoList from './TodoList';
-import Notes from './Notes';
+import TodoContainer from './TodoContainer';
 import Appointments from './Appointments.js';
 import Moment from 'moment';
 
@@ -16,9 +16,6 @@ const muiTheme = getMuiTheme({
     alternateTextColor: 'rgb(246, 170, 111)',
   },
 });
-
-
-
 
 class DesignContainer extends Component {
 constructor(props){
