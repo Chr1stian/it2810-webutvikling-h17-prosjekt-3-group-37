@@ -3,9 +3,6 @@ import DarkSkyApi from 'dark-sky-api';
 import WeatherIcon from './../components/WeatherIcons';
 import { Card, CardMedia, CardText, CardTitle } from 'material-ui/Card';
 import Divider from 'material-ui/Divider';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import getMuiTheme from 'material-ui/styles/getMuiTheme';
-import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
 import Clock from './../components/Clock';
 
 class InfoWidget extends React.Component {
@@ -57,7 +54,7 @@ class InfoWidget extends React.Component {
     };
 
       DarkSkyApi.loadCurrent(position).then(
-          data => {this.onLoad([(data.apparentTemperature.toString().split('.')[0] + "℃"),
+          data => {this.onLoad([(data.temperature.toString().split('.')[0] + "℃"),
           data.summary,
           data.icon,
           ("Trondheim ")
@@ -76,7 +73,7 @@ class InfoWidget extends React.Component {
     }
 
     return(
-      <MuiThemeProvider muiTheme={getMuiTheme(darkBaseTheme)}>
+
         <Card className="infoWidget">
           <CardMedia className="weatherIconDiv">
             <WeatherIcon className="weatherIconPosition" imgSrc={this.state.icon} />
@@ -96,7 +93,7 @@ class InfoWidget extends React.Component {
           <Clock />
         </Card>
 
-      </MuiThemeProvider>
+
   );
 }
 

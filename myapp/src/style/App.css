@@ -2,6 +2,11 @@ html, body{
   margin: 0;
   padding: 0;
   background-color: #99A1A6;
+  height: 100%;
+}
+
+#app-area {
+  height: 100%;
 }
 
 .App {
@@ -62,6 +67,7 @@ html, body{
   height: 100%;
 }
 
+
 .infoWidget {
   width: 300px;
 }
@@ -92,6 +98,25 @@ html, body{
   margin-left: 15px;
   margin-top: 15px;
 }
+
+@media only screen
+and (max-device-width : 1024px)  {
+  .weatherHere {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+  }
+
+  .navigationCard {
+    width: 300px;
+    margin-top: 15px;
+    margin-left: 0;
+  }
+
+}
+
 
 *:before, &:after{
 	    -webkit-box-sizing: border-box;
