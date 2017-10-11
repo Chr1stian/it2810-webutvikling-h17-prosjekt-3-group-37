@@ -5,7 +5,7 @@ import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
 import Navbar from './Navbar';
 import Home from './home';
-import TodoList from './TodoList';
+import TextArea from './../components/TextArea';
 import TodoContainer from './TodoContainer';
 import Appointments from './Appointments.js';
 import Moment from 'moment';
@@ -73,8 +73,8 @@ componentDidMount() {
                 <Switch>
 
                   <Route exact path="/" component={Home} />
-                  <Route path="/todo" component={TodoList} />
-                  <Route path="/notes" component={Notes} />
+                  <Route path="/todo" component={TodoContainer} />
+                  <Route path="/notes" component={TextArea} />
                   <Route path="/appointment" component={Appointments} />
 
                 </Switch>
