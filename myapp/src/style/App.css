@@ -9,6 +9,10 @@ html, body{
   height: 100%;
 }
 
+#app-area {
+  height: 100vh;
+}
+
 .App {
   text-align: center;
 }
