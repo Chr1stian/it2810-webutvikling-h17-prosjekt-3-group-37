@@ -1,8 +1,11 @@
 import React, {Component} from 'react';
 import { BrowserRouter, Route, Switch} from 'react-router-dom';
+
+//Import Material UI ThemeProvider and the darkBaseTheme
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
+
 import Navbar from './Navbar';
 import Home from './home';
 import TextArea from './../components/TextArea';
