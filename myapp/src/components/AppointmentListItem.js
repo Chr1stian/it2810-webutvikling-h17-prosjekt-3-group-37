@@ -1,7 +1,16 @@
 //Import React and ReactComponent
 import React, { Component } from 'react';
-//Import Material UI button
+//Import Material UI
 import FlatButton from 'material-ui/FlatButton';
+import {
+  Table,
+  TableBody,
+  TableFooter,
+  TableHeader,
+  TableHeaderColumn,
+  TableRow,
+  TableRowColumn,
+} from 'material-ui/Table';
 //Import Moment for time/date formatting
 import Moment from 'moment';
 
@@ -28,13 +37,13 @@ class AppointmentListItem extends Component {
 	    }
 		return (
 				//Creates and returns the appointment tablerow to the Appointment.js Component
-				<tr className="appointment">
-              		<td>{date}</td>
-              		<td>{appointment.title}</td>
-              		<td>{appointment.fromTime} - {appointment.toTime}</td>
-              		<td>{appointment.place}</td>
-              		<td><FlatButton onClick = {this.deleteAppointment}>Delete</FlatButton></td>
-            	</tr>
+				<TableRow className="appointment">
+              		<TableRowColumn>{date}</TableRowColumn>
+              		<TableRowColumn>{appointment.title}</TableRowColumn>
+              		<TableRowColumn>{appointment.fromTime} - {appointment.toTime}</TableRowColumn>
+              		<TableRowColumn>{appointment.place}</TableRowColumn>
+              		<TableRowColumn><FlatButton onClick = {this.deleteAppointment}>Delete</FlatButton></TableRowColumn>
+            	</TableRow>
 			)
 	}
 }

@@ -10,6 +10,15 @@ import TimePicker from 'material-ui/TimePicker';
 import FlatButton from 'material-ui/FlatButton';
 import { Card, CardMedia, CardText, CardTitle } from 'material-ui/Card';
 import Divider from 'material-ui/Divider';
+import {
+  Table,
+  TableBody,
+  TableFooter,
+  TableHeader,
+  TableHeaderColumn,
+  TableRow,
+  TableRowColumn,
+} from 'material-ui/Table';
 
 //Import RandomID-generator. Moment and intl for date and time formatting
 import uuid from 'uuid';
@@ -107,17 +116,19 @@ class Appointments extends Component {
         <Card className="See-Appointment">
          <CardTitle title="Your Appointments"/>
          <Divider />
-            <table>
-              <tbody>
-                <tr>
-                  <th>Date</th>
-                  <th>Title</th>
-                  <th>Time</th>
-                  <th>Place</th>
-                </tr>
-                { appointmentList.map((item) => <AppointmentListItem appointment={item} key={item.ID} deleteAppointment={this.deleteAppointment}/>) }
-              </tbody>
-            </table>
+            <Table>
+                <TableHeader>
+                <TableRow>
+                    <TableHeaderColumn>Date</TableHeaderColumn>
+                    <TableHeaderColumn>Title</TableHeaderColumn>
+                    <TableHeaderColumn>Time</TableHeaderColumn>
+                    <TableHeaderColumn>Place</TableHeaderColumn>
+                  </TableRow>
+                </TableHeader>
+                <TableBody>
+                  { appointmentList.map((item) => <AppointmentListItem appointment={item} key={item.ID} deleteAppointment={this.deleteAppointment}/>) }
+                </TableBody>
+            </Table>
           </Card>
           <Card className="Create-Appointment">
             <CardTitle title="Create Appointment"/>
