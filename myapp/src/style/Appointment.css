@@ -1,0 +1,12 @@
+.Appointments{
+	display: flex;
+	flex-direction: row-reverse;
+	justify-content: center;
+	align-items: center;
+	height: 100%;
+}
+
+.Form-Fields{
+	display: flex;
+	flex-direction: column;
+}
