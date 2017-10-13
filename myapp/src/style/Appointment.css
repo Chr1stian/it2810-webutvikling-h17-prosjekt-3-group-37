@@ -1,4 +1,4 @@
-.Appointments{
+.Appointment{
 	display: flex;
 	flex-direction: row-reverse;
 	justify-content: center;
@@ -6,7 +6,20 @@
 	height: 100%;
 }
 
-.Form-Fields{
+.SeeAppointment{
+	padding: 20px;
+}
+
+.CreateAppointment{
+	padding: 20px;
+	margin-right: 15px;
+}
+
+.FormFields{
 	display: flex;
 	flex-direction: column;
+}
+
+.AppointmentTable{
+	table-layout: auto !important;
 }

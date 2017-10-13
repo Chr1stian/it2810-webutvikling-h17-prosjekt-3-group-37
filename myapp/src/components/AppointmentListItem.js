@@ -1,13 +1,8 @@
 //Import React and ReactComponent
 import React, { Component } from 'react';
 //Import Material UI
-import FlatButton from 'material-ui/FlatButton';
+import RaisedButton from 'material-ui/RaisedButton';
 import {
-  Table,
-  TableBody,
-  TableFooter,
-  TableHeader,
-  TableHeaderColumn,
   TableRow,
   TableRowColumn,
 } from 'material-ui/Table';
@@ -35,14 +30,16 @@ class AppointmentListItem extends Component {
 	    } else {
 	      date = appointment.date;
 	    }
+	    const customColumnStyle = { width: 100};
+	    const textColumnStyle = { width: 150, 'maxWidth':'150px', whiteSpace: 'normal', wordWrap: 'break-word'}
 		return (
 				//Creates and returns the appointment tablerow to the Appointment.js Component
 				<TableRow className="appointment">
-              		<TableRowColumn>{date}</TableRowColumn>
-              		<TableRowColumn>{appointment.title}</TableRowColumn>
-              		<TableRowColumn>{appointment.fromTime} - {appointment.toTime}</TableRowColumn>
-              		<TableRowColumn>{appointment.place}</TableRowColumn>
-              		<TableRowColumn><FlatButton onClick = {this.deleteAppointment}>Delete</FlatButton></TableRowColumn>
+              		<TableRowColumn style={{ width: 100 }}>{date}</TableRowColumn>
+              		<TableRowColumn style={textColumnStyle}>{appointment.title}</TableRowColumn>
+              		<TableRowColumn style={customColumnStyle}>{appointment.fromTime} - {appointment.toTime}</TableRowColumn>
+              		<TableRowColumn style={textColumnStyle}>{appointment.place}</TableRowColumn>
+              		<TableRowColumn><RaisedButton primary={true} onClick = {this.deleteAppointment}>Delete</RaisedButton></TableRowColumn>
             	</TableRow>
 			)
 	}
