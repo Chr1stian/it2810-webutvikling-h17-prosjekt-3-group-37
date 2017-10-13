@@ -1,4 +1,7 @@
+//Import React and Component
 import React, { Component } from 'react';
+
+//Import material-ui for design
 import { CardText, CardTitle } from 'material-ui/Card';
 import RaisedButton from 'material-ui/RaisedButton';
 import { Link } from 'react-router-dom';
@@ -17,17 +20,16 @@ class NotesHome extends Component {
         noteText = (getValue.substring(0,69));
       }
     }else{
-      noteText = "You got no note."
+      noteText = "You got no note.";
     }
-    //console.log(getValue.length);
     return(
       <div>
-      <CardTitle style={{'paddingBottom':'4px', 'textAlign':'center', 'paddingTop':'4px'}} title="Notes"></CardTitle>
-      <Divider />
-      <CardText>{ noteText }</CardText>
-      <RaisedButton style={{'display':'flex'}} secondary={true}>
-        <Link className="navLink" to="/notes">EDIT YOUR NOTE</Link>
-      </RaisedButton>
+        <CardTitle style={{'paddingBottom':'4px', 'textAlign':'center', 'paddingTop':'4px'}} title="Notes" />
+        <Divider />
+        <CardText>{ noteText }</CardText>
+        <RaisedButton style={{'display':'flex'}} secondary={true}>
+          <Link className="navLink" to="/notes">EDIT YOUR NOTE</Link>
+        </RaisedButton>
       </div>
     )
 

@@ -1,4 +1,7 @@
+//Import React and Component
 import React, { Component } from 'react';
+
+//Import material-ui for design
 import { CardText, CardTitle} from 'material-ui/Card';
 import RaisedButton from 'material-ui/RaisedButton';
 import { Link } from 'react-router-dom';

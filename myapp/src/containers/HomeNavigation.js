@@ -1,17 +1,18 @@
+//Import React and Component
 import React, { Component } from 'react';
+
+//Import Components
 import NotesHome from './../components/NotesHome';
 import ToDoHome from './../components/ToDoHome';
 import AppointmentsHome from './../components/AppointmentsHome';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import getMuiTheme from 'material-ui/styles/getMuiTheme';
-import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
+
+//Import material-ui for design
 import { Card } from 'material-ui/Card';
 
-class HomeNavigation extends Component {
 
+class HomeNavigation extends Component {
   render () {
     return(
-    <MuiThemeProvider muiTheme={getMuiTheme(darkBaseTheme)}>
       <div>
         <Card className="navigationCard">
           <AppointmentsHome />
@@ -23,7 +24,6 @@ class HomeNavigation extends Component {
           <ToDoHome />
         </Card>
       </div>
-    </MuiThemeProvider>
     )
   }
 }

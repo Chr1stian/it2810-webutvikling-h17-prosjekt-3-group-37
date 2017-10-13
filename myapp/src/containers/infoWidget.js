@@ -1,5 +1,10 @@
+//Import React
 import React from 'react';
+
+//Import API for weather retrival
 import DarkSkyApi from 'dark-sky-api';
+
+//Import material-ui and WeatherIcon for design
 import WeatherIcon from './../components/WeatherIcons';
 import { Card, CardMedia, CardText, CardTitle } from 'material-ui/Card';
 import Divider from 'material-ui/Divider';
@@ -20,12 +25,7 @@ class InfoWidget extends React.Component {
     this.onLoad = this.onLoad.bind(this);
   }
 
-  componentWillMount() {
-
-  }
-
   componentDidMount() {
-    console.log("InfoWidget is running");
     this.getWeather();
   }
 
@@ -38,27 +38,28 @@ class InfoWidget extends React.Component {
     })
   }
 
-
   getWeather(){
       DarkSkyApi.apiKey = '0c0321e33833aa3705e8d6a1ebeb6b37';
       DarkSkyApi.units = 'ca'; // default 'us'
       DarkSkyApi.lang = 'nb';
+
       DarkSkyApi.postProcessor = (item) => { // default null;
         item.day = item.dateTime.format('ddd');
         return item;
       }
 
       const position = {
-      latitude: 63.4305,
-      longitude: 10.3951
-    };
+        latitude: 63.4305,
+        longitude: 10.3951
+      };
 
       DarkSkyApi.loadCurrent(position).then(
-          data => {this.onLoad([(data.temperature.toString().split('.')[0] + "℃"),
-          data.summary,
-          data.icon,
-          ("Trondheim ")
-])}
+          data => {this.onLoad([(
+            data.temperature.toString().split('.')[0] + "℃"),
+            data.summary,
+            data.icon,
+            ("Trondheim ")
+          ])}
         );
     }
 
@@ -68,22 +69,19 @@ class InfoWidget extends React.Component {
     let trainingStatus;
     if (this.state.icon === "clear-day") {
       trainingStatus = "The nice weather says you should get out!"
-    }else {
+    } else {
       trainingStatus = "Not so good weather today, so stay inside!"
     }
 
     return(
-
         <Card className="infoWidget">
           <CardMedia className="weatherIconDiv">
             <WeatherIcon className="weatherIconPosition" imgSrc={this.state.icon} />
           </CardMedia>
-
           <CardTitle titleColor={'#fff'} title={this.state.title} />
-
-
           <CardText style={{'fontSize':  '20px', 'paddingTop': '0'}}>
-            <span id="cardTextLeft">{this.state.temp}</span> <span id="cardTextRight"> {this.state.summary} </span>
+            <span id="cardTextLeft">{this.state.temp}</span>
+            <span id="cardTextRight"> {this.state.summary}</span>
           </CardText>
           <Divider />
           <CardText style={{'textAlign' : 'center'}}>
@@ -92,12 +90,8 @@ class InfoWidget extends React.Component {
           <Divider />
           <Clock />
         </Card>
-
-
-  );
-}
-
-
+    );
+  }
 }
 
 
