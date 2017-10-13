@@ -1,22 +1,20 @@
+//Import React, ReactComponents and style
 import React, { Component } from 'react';
 import './../style/TodoItem.css';
+
+//Import Material UI
 import {Card, CardActions, CardHeader, CardText} from 'material-ui/Card';
-import FlatButton from 'material-ui/FlatButton'
-
-export default class TodoItem extends Component {
+import FlatButton from 'material-ui/FlatButton';
 
 
-
+class TodoItem extends Component {
 	deleteTodoItem = () => {
 		this.props.deleteTodoItem(this.props.todoItem)
-
 	}
 
 	editTodoItem = () => {
 		this.props.editTodoItem(this.props.todoItem)
-
 	}
-
 
 	render() {
 		const {todoItem} = this.props
@@ -29,15 +27,13 @@ export default class TodoItem extends Component {
 						<CardText className="CardText">{ todoItem.text }</CardText>
 						</div>
 						<CardActions className="todoItemButtons">
-							<FlatButton onClick = {this.editTodoItem}>done</FlatButton>
-							<FlatButton onClick = {this.deleteTodoItem}>delete</FlatButton>
+							<FlatButton onClick = {this.editTodoItem}>Done</FlatButton>
+							<FlatButton onClick = {this.deleteTodoItem}>Delete</FlatButton>
 						</CardActions>
 					</div>
 				</Card>
 			</div>
 			)
-
 	}
-
-
 }
+export default TodoItem;
