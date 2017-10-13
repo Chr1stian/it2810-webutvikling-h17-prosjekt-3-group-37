@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import './../style/todoitem.css';
+import './../style/TodoItem.css';
 import {Card, CardActions, CardHeader, CardText} from 'material-ui/Card';
 import FlatButton from 'material-ui/FlatButton'
 
 export default class TodoItem extends Component {
 
-	
+
 
 	deleteTodoItem = () => {
 		this.props.deleteTodoItem(this.props.todoItem)
@@ -14,7 +14,7 @@ export default class TodoItem extends Component {
 
 	editTodoItem = () => {
 		this.props.editTodoItem(this.props.todoItem)
-		
+
 	}
 
 

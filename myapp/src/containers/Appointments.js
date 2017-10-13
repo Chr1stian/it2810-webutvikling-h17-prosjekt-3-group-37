@@ -10,15 +10,7 @@ import TimePicker from 'material-ui/TimePicker';
 import FlatButton from 'material-ui/FlatButton';
 import { Card, CardMedia, CardText, CardTitle } from 'material-ui/Card';
 import Divider from 'material-ui/Divider';
-import {
-  Table,
-  TableBody,
-  TableFooter,
-  TableHeader,
-  TableHeaderColumn,
-  TableRow,
-  TableRowColumn,
-} from 'material-ui/Table';
+import {Table, TableBody, TableFooter, TableHeader, TableHeaderColumn, TableRow, TableRowColumn} from 'material-ui/Table';
 
 //Import RandomID-generator. Moment and intl for date and time formatting
 import uuid from 'uuid';

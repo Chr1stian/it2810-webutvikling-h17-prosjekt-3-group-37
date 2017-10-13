@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import TodoItem from './../components/TodoItem';
-import './../style/todocontainer.css';
+import './../style/Todo.css';
 import uuid from 'uuid';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
@@ -9,7 +9,7 @@ import FlatButton from 'material-ui/FlatButton'
 import TextField from 'material-ui/TextField'
 import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme'
 
-export default class TodoContainer extends Component {
+class Todo extends Component {
 
 	constructor(props){
 		super(props);
@@ -110,3 +110,4 @@ export default class TodoContainer extends Component {
 		)
 	}
 }
+export default Todo;

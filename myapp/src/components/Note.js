@@ -1,11 +1,11 @@
 import React, { Component}  from 'react';
-import './../style/textarea.css';
+import './../style/Note.css';
 import Card from 'material-ui/Card';
 import TextField from 'material-ui/TextField';
 import CardTitle from 'material-ui/Card/CardTitle';
 import FlatButton from 'material-ui/FlatButton';
 
-class TextArea extends Component{
+class Note extends Component{
   constructor(props, context){
     super(props, context);
 
@@ -25,7 +25,6 @@ handleDelete = (event) => {
 
 }
 
-
     render(){
       return(
         <div className="noteContainer">
@@ -38,5 +37,4 @@ handleDelete = (event) => {
     );
   }
 }
-
-export default TextArea;
+export default Note;
