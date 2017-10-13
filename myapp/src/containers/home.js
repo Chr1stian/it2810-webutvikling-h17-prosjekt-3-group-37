@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import InfoWidget from './infoWidget';
+import InfoWidget from './InfoWidget';
 import Moment from 'moment';
 import HomeNavigation from './HomeNavigation'
 
@@ -57,10 +57,5 @@ class Home extends Component {
       </div>
     );
   };
-
-
-
 }
-
-
 export default Home;

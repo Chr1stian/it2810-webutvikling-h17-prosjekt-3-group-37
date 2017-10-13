@@ -2,10 +2,10 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import registerServiceWorker from './registerServiceWorker';
-import DesignContainer from './containers/design'
+import Router from './containers/Router'
 
 const App = () => (
-  <DesignContainer />
+  <Router />
 )
 
 ReactDOM.render(<App />, document.getElementById('root'));

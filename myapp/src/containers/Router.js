@@ -7,14 +7,14 @@ import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
 
 import Navbar from './Navbar';
-import Home from './home';
-import TextArea from './../components/TextArea';
-import TodoContainer from './TodoContainer';
+import Home from './Home';
+import Note from './../components/Note';
+import Todo from './Todo';
 import Appointments from './Appointments.js';
 import Moment from 'moment';
 
 
-class DesignContainer extends Component {
+class Router extends Component {
 constructor(props){
   super();
 
@@ -70,9 +70,9 @@ componentDidMount() {
                 <Switch>
 
                   <Route exact path="/" component={Home} />
-                  <Route path="/todo" component={TodoContainer} />
-                  <Route path="/notes" component={TextArea} />
-                  <Route path="/appointment" component={Appointments} />
+                  <Route path="/todo" component={Todo} />
+                  <Route path="/note" component={Note} />
+                  <Route path="/appointments" component={Appointments} />
 
                 </Switch>
               </div>
@@ -85,4 +85,4 @@ componentDidMount() {
   };
 }
 
-export default DesignContainer;
+export default Router;
