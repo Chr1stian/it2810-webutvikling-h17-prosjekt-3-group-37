@@ -11,11 +11,7 @@ a {
 }
 
 #app-area {
-  height: 100%;
-}
-
-#app-area {
-  height: 100vh;
+  height: calc(100vh - 70px);
 }
 
 .App {
@@ -23,7 +19,7 @@ a {
 }
 
 .App-header {
-  background-color: #222;
+  background-color: #303030;
   height: 70px;
   color: white;
 }
@@ -46,13 +42,13 @@ a {
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  color: #E3E4DB;
+  color: white;
   width: 100px;
 }
 
 .App-navbar li a {
   text-decoration: none;
-  color: #E3E4DB;
+  color: white;
   height: 100%;
   width: 100%;
   display: flex;
