@@ -14,10 +14,10 @@ class HomeNavigation extends Component {
     <MuiThemeProvider muiTheme={getMuiTheme(darkBaseTheme)}>
       <div>
         <Card className="navigationCard">
-          <NotesHome />
+          <AppointmentsHome />
         </Card>
         <Card className="navigationCard">
-          <AppointmentsHome />
+          <NotesHome />
         </Card>
         <Card className="navigationCard">
           <ToDoHome />
