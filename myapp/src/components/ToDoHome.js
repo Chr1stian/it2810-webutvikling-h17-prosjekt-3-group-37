@@ -8,9 +8,10 @@ class ToDoHome extends Component {
 
 
   render(){
-    let todolist = JSON.parse(localStorage.getItem('notes'));
+    let todolist = JSON.parse(localStorage.getItem('todoitems'));
     let TodoList = todolist || [];
     let newestTodo = "Lucky you, have nothing todo";
+    console.log(TodoList);
     if(TodoList.length > 0){
         console.log(TodoList[0].title);
         newestTodo = ("Remember to: " + TodoList[0].title)
@@ -20,7 +21,7 @@ class ToDoHome extends Component {
       <div>
       <CardTitle style={{'paddingBottom':'0', 'textAlign':'center', 'paddingTop':'4px'}} title="ToDo"></CardTitle>
       <Divider />
-      <CardText>{newestTodo}</CardText>
+      <CardText className="todoHomeText">{newestTodo}</CardText>
       <RaisedButton style={{'display':'flex'}} secondary={true}>
         <Link className="navLink" to="/todo">EDIT YOUR TODOS</Link>
       </RaisedButton>
