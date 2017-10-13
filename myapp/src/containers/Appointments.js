@@ -7,8 +7,8 @@ import AppointmentListItem from './../components/AppointmentListItem';
 import DatePicker from 'material-ui/DatePicker';
 import TextField from 'material-ui/TextField';
 import TimePicker from 'material-ui/TimePicker';
-import FlatButton from 'material-ui/FlatButton';
-import { Card, CardMedia, CardText, CardTitle } from 'material-ui/Card';
+import RaisedButton from 'material-ui/RaisedButton';
+import { Card, CardTitle } from 'material-ui/Card';
 import Divider from 'material-ui/Divider';
 import {Table, TableBody, TableFooter, TableHeader, TableHeaderColumn, TableRow, TableRowColumn} from 'material-ui/Table';
 
@@ -104,17 +104,18 @@ class Appointments extends Component {
       Iterates trough the appointmentList with all appointments and creates a tablerow for each using the AppointmentListItem-Component
       Displays text, datepicker, timepicker and a button to create a new appointment
       */
-      <div className="Appointments">
-        <Card className="See-Appointment">
+      <div className="Appointment">
+        <Card className="SeeAppointment">
          <CardTitle title="Your Appointments"/>
          <Divider />
-            <Table>
-                <TableHeader>
+            <Table className="AppointmentTable">
+                <TableHeader displaySelectAll={false} adjustForCheckbox={false}>
                 <TableRow>
-                    <TableHeaderColumn>Date</TableHeaderColumn>
-                    <TableHeaderColumn>Title</TableHeaderColumn>
-                    <TableHeaderColumn>Time</TableHeaderColumn>
-                    <TableHeaderColumn>Place</TableHeaderColumn>
+                    <TableHeaderColumn style={{ width: 100, fontSize: '20px'}}>Date</TableHeaderColumn>
+                    <TableHeaderColumn style={{ width: 150, fontSize: '20px'}}>Title</TableHeaderColumn>
+                    <TableHeaderColumn style={{ width: 100, fontSize: '20px'}}>Time</TableHeaderColumn>
+                    <TableHeaderColumn style={{ width: 150, fontSize: '20px'}}>Place</TableHeaderColumn>
+                    <TableHeaderColumn><RaisedButton style={{visibility:'hidden'}} primary={true}>Delete</RaisedButton></TableHeaderColumn>
                   </TableRow>
                 </TableHeader>
                 <TableBody>
@@ -122,15 +123,15 @@ class Appointments extends Component {
                 </TableBody>
             </Table>
           </Card>
-          <Card className="Create-Appointment">
+          <Card className="CreateAppointment">
             <CardTitle title="Create Appointment"/>
             <Divider />
-            <div className="Form-Fields">
+            <div className="FormFields">
               <TextField id="titleText" hintText="Enter title" />
               <DatePicker id="dateValue" hintText="Select date" DateTimeFormat={DateTimeFormat} locale="en-GB" minDate={new Date()} />
               <TimePicker id="fromTime" format="24hr" hintText="Select start-time" minutesStep={15}/> <TimePicker id="toTime" format="24hr" hintText="Select end-time" minutesStep={15}/>
               <TextField id="placeText" hintText="Enter place/address" />
-              <FlatButton id="addAppointment" onClick={this.addAppointment}>Add Appointment</FlatButton>
+              <RaisedButton primary={true} id="addAppointment" onClick={this.addAppointment}>Add Appointment</RaisedButton>
             </div>
           </Card>
       </div>
