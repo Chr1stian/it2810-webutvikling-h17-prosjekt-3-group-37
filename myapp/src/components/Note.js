@@ -14,11 +14,16 @@ class Note extends Component{
     };
     this.handleChange = this.handleChange.bind(this);
   }
-
+/*
+When inputvalue Changes both state.value localstorage updates
+*/
 handleChange = (event) => {
   this.setState({value: event.target.value});
   localStorage.setItem('value', event.target.value);
 }
+/*
+when delete button is pressed both state.value and localStorage is emptied.
+*/
 handleDelete = (event) => {
   localStorage.setItem('value', "");
   this.setState({value: ""});
