@@ -71,8 +71,20 @@ class Todo extends Component {
 		document.getElementById("toggleDone").getElementsByTagName("div")[0].innerHTML = setText
 	}
 	render() {
-		const { todolist } = this.state
-		console.log(todolist[0])
+		const { todolist } = this.state;
+		let doneTodoList = todolist.filter(function (todoItem) {return todoItem.finished}).map((todoItem) => <TodoItem key={todoItem.ID} todoItem={todoItem} editTodoItem={this.editTodoItem} deleteTodoItem={this.deleteTodoItem}/>);
+
+		let showTasks;
+		if (todolist.length === 0) {
+			showTasks = "You have no items todo";
+		}else{
+			if(doneTodoList.length !== 0){
+				showTasks = <FlatButton id="toggleDone" onClick = {this.toggleDone}>Hide finished tasks</FlatButton>;
+			}
+		}
+
+
+
 		return (
      	<div>
 	      <div className="creatorContainer">
@@ -80,18 +92,18 @@ class Todo extends Component {
 						<CardActions className="todoItemCreatorContent">
 								<TextField id="title-field" hintText="What task?"/>
 								<TextField id="comment-field" hintText="Optional comment" />
-								<FlatButton onClick = {this.addTodoItem}>add</FlatButton>
+								<FlatButton onClick = {this.addTodoItem}>Add</FlatButton>
 						</CardActions>
 					</Card>
 				</div>
 				<div className="todoItemContainer" id="notdone">
 				{ todolist.filter(function (todoItem) {return !todoItem.finished}).map((todoItem) => <TodoItem key={todoItem.ID} todoItem={todoItem} editTodoItem={this.editTodoItem} deleteTodoItem={this.deleteTodoItem}/>) }
 					<div>
-						<FlatButton id="toggleDone" onClick = {this.toggleDone}>Hide finished tasks</FlatButton>
+						{showTasks}
 					</div>
 				</div>
 			<div className="todoItemContainer" id="done">
-				{ todolist.filter(function (todoItem) {return todoItem.finished}).map((todoItem) => <TodoItem key={todoItem.ID} todoItem={todoItem} editTodoItem={this.editTodoItem} deleteTodoItem={this.deleteTodoItem}/>) }
+				{doneTodoList}
 			</div>
 		</div>
 		)

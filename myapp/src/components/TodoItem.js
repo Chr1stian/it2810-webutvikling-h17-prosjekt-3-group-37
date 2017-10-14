@@ -17,14 +17,16 @@ class TodoItem extends Component {
 	}
 
 	render() {
-		const {todoItem} = this.props
+		const {todoItem} = this.props;
+		const textStyle = { width: '150px', whiteSpace: 'normal', wordWrap: 'break-word', textWrap: 'wrap'};
+		const headerStyle = { width: '75px', whiteSpace: 'normal', wordWrap: 'break-word', textWrap: 'wrap'};
 		return (
 			<div>
 				<Card className="todoItem">
 					<div>
 						<div className="todoItemText">
-						<CardHeader className ="CardHeader" title={todoItem.title} />
-						<CardText className="CardText">{ todoItem.text }</CardText>
+						<CardText className ="CardHeader" style={headerStyle}>{todoItem.title}</CardText>
+						<CardText className="CardText" style={textStyle} >{ todoItem.text }</CardText>
 						</div>
 						<CardActions className="todoItemButtons">
 							<FlatButton onClick = {this.editTodoItem}>Done</FlatButton>
