@@ -33,7 +33,9 @@ handleDelete = (event) => {
   this.setState({value: ""});
 
 }
-
+/*
+Rendering note with material-ui elements.
+*/
     render(){
       return(
         <div className="noteContainer">
