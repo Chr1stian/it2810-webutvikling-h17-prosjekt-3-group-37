@@ -5,6 +5,10 @@ import TextField from 'material-ui/TextField';
 import CardTitle from 'material-ui/Card/CardTitle';
 import FlatButton from 'material-ui/FlatButton';
 
+
+/*
+This class is the Note component handeling notes and saves in local storage when changes.
+*/
 class Note extends Component{
   constructor(props, context){
     super(props, context);
