@@ -211,7 +211,8 @@ and (max-device-width : 1024px)  {
 }
 
 .appointmentHomeInfo > div{
-  max-width: 100px;
+  max-width: 90px;
+  word-break: break-all;
 }
 
 #appointmentHomeTime {

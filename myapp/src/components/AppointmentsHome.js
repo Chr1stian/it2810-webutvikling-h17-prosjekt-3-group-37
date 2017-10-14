@@ -17,9 +17,19 @@ class AppointmentsHome extends Component {
     let appointmentTime;
     let appointmentPlace;
     if(appointmentList.length > 0){
-        appointmentTitle = appointmentList[0].title;
-        appointmentTime = (appointmentList[0].fromTime + " - " + appointmentList[0].toTime);
-        appointmentPlace = appointmentList[0].place;
+      if (appointmentList[0].title.length > 50) {
+        appointmentTitle = (appointmentList[0].title.substring(0,50) + "...");
+      }else{
+        appointmentTitle = (appointmentList[0].title.substring(0,50));
+      }
+
+      if (appointmentList[0].place.length > 50) {
+        appointmentPlace = (appointmentList[0].place.substring(0,50) + "...");
+      }else{
+        appointmentPlace = (appointmentList[0].place.substring(0,50));
+      }
+      appointmentTime = (appointmentList[0].fromTime + " - " + appointmentList[0].toTime);
+
     }else {
       appointmentTime = "--";
       appointmentTitle = "--";

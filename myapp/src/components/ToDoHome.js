@@ -15,7 +15,12 @@ class ToDoHome extends Component {
     let TodoList = todolist || [];
     let newestTodo = "Lucky you, have nothing todo";
     if(TodoList.length > 0){
+      if (TodoList[0].title.length > 70) {
+        newestTodo = ("Remember to: " + TodoList[0].title.substring(0,70) + "...")
+      }else {
         newestTodo = ("Remember to: " + TodoList[0].title)
+      }
+
     }
     return(
       <div>
