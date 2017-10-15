@@ -31,7 +31,6 @@ when delete button is pressed both state.value and localStorage is emptied.
 handleDelete = (event) => {
   localStorage.setItem('value', "");
   this.setState({value: ""});
-
 }
 /*
 Rendering note with material-ui elements.
