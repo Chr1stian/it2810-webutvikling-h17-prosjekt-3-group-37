@@ -1,47 +1,47 @@
-.inputs {
+.Inputs {
 	display: flex;
 	flex-direction: row;
 }
 
-.todoItemText {
+.TodoItemText {
 	display: flex;
 	justify-content: space-between;
 	flex-grow: 100;
 
 }
 
-.cardText {
+.CardText {
 	flex-grow: 100;
 	text-align: right;
 	font-style: italic;
 }
 
-.cardHeader {
+.CardHeader {
 	flex-grow: 100;
 }
 
-.todoItemButtons {
+.TodoItemButtons {
 	display: flex;
 	flex-direction: row;
 	flex-grow: 0;
 
 }
 
-.todoItemCreator {
+.TodoItemCreator {
 	margin-top: 20px;
 	margin-left: auto;
 	margin-right: auto;
 
 }
 
-#toggleDone div {
+#ToggleDone div {
 	margin-left : 20px;
 	margin-right: 20px;
 	margin-top: 5px;
 	margin-bottom: 5px;
 }
 
-.todoItemContainer {
+.TodoItemContainer {
 	width: 40%;
 	margin-right: auto;
 	margin-left: auto;
@@ -50,7 +50,7 @@
     margin-top: 30px;
 }
 
-.creatorContainer {
+.CreatorContainer {
 	margin-left: auto;
 	margin-right: auto;
 	display: flex;
@@ -60,7 +60,7 @@
 
 @media screen and (max-width: 1200px){
 
-	.todoItemContainer {
+	.TodoItemContainer {
 		width: 60%;
 
 
@@ -69,7 +69,7 @@
 
 @media screen and (max-width: 900px){
 
-	.todoItemContainer {
+	.TodoItemContainer {
 		width: 75%;
 
 
@@ -77,34 +77,34 @@
 }
 
 @media screen and (max-width: 800px){
-	.todoItemContainer {
+	.TodoItemContainer {
 		width: 85%;
 	}
 }
 
 @media screen and (max-width: 700px){
-	.todoItemContainer {
+	.TodoItemContainer {
 		width: 95%;
 	}
 
-	.todoItemCreator {
+	.TodoItemCreator {
 	}
 
 
 }
 
 @media screen and (max-width: 630px){
-	.todoItemContainer {
+	.TodoItemContainer {
 		width: 100%;
 
-	}	.todoItemCreator {
+	}	.TodoItemCreator {
 		margin-left: 10px;
 		margin-right: 10px;
 	}
 
 
 
-	#toggleDone {
+	#ToggleDone {
 		margin-left: 10px !important;
 	}
 

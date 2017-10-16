@@ -1,27 +1,27 @@
-.todoItem > div > div {
+.TodoItem > div > div {
 	display: flex;
 	justify-content: space-between;
 }
 
-.todoItem {
+.TodoItem {
 	margin-bottom: 10px;
 }
 
 @media screen and (max-width: 630px){
 
-	.todoItem > div > div{
+	.TodoItem > div > div{
 		display: flex;
 		flex-flow: row wrap;
 		justify-content: flex-start;
 	}
 
-	.todoItem {
+	.TodoItem {
 		
 		margin-left: 10px;
 		margin-right: 10px
 	}
 
-	.todoItemButtons {
+	.TodoItemButtons {
 		margin-left: 0;
 	}	
 }

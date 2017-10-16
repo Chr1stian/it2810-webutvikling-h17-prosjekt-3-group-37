@@ -27,8 +27,8 @@ class Todo extends Component {
 	}
 	//Creates a todo item and adds it to the list
 	addTodoItem = () => {
-		let title = document.getElementById("title-field").value;
-		let text = document.getElementById("comment-field").value;
+		let title = document.getElementById("TitleField").value;
+		let text = document.getElementById("CommentField").value;
 		if (title !== "") {
 			let {todolist} = this.state;
 			//Adds the new todo item to the list
@@ -37,10 +37,10 @@ class Todo extends Component {
 			//Saves the list to localStorage
 			localStorage.setItem('todoitems', JSON.stringify(todolist));
 			//Resets the new Todo item fields and hint text
-			document.getElementById("title-field").value = "";
-			document.getElementById("comment-field").value = "";
-			document.getElementById("title-field").placeholder = "What task?";
-			document.getElementById("comment-field").placeholder = "Optional comment";
+			document.getElementById("TitleField").value = "";
+			document.getElementById("CommentField").value = "";
+			document.getElementById("TitleField").placeholder = "What task?";
+			document.getElementById("CommentField").placeholder = "Optional comment";
 		}
 	}
 	//Deletes the selected todo item
@@ -63,12 +63,12 @@ class Todo extends Component {
 	toggleDone = () => {
 		let setvalue = "None";
 		let setText = "Show finished tasks";
-		if (document.getElementById("done").style.display === "none"){
+		if (document.getElementById("Done").style.display === "none"){
 			setvalue = "Flex";
 			setText = "Hide finished tasks";
 		}
-		document.getElementById("done").style.display = setvalue;
-		document.getElementById("toggleDone").getElementsByTagName("div")[0].innerHTML = setText;
+		document.getElementById("Done").style.display = setvalue;
+		document.getElementById("ToggleDone").getElementsByTagName("div")[0].innerHTML = setText;
 	}
 	render() {
 		let { todolist } = this.state;
@@ -91,7 +91,7 @@ class Todo extends Component {
 		} else {
 			if (doneTodoList.length !== 0) {
 				let buttonStyle = {backgroundColor: "#555555", height: "auto", marginTop: "20px", marginBottom: "-20px"}
-				showTasks = <FlatButton style={buttonStyle} id="toggleDone" onClick = {this.toggleDone}>Hide finished tasks</FlatButton>;
+				showTasks = <FlatButton style={buttonStyle} id="ToggleDone" onClick = {this.toggleDone}>Hide finished tasks</FlatButton>;
 			}
 		}
 
@@ -104,16 +104,16 @@ class Todo extends Component {
 		return (
 
      		<div>
-	      		<div className="creatorContainer">
-					<Card className="todoItemCreator">
-						<CardActions className="todoItemCreatorContent">
-							<TextField id="title-field" hintText="What task?"/>
-							<TextField id="comment-field" hintText="Optional comment" />
+	      		<div className="CreatorContainer">
+					<Card className="TodoItemCreator">
+						<CardActions className="TodoItemCreatorContent">
+							<TextField id="TitleField" hintText="What task?"/>
+							<TextField id="CommentField" hintText="Optional comment" />
 							<FlatButton style={{backgroundColor: "#555555"}} onClick = {this.addTodoItem}>Add</FlatButton>
 						</CardActions>
 					</Card>
 				</div>
-				<div className="todoItemContainer" id="notdone">
+				<div className="TodoItemContainer" id="NotDone">
 					{ todolist
 						.filter(function (todoItem) {return !todoItem.finished})
 						.map((todoItem) => 
@@ -129,7 +129,7 @@ class Todo extends Component {
 						{showTasks}
 					</div>
 				</div>
-				<div className="todoItemContainer" id="done">
+				<div className="TodoItemContainer" id="Done">
 					{doneTodoList}
 				</div>
 			</div>

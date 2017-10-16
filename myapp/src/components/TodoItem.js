@@ -32,14 +32,14 @@ class TodoItem extends Component {
 		return (
       	//Creates and returns the todoItem card to the Todo.js Component
 			<div>
-				<Card style={{backgroundColor: cardColor}} className="todoItem">
+				<Card style={{backgroundColor: cardColor}} className="TodoItem">
 					<div>
-						<div className="todoItemText">
-						<CardText className="CardHeader" style={headerStyle}>{todoItem.title}</CardText>
-						<CardText className="CardText" style={textStyle} >{ todoItem.text }</CardText>
+						<div className="TodoItemText">
+							<CardText className="CardHeader" style={headerStyle}>{todoItem.title}</CardText>
+							<CardText className="CardText" style={textStyle} >{ todoItem.text }</CardText>
 						</div>
-						<CardActions className="todoItemButtons">
-							<FlatButton style={{backgroundColor: buttonColor}} id="doneButton" onClick = {this.setStatusTodoItem}>{status}</FlatButton>
+						<CardActions className="TodoItemButtons">
+							<FlatButton style={{backgroundColor: buttonColor}} id="DoneButton" onClick = {this.setStatusTodoItem}>{status}</FlatButton>
 							<FlatButton style={{backgroundColor: buttonColor}} onClick = {this.deleteTodoItem}>Delete</FlatButton>
 						</CardActions>
 					</div>
