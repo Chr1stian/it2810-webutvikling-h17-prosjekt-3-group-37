@@ -48,7 +48,6 @@ var Clock = function (_React$Component) {
         this.updateClock();
         var timeInterval = setInterval(function () {
             if(document.getElementById('js-seconds') == null){
-              console.log("Stops the clock");
               clearInterval(timeInterval)
             }else{
               _this2.updateDate();

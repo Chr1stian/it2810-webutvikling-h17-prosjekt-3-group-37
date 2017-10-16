@@ -1,7 +1,11 @@
+//Import React and Component
 import React, { Component } from 'react';
+
+//Import material-ui for design
 import { CardText, CardTitle } from 'material-ui/Card';
 import RaisedButton from 'material-ui/RaisedButton';
 import { Link } from 'react-router-dom';
+import Divider from 'material-ui/Divider';
 
 class NotesHome extends Component {
 
@@ -10,18 +14,22 @@ class NotesHome extends Component {
     let noteList = getValue || [];
     let noteText;
     if (noteList.length > 1) {
-      noteText = (getValue.substring(0,50) + "...");
+      if (noteList.length > 70) {
+        noteText = (getValue.substring(0,70) + "...");
+      }else{
+        noteText = (getValue.substring(0,69));
+      }
     }else{
-      noteText = "You got no note."
+      noteText = "You got no note.";
     }
-    //console.log(getValue.length);
     return(
       <div>
-      <CardTitle style={{'paddingBottom':'0'}} title="Notes"></CardTitle>
-      <CardText>{ noteText }</CardText>
-      <RaisedButton style={{'display':'flex'}}>
-        <Link className="navLink" to="/note">EDIT YOUR NOTE</Link>
-      </RaisedButton>
+        <CardTitle style={{'paddingBottom':'4px', 'textAlign':'center', 'paddingTop':'4px'}} title="Notes" />
+        <Divider />
+        <CardText>{ noteText }</CardText>
+        <RaisedButton style={{'display':'flex'}} secondary={true}>
+          <Link className="navLink" to="/note">EDIT YOUR NOTE</Link>
+        </RaisedButton>
       </div>
     )
 

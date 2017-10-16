@@ -1,3 +1,4 @@
+//Import React and Component
 import React from 'react';
 
 class WeatherIcon extends React.Component {
@@ -6,13 +7,6 @@ class WeatherIcon extends React.Component {
     this.state = {
       icon: props.imgSrc,
     }
-
-  }
-
-  componentWillMount() {
-  }
-
-  componentDidMount() {
   }
 
   componentWillReceiveProps(newProps) {
@@ -21,21 +15,18 @@ class WeatherIcon extends React.Component {
     });
   }
 
-  onLoad(input){
-  }
-
   render() {
     let iconSrc = (this.state.icon === 'loading');
     let source;
     if(iconSrc){
       source = require("./../img/weather/loading2.gif");
-    }else {
+    } else {
       source = require(("./../img/weather/" + this.state.icon + ".png"));
     }
     return(
         <img alt="weatherIcon" className="weatherIcon" src={source} />
     );
-}
+  }
 }
 
 
