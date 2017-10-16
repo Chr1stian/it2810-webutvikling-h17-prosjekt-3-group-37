@@ -53,7 +53,7 @@ class AppointmentsHome extends Component {
           </div>
         </CardText>
         <RaisedButton style={{'display':'flex'}} secondary={true}>
-          <Link className="navLink" to="/appointment">CHECK YOUR APPOINTMENTS</Link>
+          <Link className="navLink" to="/appointments">CHECK YOUR APPOINTMENTS</Link>
         </RaisedButton>
       </div>
     )

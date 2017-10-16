@@ -28,7 +28,7 @@ class NotesHome extends Component {
         <Divider />
         <CardText>{ noteText }</CardText>
         <RaisedButton style={{'display':'flex'}} secondary={true}>
-          <Link className="navLink" to="/notes">EDIT YOUR NOTE</Link>
+          <Link className="navLink" to="/note">EDIT YOUR NOTE</Link>
         </RaisedButton>
       </div>
     )
