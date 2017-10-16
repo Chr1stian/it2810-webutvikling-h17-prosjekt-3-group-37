@@ -7,7 +7,7 @@
     "intl": "^1.2.5",
     "intl-locales-supported": "^1.0.0",
     "material-ui": "^0.19.3",
-    "moment": "^2.18.1",
+    "moment": "2.18.1",
     "moment-range": "^3.0.3",
     "mui-react": "0.0.10",
     "react": "^16.0.0",
