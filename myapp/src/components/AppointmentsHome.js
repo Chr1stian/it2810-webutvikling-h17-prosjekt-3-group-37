@@ -25,12 +25,14 @@ class AppointmentsHome extends Component {
     let appointmentTime = "--";
     let appointmentTitle = "--";
     let appointmentPlace = "--";
+    let appointmentDate = "--";
 
     //Formats the strings if there is an item in appointmentList
     if(appointmentList.length > 0){
       appointmentTitle = this.formatString(appointmentList[0].title);
       appointmentPlace = this.formatString(appointmentList[0].place);
       appointmentTime = (appointmentList[0].fromTime + " - " + appointmentList[0].toTime);
+      appointmentDate = appointmentList[0].date;
     }
 
     return(
@@ -46,7 +48,10 @@ class AppointmentsHome extends Component {
           <Divider/>
           <div className="appointmentHomeInfo">
             <div id="appointmentHomeTitle">{appointmentTitle}</div>
-            <div id="appointmentHomeTime">{appointmentTime}</div>
+            <div id="appointmentHomeTime">
+              <span>{appointmentDate}</span>
+              <span>{appointmentTime}</span>
+            </div>
             <div id="appointmentHomePlace">{appointmentPlace}</div>
           </div>
         </CardText>
