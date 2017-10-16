@@ -1,3 +1,5 @@
+//This is a component from https://codepen.io/michaelkoelewijn/pen/XjVvGW
+
 import React from 'react';
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
