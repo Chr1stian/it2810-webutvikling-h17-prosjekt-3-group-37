@@ -10,9 +10,13 @@ a {
     color: #fff;
 }
 
+/* Css for Router.js */
+
 #app-area {
   height: calc(100vh - 70px);
 }
+
+/* Css for Navbar.js */
 
 .App {
   text-align: center;
@@ -59,12 +63,11 @@ a {
 .App-navbar li:hover {
   cursor: pointer;
   text-decoration: underline;
-  /*background-color: #CDCDCD;
-  color: #222;*/
 }
 
+/* Css for Home.js*/
 
-.weatherHere {
+.infoHere {
   display: flex;
   justify-content: center;
   flex-direction: row;
@@ -72,6 +75,7 @@ a {
   height: 100%;
 }
 
+/* Css for InfoWidget.js*/
 
 .infoWidget {
   width: 300px;
@@ -96,12 +100,6 @@ a {
 
 #cardTextRight {
   float: right;
-}
-
-.navigationCard {
-  width: 300px;
-  margin-left: 15px;
-  margin-top: 15px;
 }
 
 @media only screen
@@ -135,6 +133,8 @@ and (max-device-width : 1024px)  {
 	justify-content: center;
 
 }
+
+/* Css for Clock.js */
 
 .c-clock {
   transform: scale(0.8);
@@ -204,6 +204,14 @@ and (max-device-width : 1024px)  {
   border-radius: 10px;
 }
 
+/* Css for info på HomeNavigation.js*/
+
+.navigationCard {
+  width: 300px;
+  margin-left: 15px;
+  margin-top: 15px;
+}
+
 .appointmentHomeInfo{
   display: flex;
   justify-content: space-between;
@@ -223,6 +231,11 @@ and (max-device-width : 1024px)  {
 
 #appointmentHomePlace {
   text-align: right;
+  min-width: 80px;
+}
+
+#appointmentHomeTitle {
+  min-width: 80px;
 }
 
 .appointmentHomeInfoHeader {
