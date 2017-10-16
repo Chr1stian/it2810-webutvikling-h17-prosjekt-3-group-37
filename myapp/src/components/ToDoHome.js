@@ -9,19 +9,25 @@ import Divider from 'material-ui/Divider';
 
 class ToDoHome extends Component {
 
+  //Shortens to long strings
+  formatString (text){
+    if(text.length > 70){
+      return ("Remember to: " + text.substring(0,70) + "...");
+    }else {
+      return ("Remember to: " + text)
+    }
+  }
 
   render(){
     let todolist = JSON.parse(localStorage.getItem('todoitems'));
     let TodoList = todolist || [];
     let newestTodo = "Lucky you, have nothing todo";
-    if(TodoList.length > 0){
-      if (TodoList[0].title.length > 70) {
-        newestTodo = ("Remember to: " + TodoList[0].title.substring(0,70) + "...")
-      }else {
-        newestTodo = ("Remember to: " + TodoList[0].title)
-      }
 
+    //Formats the string if there is text
+    if(TodoList.length > 0){
+      newestTodo = this.formatString(TodoList[0].title);
     }
+    
     return(
       <div>
         <CardTitle style={{'paddingBottom':'0', 'textAlign':'center', 'paddingTop':'4px'}} title="ToDo" />
