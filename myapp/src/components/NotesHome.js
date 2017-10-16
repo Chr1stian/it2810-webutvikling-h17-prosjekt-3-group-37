@@ -26,7 +26,7 @@ class NotesHome extends Component {
       <div>
         <CardTitle style={{'paddingBottom':'4px', 'textAlign':'center', 'paddingTop':'4px'}} title="Notes" />
         <Divider />
-        <CardText>{ noteText }</CardText>
+        <CardText className="noteHomeText">{ noteText }</CardText>
         <RaisedButton style={{'display':'flex'}} secondary={true}>
           <Link className="navLink" to="/note">EDIT YOUR NOTE</Link>
         </RaisedButton>
