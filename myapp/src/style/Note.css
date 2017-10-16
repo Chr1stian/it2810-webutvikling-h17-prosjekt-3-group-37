@@ -1,3 +1,6 @@
+/*
+Area for component. Using flex to center both vertically and horizontally
+*/
 .noteContainer{
     display: flex;
     align-items: center;
@@ -6,13 +9,18 @@
     height: 100%;
 }
 
-
+/*
+this contains the textfield and button. This box is centered.
+*/
 .textArea{
   width: 40%;
   height: 500px;
 
 }
 
+/*
+This element centers title, inputbox and button 
+*/
 .textArea > div {
   display: flex;
   justify-content: center;
