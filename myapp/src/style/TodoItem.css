@@ -1,0 +1,26 @@
+.TodoItem > div > div {
+	display: flex;
+	justify-content: space-between;
+}
+
+.TodoItem {
+	margin-bottom: 10px;
+}
+
+@media screen and (max-width: 630px){
+
+	.TodoItem > div > div{
+		display: flex;
+		flex-flow: row wrap;
+		justify-content: flex-start;
+	}
+
+	.TodoItem {
+		margin-left: 10px;
+		margin-right: 10px
+	}
+
+	.TodoItemButtons {
+		margin-left: 0;
+	}
+}
