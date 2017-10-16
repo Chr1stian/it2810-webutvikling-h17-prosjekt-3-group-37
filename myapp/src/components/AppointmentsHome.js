@@ -37,7 +37,6 @@ class AppointmentsHome extends Component {
     }
     return(
       <div>
-<<<<<<< HEAD
         <CardTitle style={{'paddingBottom':'0', 'textAlign':'center', 'paddingTop':'4px'}} title="Appointment"></CardTitle>
         <Divider />
         <CardText>
@@ -55,12 +54,6 @@ class AppointmentsHome extends Component {
         </CardText>
         <RaisedButton style={{'display':'flex'}} secondary={true}>
           <Link className="navLink" to="/appointment">CHECK YOUR APPOINTMENTS</Link>
-=======
-        <CardTitle style={{'paddingBottom':'0'}} title="Appointment"></CardTitle>
-        <CardText>{newestAppointment}</CardText>
-        <RaisedButton style={{'display':'flex'}}>
-          <Link className="navLink" to="/appointments">CHECK YOUR APPOINTMENTS</Link>
->>>>>>> 9aebf51b8916532b95c42d719694d145adf1b197
         </RaisedButton>
       </div>
     )
