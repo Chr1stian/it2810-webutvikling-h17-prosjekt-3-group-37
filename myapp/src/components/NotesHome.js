@@ -9,19 +9,25 @@ import Divider from 'material-ui/Divider';
 
 class NotesHome extends Component {
 
+  //Shortens to long strings
+  formatString (text){
+    if(text.length > 70){
+      return (text.substring(0,70) + "...");
+    }else {
+      return text
+    }
+  }
+
   render(){
     let getValue = localStorage.getItem('value');
     let noteList = getValue || [];
-    let noteText;
-    if (noteList.length > 1) {
-      if (noteList.length > 70) {
-        noteText = (getValue.substring(0,70) + "...");
-      }else{
-        noteText = (getValue.substring(0,69));
-      }
-    }else{
-      noteText = "You got no note.";
+    let noteText = "You got no note.";
+
+    //Formats the string if there is text
+    if (noteList.length > 0) {
+      noteText = this.formatString(getValue);
     }
+
     return(
       <div>
         <CardTitle style={{'paddingBottom':'4px', 'textAlign':'center', 'paddingTop':'4px'}} title="Notes" />
