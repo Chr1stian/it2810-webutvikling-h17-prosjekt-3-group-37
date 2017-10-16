@@ -16,12 +16,11 @@
 	}
 
 	.TodoItem {
-		
 		margin-left: 10px;
 		margin-right: 10px
 	}
 
 	.TodoItemButtons {
 		margin-left: 0;
-	}	
+	}
 }
