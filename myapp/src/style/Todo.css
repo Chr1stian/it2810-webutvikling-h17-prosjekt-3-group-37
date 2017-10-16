@@ -1,112 +1,56 @@
-.inputs {
+.Inputs {
 	display: flex;
 	flex-direction: row;
 }
 
-.input {
-}
-
-.todoItemCreator button {
-	background-color: #555555 !important;
-}
-
-#notdone .todoItem button {
-	background-color: #555555 !important;
-}
-
-#toggleDone {
-	background-color: #555555 !important;
-	height: auto !important;
-	margin-top: 20px !important;
-	margin-bottom: -20px !important;
-}
-
-#toggleDone div {
-	margin-left : 20px;
-	margin-right: 20px;
-	margin-top: 5px;
-	margin-bottom: 5px;
-}
-
-#done button {
-	background-color: #007a87 !important;
-
-}
-
-#done .todoItem > div {
-	background-color: #0097a7;
-}
-
-.todoItemText {
+.TodoItemText {
 	display: flex;
 	justify-content: space-between;
 	flex-grow: 100;
 
 }
 
-
-
-
-
-.cardText {
+.CardText {
 	flex-grow: 100;
 	text-align: right;
 	font-style: italic;
 }
 
-.cardHeader {
+.CardHeader {
 	flex-grow: 100;
 }
 
-.todoItemButtons {
+.TodoItemButtons {
 	display: flex;
 	flex-direction: row;
 	flex-grow: 0;
 
 }
 
-.todoItemCreator {
+.TodoItemCreator {
 	margin-top: 20px;
 	margin-left: auto;
 	margin-right: auto;
 
 }
 
-
-.app-area {
+#ToggleDone div {
+	margin-left : 20px;
+	margin-right: 20px;
+	margin-top: 5px;
+	margin-bottom: 5px;
 }
 
-.button div {
-	text-align: center;
-}
-
-.todoItem > div > div {
-	display: flex;
-	justify-content: space-between;
-}
-
-.todoItem {
-	margin-bottom: 10px;
-}
-
-/*.note div:hover {
-  background-color:	 #ff9999;
-  cursor: pointer;
-}*/
-
-.todoItemContainer {
-	/*bottom: 0;*/
+.TodoItemContainer {
 	width: 40%;
 	margin-right: auto;
 	margin-left: auto;
     display: flex;
     flex-direction: column;
     margin-top: 30px;
-
-
 }
 
-.creatorContainer {
+.CreatorContainer {
 	margin-left: auto;
 	margin-right: auto;
 	display: flex;
@@ -116,7 +60,7 @@
 
 @media screen and (max-width: 1200px){
 
-	.todoItemContainer {
+	.TodoItemContainer {
 		width: 60%;
 
 
@@ -125,7 +69,7 @@
 
 @media screen and (max-width: 900px){
 
-	.todoItemContainer {
+	.TodoItemContainer {
 		width: 75%;
 
 
@@ -133,48 +77,34 @@
 }
 
 @media screen and (max-width: 800px){
-	.todoItemContainer {
+	.TodoItemContainer {
 		width: 85%;
 	}
 }
 
 @media screen and (max-width: 700px){
-	.todoItemContainer {
+	.TodoItemContainer {
 		width: 95%;
 	}
 
-	.todoItemCreator {
+	.TodoItemCreator {
 	}
 
 
 }
 
 @media screen and (max-width: 630px){
-	.todoItemContainer {
+	.TodoItemContainer {
 		width: 100%;
 
-	}	.todoItemCreator {
+	}	.TodoItemCreator {
 		margin-left: 10px;
 		margin-right: 10px;
 	}
 
-	.todoItem > div > div{
-	display: flex;
-	flex-flow: row wrap;
-	justify-content: flex-start;
-	}
 
-	.todoItem {
-		
-	margin-left: 10px;
-	margin-right: 10px
-	}
 
-	.todoItemButtons {
-	margin-left: 0;
-}	
-
-	#toggleDone {
+	#ToggleDone {
 		margin-left: 10px !important;
 	}
 
