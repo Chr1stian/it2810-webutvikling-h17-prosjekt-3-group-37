@@ -1,0 +1,25 @@
+.Appointment{
+	display: flex;
+	flex-direction: row-reverse;
+	justify-content: center;
+	align-items: center;
+	height: 100%;
+}
+
+.SeeAppointment{
+	padding: 20px;
+}
+
+.CreateAppointment{
+	padding: 20px;
+	margin-right: 15px;
+}
+
+.FormFields{
+	display: flex;
+	flex-direction: column;
+}
+
+.AppointmentTable{
+	table-layout: auto !important;
+}

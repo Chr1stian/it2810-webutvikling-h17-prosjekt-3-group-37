@@ -42,8 +42,8 @@ class Navbar extends Component {
           <ul className="App-navbar">
             <li id="home" onClick={this.openHome}><Link className="navLink" to="/">Home</Link></li>
             <li id="todocontainer" onClick={this.openTodo}><Link className="navLink" to="/todo">Todo</Link></li>
-            <li id="notes" onClick={this.openNotes}><Link className="navLink" to="/notes">Notes</Link></li>
-            <li id="appointment" onClick={this.openAppointments}><Link className="navLink" to="/appointment">Appointment</Link></li>
+            <li id="notes" onClick={this.openNotes}><Link className="navLink" to="/note">Note</Link></li>
+            <li id="appointment" onClick={this.openAppointments}><Link className="navLink" to="/appointments">Appointments</Link></li>
           </ul>
         </header>
 
