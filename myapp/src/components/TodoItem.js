@@ -22,25 +22,30 @@ class TodoItem extends Component {
 		//Styles for the todoItems text
 		const textStyle = { width: '150px', whiteSpace: 'normal', wordWrap: 'break-word', textWrap: 'wrap'};
 		const headerStyle = { width: '75px', whiteSpace: 'normal', wordWrap: 'break-word', textWrap: 'wrap'};
-		//Sets the button text for the todoItem depending on the boolean .finished
+
+
+		//Sets status text and colors for each card
 		let status = todoItem.finished ? "Undone" : "Done";
+		let buttonColor = todoItem.finished ? "#007a87" : "#555555";
+		let cardColor = todoItem.finished ? "#0097a7" : "#303030";
+
 		return (
-      //Creates and returns the todoItem card to the Todo.js Component
+      	//Creates and returns the todoItem card to the Todo.js Component
 			<div>
-				<Card className="todoItem">
+				<Card style={{backgroundColor: cardColor}} className="todoItem">
 					<div>
 						<div className="todoItemText">
-						<CardText className ="CardHeader" style={headerStyle}>{todoItem.title}</CardText>
+						<CardText className="CardHeader" style={headerStyle}>{todoItem.title}</CardText>
 						<CardText className="CardText" style={textStyle} >{ todoItem.text }</CardText>
 						</div>
 						<CardActions className="todoItemButtons">
-							<FlatButton id="doneButton" onClick = {this.setStatusTodoItem}>{status}</FlatButton>
-							<FlatButton onClick = {this.deleteTodoItem}>Delete</FlatButton>
+							<FlatButton style={{backgroundColor: buttonColor}} id="doneButton" onClick = {this.setStatusTodoItem}>{status}</FlatButton>
+							<FlatButton style={{backgroundColor: buttonColor}} onClick = {this.deleteTodoItem}>Delete</FlatButton>
 						</CardActions>
 					</div>
 				</Card>
 			</div>
-			)
+		)
 	}
 }
 export default TodoItem;

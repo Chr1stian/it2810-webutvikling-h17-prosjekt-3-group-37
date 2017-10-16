@@ -3,50 +3,12 @@
 	flex-direction: row;
 }
 
-.input {
-}
-
-.todoItemCreator button {
-	background-color: #555555 !important;
-}
-
-#notdone .todoItem button {
-	background-color: #555555 !important;
-}
-
-#toggleDone {
-	background-color: #555555 !important;
-	height: auto !important;
-	margin-top: 20px !important;
-	margin-bottom: -20px !important;
-}
-
-#toggleDone div {
-	margin-left : 20px;
-	margin-right: 20px;
-	margin-top: 5px;
-	margin-bottom: 5px;
-}
-
-#done button {
-	background-color: #007a87 !important;
-
-}
-
-#done .todoItem > div {
-	background-color: #0097a7;
-}
-
 .todoItemText {
 	display: flex;
 	justify-content: space-between;
 	flex-grow: 100;
 
 }
-
-
-
-
 
 .cardText {
 	flex-grow: 100;
@@ -72,27 +34,12 @@
 
 }
 
-
-.app-area {
+#toggleDone div {
+	margin-left : 20px;
+	margin-right: 20px;
+	margin-top: 5px;
+	margin-bottom: 5px;
 }
-
-.button div {
-	text-align: center;
-}
-
-.todoItem > div > div {
-	display: flex;
-	justify-content: space-between;
-}
-
-.todoItem {
-	margin-bottom: 10px;
-}
-
-/*.note div:hover {
-  background-color:	 #ff9999;
-  cursor: pointer;
-}*/
 
 .todoItemContainer {
 	/*bottom: 0;*/
@@ -102,8 +49,6 @@
     display: flex;
     flex-direction: column;
     margin-top: 30px;
-
-
 }
 
 .creatorContainer {
@@ -158,21 +103,7 @@
 		margin-right: 10px;
 	}
 
-	.todoItem > div > div{
-	display: flex;
-	flex-flow: row wrap;
-	justify-content: flex-start;
-	}
 
-	.todoItem {
-		
-	margin-left: 10px;
-	margin-right: 10px
-	}
-
-	.todoItemButtons {
-	margin-left: 0;
-}	
 
 	#toggleDone {
 		margin-left: 10px !important;
