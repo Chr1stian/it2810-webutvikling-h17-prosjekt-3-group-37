@@ -13,7 +13,7 @@ import Clock from './../components/Clock';
 class InfoWidget extends React.Component {
   constructor(){
     super();
-
+    // Sets temporarly states while waiting for the API
     this.state = {
       temp: " Loading",
       summary: "Loading ",
@@ -29,6 +29,7 @@ class InfoWidget extends React.Component {
     this.getWeather();
   }
 
+  //Updates the state
   onLoad(input){
     this.setState({
       temp: input[0],
@@ -38,6 +39,7 @@ class InfoWidget extends React.Component {
     })
   }
 
+  //Collects weatherdata based on the latitude and longitude of Trondheim
   getWeather(){
       DarkSkyApi.apiKey = '0c0321e33833aa3705e8d6a1ebeb6b37';
       DarkSkyApi.units = 'ca'; // default 'us'
@@ -53,6 +55,7 @@ class InfoWidget extends React.Component {
         longitude: 10.3951
       };
 
+      //Gets the data and sends them to onLoad
       DarkSkyApi.loadCurrent(position).then(
           data => {this.onLoad([(
             data.temperature.toString().split('.')[0] + "℃"),
@@ -63,15 +66,18 @@ class InfoWidget extends React.Component {
         );
     }
 
+  // Returns the trainingStatus based on the weather
+  checkTrainingStatus(){
+    if (this.state.icon === "clear-day") {
+      return "The nice weather says you should get out!"
+    } else {
+      return "Not so good weather today, so stay inside!"
+    }
 
+  }
 
   render() {
-    let trainingStatus;
-    if (this.state.icon === "clear-day") {
-      trainingStatus = "The nice weather says you should get out!"
-    } else {
-      trainingStatus = "Not so good weather today, so stay inside!"
-    }
+    let trainingStatus = this.checkTrainingStatus();
 
     return(
         <Card className="infoWidget">
