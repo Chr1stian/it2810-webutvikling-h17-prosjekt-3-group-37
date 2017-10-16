@@ -18,7 +18,7 @@ class AppointmentsHome extends Component {
         <CardTitle style={{'paddingBottom':'0'}} title="Appointment"></CardTitle>
         <CardText>{newestAppointment}</CardText>
         <RaisedButton style={{'display':'flex'}}>
-          <Link className="navLink" to="/appointment">CHECK YOUR APPOINTMENTS</Link>
+          <Link className="navLink" to="/appointments">CHECK YOUR APPOINTMENTS</Link>
         </RaisedButton>
       </div>
     )

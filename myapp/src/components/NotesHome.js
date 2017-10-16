@@ -20,7 +20,7 @@ class NotesHome extends Component {
       <CardTitle style={{'paddingBottom':'0'}} title="Notes"></CardTitle>
       <CardText>{ noteText }</CardText>
       <RaisedButton style={{'display':'flex'}}>
-        <Link className="navLink" to="/notes">EDIT YOUR NOTE</Link>
+        <Link className="navLink" to="/note">EDIT YOUR NOTE</Link>
       </RaisedButton>
       </div>
     )
