@@ -9,32 +9,30 @@ import Divider from 'material-ui/Divider';
 
 class AppointmentsHome extends Component {
 
+  //Shortens to long strings
+  formatString (text){
+    if(text.length > 50){
+      return (text.substring(0,50) + "...");
+    }else {
+      return text
+    }
+  }
 
   render(){
+    //Gets items from localStorage
     let getValue = JSON.parse(localStorage.getItem('appointments'));
     let appointmentList = getValue || [];
-    let appointmentTitle;
-    let appointmentTime;
-    let appointmentPlace;
+    let appointmentTime = "--";
+    let appointmentTitle = "--";
+    let appointmentPlace = "--";
+
+    //Formats the strings if there is an item in appointmentList
     if(appointmentList.length > 0){
-      if (appointmentList[0].title.length > 50) {
-        appointmentTitle = (appointmentList[0].title.substring(0,50) + "...");
-      }else{
-        appointmentTitle = (appointmentList[0].title.substring(0,50));
-      }
-
-      if (appointmentList[0].place.length > 50) {
-        appointmentPlace = (appointmentList[0].place.substring(0,50) + "...");
-      }else{
-        appointmentPlace = (appointmentList[0].place.substring(0,50));
-      }
+      appointmentTitle = this.formatString(appointmentList[0].title);
+      appointmentPlace = this.formatString(appointmentList[0].place);
       appointmentTime = (appointmentList[0].fromTime + " - " + appointmentList[0].toTime);
-
-    }else {
-      appointmentTime = "--";
-      appointmentTitle = "--";
-      appointmentPlace = "--";
     }
+
     return(
       <div>
         <CardTitle style={{'paddingBottom':'0', 'textAlign':'center', 'paddingTop':'4px'}} title="Appointment"></CardTitle>
@@ -47,7 +45,7 @@ class AppointmentsHome extends Component {
           </div>
           <Divider/>
           <div className="appointmentHomeInfo">
-            <div>{appointmentTitle}</div>
+            <div id="appointmentHomeTitle">{appointmentTitle}</div>
             <div id="appointmentHomeTime">{appointmentTime}</div>
             <div id="appointmentHomePlace">{appointmentPlace}</div>
           </div>

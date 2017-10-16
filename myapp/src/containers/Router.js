@@ -1,4 +1,7 @@
+//Import React and Component
 import React, {Component} from 'react';
+
+//Import for routing
 import { BrowserRouter, Route, Switch} from 'react-router-dom';
 
 //Import Material UI ThemeProvider and the darkBaseTheme
@@ -6,6 +9,7 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
 
+//Import components
 import Navbar from './Navbar';
 import Home from './Home';
 import Note from './../components/Note';
@@ -65,18 +69,14 @@ componentDidMount() {
           <BrowserRouter >
             <div>
               <Navbar />
-
               <div id="app-area" style= {{background: this.state.color}} >
                 <Switch>
-
                   <Route exact path="/" component={Home} />
                   <Route path="/todo" component={Todo} />
                   <Route path="/note" component={Note} />
                   <Route path="/appointments" component={Appointments} />
-
                 </Switch>
               </div>
-
             </div>
           </BrowserRouter>
         </div>
