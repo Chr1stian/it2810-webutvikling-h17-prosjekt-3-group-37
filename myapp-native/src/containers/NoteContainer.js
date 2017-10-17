@@ -39,6 +39,7 @@ export default class NoteContainer extends React.Component {
             placeholder="Do you have anything on your mind?"
           />
           <Button
+            backgroundColor={'red'}
             icon={{name: 'delete-sweep'}}
             onPress={this.handleDelete}
             title="Delete note"
@@ -73,6 +74,6 @@ const styles = StyleSheet.create({
     fontSize: 25,
   },
   button: {
-    marginTop: 15
-  }
+    marginTop: 15,
+  },
 });
