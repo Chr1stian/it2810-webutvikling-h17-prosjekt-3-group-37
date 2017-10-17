@@ -41,7 +41,7 @@ export default class NoteContainer extends React.Component {
             placeholder="Do you have anything on your mind?"
           />
           <Button
-            icon={{name: 'delete'}}
+            icon={{name: 'delete-sweep'}}
             onPress={this.handleDelete}
             title="Delete note"
             style={styles.button}
