@@ -108,7 +108,7 @@ componentDidMount(){
         <TextInput
           value= {this.state.title}
 
-          style={{width: 150}}
+          style={{height: 40, width: 150, borderColor: 'gray', borderWidth: 1}}
           placeholder="Enter title"
           onChangeText={(title) => {
             this.setState({title})} }/>
@@ -134,7 +134,7 @@ componentDidMount(){
         placeholder="Enter end time"/>
         <TextInput
           value= {this.state.place}
-          style={{width: 150}}
+          style={{height: 40, width: 150, borderColor: 'gray', borderWidth: 1}}
           placeholder="enter place/address"
           onChangeText={(place) => {
             this.setState({place})} }/>
