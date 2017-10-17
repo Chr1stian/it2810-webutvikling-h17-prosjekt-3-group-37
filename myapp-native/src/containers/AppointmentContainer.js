@@ -41,10 +41,32 @@ export default class AppointmentContainer extends React.Component {
   }
 */
 
-  login = () => {
+  addAppointment = () => {
     let {title} = this.state;
-    console.log("title:" ,title);
-    console.log(uuid.v4());
+    let {date} = this.state;
+    let {sTime} = this.state;
+    let {eTime} = this.state;
+    let {place} = this.state;
+
+    if(title !== "" && date !== "" && sTime !== "" && eTime !== "" && place !== ""){
+      //Checks if the start-time is before the set end-time
+      if(sTime >= eTime){
+        alert("Appointment start-time must be before end-time");
+      }else{
+        //Adds the new appointment to the list
+        let {appointmentList} = this.state;
+        appointmentList.push({ID: uuid.v4(), title: title, date: date, sTime: sTime, eTime: eTime, place: place});
+        //Sorts the list on the date
+        let sortedAppointmentList = appointmentList.sort((a, b) => Date.parse(new Date(a.date.split("/").reverse().join("-"))) - Date.parse(new Date(b.date.split("/").reverse().join("-"))));
+        //Sets the states list to the new sorted list
+        this.setState({appointmentList: sortedAppointmentList});
+        //Saves the list to localStorage
+        //Reloads form to refresh the input fields
+        console.log(appointmentList);
+      }
+    }else{
+      alert("All fields must be filled");
+    }
   }
 
   render() {
@@ -58,29 +80,33 @@ export default class AppointmentContainer extends React.Component {
           onChangeText={(title) => {
             this.setState({title})} }/>
         <DatePicker
-          onChangeText={(date) => {
-            this.setState({date})} }
-          format="YYYY-MM-DD"
-        placeholder="Enter date"/>
+          date={this.state.date}
+          format="DD/MM/YYYY"
+          placeholder="Enter date"
+
+          onDateChange={(date) => {this.setState({date: date})}}
+        />
         <DatePicker
-          onChangeText={(sTime) => {
-            this.setState({sTime})} }
+          onDateChange={(sTime) => {this.setState({sTime: sTime})}}
+          date={this.state.sTime}
+
           mode="time"
           format="HH:mm"
         placeholder="Enter start time"/>
         <DatePicker
-          onChangeText={(eTime) => {
-            this.setState({eTime})} }
+          onDateChange={(eTime) => {this.setState({eTime: eTime})}}
+          date={this.state.eTime}
           mode="time"
           format="HH:mm"
         placeholder="Enter end time"/>
         <TextInput
-          onChangeText={(place) => {
-            this.setState({place})} }
+
           style={{width: 150}}
-        placeholder="enter place/address" />
+          placeholder="enter place/address"
+          onChangeText={(place) => {
+            this.setState({place})} }/>
         <Button
-          onPress={this.login}
+          onPress={this.addAppointment}
           style={{width: 150}}
         value="Add"/>
       </View>
