@@ -1,6 +1,7 @@
 import React from 'react';
-import { StyleSheet, Text, View, TextInput, Keyboard, TouchableWithoutFeedback, AsyncStorage, Button } from 'react-native';
+import { StyleSheet, Text, View, TextInput, Keyboard, TouchableWithoutFeedback, AsyncStorage } from 'react-native';
 import { TextField } from 'react-native-material-textfield'
+import { Button } from 'react-native-elements';
 
 export default class NoteContainer extends React.Component {
   constructor(props) {
@@ -8,16 +9,16 @@ export default class NoteContainer extends React.Component {
     this.state = { text: '' };
   }
 
-  handleChange = (text) => {
-    this.setState({text: text.text});
-    AsyncStorage.setItem('text', text.text);
-  }
-
   componentDidMount(){
     AsyncStorage.getItem('text', (err, result) => {
       console.log("restult:" + result);
       this.setState({text: result})
     });
+  }
+
+  handleChange = (text) => {
+    this.setState({text: text.text});
+    AsyncStorage.setItem('text', text.text);
   }
 
   handleDelete = (text) => {
@@ -40,10 +41,11 @@ export default class NoteContainer extends React.Component {
             placeholder="Do you have anything on your mind?"
           />
           <Button
+            icon={{name: 'delete'}}
             onPress={this.handleDelete}
-            title="Delete"
-            color="#841584"
-            accessibilityLabel="Learn more about this purple button"
+            title="Delete note"
+            style={styles.button}
+            accessibilityLabel="Will you delete?"
           />
         </View>
       </TouchableWithoutFeedback>
@@ -71,5 +73,8 @@ const styles = StyleSheet.create({
   },
   text: {
     fontSize: 25,
+  },
+  button: {
+    marginTop: 15
   }
 });
