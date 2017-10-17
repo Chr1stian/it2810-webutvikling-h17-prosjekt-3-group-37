@@ -1,0 +1,60 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NavBar component should render as expected 1`] = `
+<div
+  className="App"
+>
+  <header
+    className="App-header"
+  >
+    <ul
+      className="App-navbar"
+    >
+      <li
+        id="home"
+      >
+        <Link
+          className="navLink"
+          replace={false}
+          to="/"
+        >
+          Home
+        </Link>
+      </li>
+      <li
+        id="todocontainer"
+      >
+        <Link
+          className="navLink"
+          replace={false}
+          to="/todo"
+        >
+          Todo
+        </Link>
+      </li>
+      <li
+        id="notes"
+      >
+        <Link
+          className="navLink"
+          replace={false}
+          to="/note"
+        >
+          Note
+        </Link>
+      </li>
+      <li
+        id="appointment"
+      >
+        <Link
+          className="navLink"
+          replace={false}
+          to="/appointments"
+        >
+          Appointments
+        </Link>
+      </li>
+    </ul>
+  </header>
+</div>
+`;
