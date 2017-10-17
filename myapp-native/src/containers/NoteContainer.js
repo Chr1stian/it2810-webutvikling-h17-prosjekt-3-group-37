@@ -11,7 +11,6 @@ export default class NoteContainer extends React.Component {
 
   componentDidMount(){
     AsyncStorage.getItem('text', (err, result) => {
-      console.log("restult:" + result);
       this.setState({text: result})
     });
   }
@@ -24,7 +23,6 @@ export default class NoteContainer extends React.Component {
   handleDelete = (text) => {
     this.setState({text: ""});
     AsyncStorage.setItem('text', "");
-    console.log("Deleted");
   }
 
   render() {
@@ -41,6 +39,7 @@ export default class NoteContainer extends React.Component {
             placeholder="Do you have anything on your mind?"
           />
           <Button
+            backgroundColor={'red'}
             icon={{name: 'delete-sweep'}}
             onPress={this.handleDelete}
             title="Delete note"
@@ -56,7 +55,7 @@ export default class NoteContainer extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#ADD8E6',
     alignItems: 'center',
     paddingTop: '5%',
   },
@@ -66,6 +65,8 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     maxWidth: '90%',
     width: '100%',
+    backgroundColor: '#fff',
+    paddingLeft: 3,
   },
   textContainer: {
     width: '100%',
@@ -75,6 +76,6 @@ const styles = StyleSheet.create({
     fontSize: 25,
   },
   button: {
-    marginTop: 15
-  }
+    marginTop: 15,
+  },
 });
