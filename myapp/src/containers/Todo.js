@@ -4,7 +4,7 @@ import TodoItem from './../components/TodoItem';
 import './../style/Todo.css';
 
 //Import Material UI
-import {Card, CardActions} from 'material-ui/Card';
+import {Card, CardActions, CardText} from 'material-ui/Card';
 import FlatButton from 'material-ui/FlatButton';
 import TextField from 'material-ui/TextField';
 
@@ -75,11 +75,11 @@ class Todo extends Component {
 		//Gets a list of items marked as done with the .finished boolean
 		let doneTodoList = todolist
 			.filter(function (todoItem) {return todoItem.finished})
-			.map((todoItem) => 
-				<TodoItem 
-					key={todoItem.ID} 
-					todoItem={todoItem} 
-					setStatusTodoItem={this.setStatusTodoItem} 
+			.map((todoItem) =>
+				<TodoItem
+					key={todoItem.ID}
+					todoItem={todoItem}
+					setStatusTodoItem={this.setStatusTodoItem}
 					deleteTodoItem={this.deleteTodoItem}
 				/>
 			);
@@ -87,8 +87,13 @@ class Todo extends Component {
 		//Displays a button to hide finnished tasks if you have any
 		let showTasks;
 		if (todolist.length === 0) {
-			showTasks = "You have no items todo";
-		} else {
+			showTasks = <Card><CardText>You have no items todo..</CardText></Card>;
+		}else if (todolist.length === doneTodoList.length) {
+			let buttonStyle = {backgroundColor: "#555555", height: "auto", marginTop: "20px", marginBottom: "-20px"}
+			showTasks = <div><Card><CardText>You have no items todo..</CardText></Card>
+			<FlatButton style={buttonStyle} id="ToggleDone" onClick = {this.toggleDone}>Hide finished tasks</FlatButton></div>;
+		}
+		 else {
 			if (doneTodoList.length !== 0) {
 				let buttonStyle = {backgroundColor: "#555555", height: "auto", marginTop: "20px", marginBottom: "-20px"}
 				showTasks = <FlatButton style={buttonStyle} id="ToggleDone" onClick = {this.toggleDone}>Hide finished tasks</FlatButton>;
@@ -116,11 +121,11 @@ class Todo extends Component {
 				<div className="TodoItemContainer" id="NotDone">
 					{ todolist
 						.filter(function (todoItem) {return !todoItem.finished})
-						.map((todoItem) => 
-							<TodoItem 
-								key={todoItem.ID} 
-								todoItem={todoItem} 
-								setStatusTodoItem={this.setStatusTodoItem} 
+						.map((todoItem) =>
+							<TodoItem
+								key={todoItem.ID}
+								todoItem={todoItem}
+								setStatusTodoItem={this.setStatusTodoItem}
 								deleteTodoItem={this.deleteTodoItem}
 							/>
 						)
