@@ -1,11 +1,11 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
-export default class TodoContainer extends React.Component {
+export default class NoteContainer extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text>Todo</Text>
+        <Text>Note</Text>
       </View>
     );
   }
