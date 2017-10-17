@@ -1,6 +1,8 @@
+
+
 import React, { Component } from 'react';
 import { Button } from 'react-native-elements';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, ScrollView } from 'react-native';
 
 import Moment from 'moment';
 
@@ -8,13 +10,12 @@ import Moment from 'moment';
 
 class AppointmentListItem extends Component {
 
-
+  deleteAppointment = () => {
+		this.props.deleteAppointment(this.props.appointment);
+	}
 
   render() {
-  		/*
-  		Checks if the appointments date is todays date
-  		If it is, changes the displayed date to "Today"
-  		*/
+
   		let {appointment} = this.props;
   		let date = null;
   		let today = new Date();
@@ -25,18 +26,21 @@ class AppointmentListItem extends Component {
   	      date = appointment.date;
   	    }
   	    const customColumnStyle = { width: 100};
-  	    const textColumnStyle = { width: 150, 'maxWidth':'150', whiteSpace: 'normal', wordWrap: 'break-word'}
+  	    const textColumnStyle = { width: 150}
   		return (
   				//Creates and returns the appointment tablerow to the Appointment.js Component
-            <View>
-              <Text> Your appointments</Text>
+            <View style={{width: 150, height: 200 }}>
               <Text>{date}</Text>
-              <Text style={textColumnStyle}>{appointment.title}</Text>
-              <Text style={customColumnStyle}>{appointment.sTime} - {appointment.eTime}</Text>
-              <Text style={textColumnStyle}>{appointment.place}</Text>
-              <Text><Button primary={true} onClick = {this.deleteAppointment}>Delete</Button></Text>
-            </View>
-              )
+              <Text>{appointment.title}</Text>
+              <Text>{appointment.sTime} - {appointment.eTime}</Text>
+              <Text>{appointment.place}</Text>
+              <Button
+                onPress={this.deleteAppointment}
+                title= "Delete"
+                backgroundColor="#ff0000"
+              />
+              </View>
+            )
   	}
   }
 export default AppointmentListItem;
