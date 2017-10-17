@@ -55,7 +55,7 @@ export default class NoteContainer extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#ADD8E6',
     alignItems: 'center',
     paddingTop: '5%',
   },
@@ -65,6 +65,8 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     maxWidth: '90%',
     width: '100%',
+    backgroundColor: '#fff',
+    paddingLeft: 3,
   },
   textContainer: {
     width: '100%',
