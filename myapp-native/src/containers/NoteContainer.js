@@ -11,7 +11,6 @@ export default class NoteContainer extends React.Component {
 
   componentDidMount(){
     AsyncStorage.getItem('text', (err, result) => {
-      console.log("restult:" + result);
       this.setState({text: result})
     });
   }
@@ -24,7 +23,6 @@ export default class NoteContainer extends React.Component {
   handleDelete = (text) => {
     this.setState({text: ""});
     AsyncStorage.setItem('text', "");
-    console.log("Deleted");
   }
 
   render() {
