@@ -5,6 +5,7 @@ import { Button } from 'react-native-elements';
 import uuid from 'uuid';
 import Moment from 'moment';
 import AppointmentListItem from './../components/AppointmentListItem';
+import Storage from 'react-native-storage';
 
 
 
@@ -22,26 +23,31 @@ export default class AppointmentContainer extends React.Component {
       appointmentList: [{ID: uuid.v4() , title: "Dette er første avtale", date: "10/10/2017", fromTime: "13:45", toTime: "14:00", place: "Gløshaugen"}, {ID: uuid.v4() , title: "Dette er andre avtale", date: "10/10/2017", fromTime: "14:30", toTime: "14:45", place: "Kalvskinnet"}]
     }
   }
-  /*
-  componentDidMount() {
-    this.removeOldAppointments();
-  }
+
+
   //Sets the states appointmentlist from the users localStorage
   componentWillMount = () => {
-    let appointmentList = JSON.stringify(AsyncStorage.getItem('appointments'));
-    this.setState({
-          appointmentList: appointmentList || []
+    var storage = new Storage({
+          storageBackend: AsyncStorage,
+          defaultExpires: null,
+          sync: {},
+
+        })
+    global.storage = storage
+    storage.load({
+        key: 'appointments',
+      }).then(ret =>{
+        this.setState({
+          appointmentList: ret || []
+        })
+        //todolist = ret
       })
+
+
   }
-  removeOldAppointments = () => {
-    let {appointmentList} = this.state;
-    let today = new Date();
-    //Creates a new list with appointments with a date today or later
-    let changedList = appointmentList.filter(function (appointment) {return (appointment.date.split("/").join("-")) >= (Moment(today).format("DD/MM/YYYY")).split("/").join("-")});
-    this.setState({appointmentList: changedList});
-    AsyncStorage.setItem('appointments',JSON.stringify(changedList));
-  }
-*/
+
+
+
 componentDidMount(){
   this.removeOldAppointments();
 
@@ -67,8 +73,10 @@ componentDidMount(){
         //Sets the states list to the new sorted list
         this.setState({appointmentList: sortedAppointmentList});
         //Saves the list to localStorage
-        //Reloads form to refresh the input fields
-        console.log(appointmentList);
+        storage.save({
+        key: 'appointments',
+        data: sortedAppointmentList
+      })
         this.setState({
           title:"",
           date:"",
@@ -90,6 +98,10 @@ componentDidMount(){
     appointmentList.splice(i,1);
     //Sets the state and localStorage to the new list without the deleted appointment
     this.setState({appointmentList: appointmentList});
+    storage.save({
+      key: 'appointments', 
+      data: todolist
+    })
   }
 
   removeOldAppointments = () => {
@@ -98,10 +110,16 @@ componentDidMount(){
     //Creates a new list with appointments with a date today or later
     let changedList = appointmentList.filter(function (appointment) {return (appointment.date.split("/").join("-")) >= (Moment(today).format("DD/MM/YYYY")).split("/").join("-")});
     this.setState({appointmentList: changedList});
+
+    //AsyncStorage.setItem('appointments',changedList);
+
+
   }
 
   render() {
-    let { title, appointmentList } = this.state;
+    let { title } = this.state;
+    let { appointmentList } = this.state;
+    //console.log("undeede " + appointmentList);
     return (
       <View style={styles.container}>
         <Text>Create Appointment</Text>
