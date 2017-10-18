@@ -32,40 +32,22 @@ export default class AppointmentContainer extends React.Component {
       storageBackend: AsyncStorage,
       defaultExpires: null,
       sync: {},
-
     })
-
     global.storage = storage
-
-
     storage.load({
         key: 'appointments',
       }).then(ret =>{
         this.setState({
           appointmentList: ret
         })
-
-
       })
     }
-
-
-
-
-
-
-componentDidMount(){
-
-
-}
-
   addAppointment = () => {
     let {title} = this.state;
     let {date} = this.state;
     let {sTime} = this.state;
     let {eTime} = this.state;
     let {place} = this.state;
-
     if(title !== "" && date !== "" && sTime !== "" && eTime !== "" && place !== ""){
       //Checks if the start-time is before the set end-time
       if(sTime >= eTime){
@@ -97,9 +79,7 @@ componentDidMount(){
           sTime:"",
           eTime:"",
           place:""
-
       });
-
       }
     }else{
       alert("All fields must be filled");
@@ -125,16 +105,16 @@ componentDidMount(){
       <View style={styles.container}>
         <ScrollView>
           <Card title="Create Appointment" containerStyle={styles.form} wrapperStyle={styles.innerForm}>
-
             <TextInput
               underlineColorAndroid= 'transparent'
               value= {this.state.title}
-              style={{height: 40, width: '60%', borderColor: 'gray', borderWidth: 1, textAlign: 'center', backgroundColor:'#fff', margin:2}}
+              style={styles.inputText}
               placeholder="Enter title"
               onChangeText={(title) => {
-                this.setState({title})} }/>
+                this.setState({title})} }
+            />
             <DatePicker
-              style={{height: 40, width: '60%', backgroundColor:'#fff', margin:2}}
+              style={styles.datePicker}
               confirmBtnText="Confirm"
               cancelBtnText="Cancel"
               showIcon= {false}
@@ -144,7 +124,7 @@ componentDidMount(){
               onDateChange={(date) => {this.setState({date: date})}}
             />
             <DatePicker
-              style={{height: 40, width: '60%', backgroundColor:'#fff', margin:2}}
+              style={styles.datePicker}
               confirmBtnText="Confirm"
               cancelBtnText="Cancel"
               showIcon= {false}
@@ -152,9 +132,10 @@ componentDidMount(){
               date={this.state.sTime}
               mode="time"
               format="HH:mm"
-            placeholder="Enter start time"/>
+              placeholder="Enter start time"
+            />
             <DatePicker
-              style={{height: 40, width: '60%', backgroundColor:'#fff', margin:2}}
+              style={styles.datePicker}
               confirmBtnText="Confirm"
               cancelBtnText="Cancel"
               showIcon= {false}
@@ -162,33 +143,28 @@ componentDidMount(){
               date={this.state.eTime}
               mode="time"
               format="HH:mm"
-            placeholder="Enter end time"/>
+              placeholder="Enter end time"
+            />
             <TextInput
               underlineColorAndroid= 'transparent'
               value= {this.state.place}
-              style={{height: 40, width: '60%', borderColor: 'gray', borderWidth: 1, textAlign: 'center', backgroundColor:'#fff', margin:2}}
+              style={styles.inputText}
               placeholder="Enter place/address"
               onChangeText={(place) => {
-                this.setState({place})} }/>
-
+                this.setState({place})} }
+            />
             <Button
               onPress={this.addAppointment}
               buttonStyle={styles.button}
-
               title="Add appointment"
               backgroundColor="#1976D2"
             />
           </Card>
-
-          { appointmentList.map((item) => <AppointmentListItem appointment={item} key={item.ID} deleteAppointment={this.deleteAppointment}/>) }
-
-        </ScrollView>
-
-      </View>
+          { appointmentList.map((item) => <AppointmentListItem appointment={item} key={item.ID} deleteAppointment={this.deleteAppointment}/>)}
+        </ScrollView></View>
               );
             }
             }
-
             const styles = StyleSheet.create({
               container: {
                 flex: 1,
@@ -197,28 +173,36 @@ componentDidMount(){
                 justifyContent: 'center',
                 paddingBottom:10,
                 width:'100%',
-
               },
-
               form: {
                 height: 400,
                 padding:0,
-
               },
               button:{
-              height: 50,
-              paddingRight:'10%',
-              paddingLeft:'10%',
-              marginTop:2,
-
-
+                height: 50,
+                paddingRight:'10%',
+                paddingLeft:'10%',
+                marginTop:2,
             },
               innerForm:{
                 flex:1,
                 alignItems: 'center',
                 justifyContent: 'center',
-
-
+            },
+              inputText:{
+                height: 40,
+                width: '60%',
+                borderColor: 'gray',
+                borderWidth: 1,
+                textAlign: 'center',
+                backgroundColor:'#fff',
+                margin:2,
+              },
+              datePicker:{
+                height: 40,
+                width: '60%',
+                backgroundColor:'#fff',
+                margin:2,
               }
 
-});
+          });
