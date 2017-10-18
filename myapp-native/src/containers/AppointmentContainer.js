@@ -37,17 +37,22 @@ export default class AppointmentContainer extends React.Component {
 
     global.storage = storage
 
+    try {
+      storage.load({
+          key: 'appointments'
+        }).then(ret =>{
+          this.setState({
+            appointmentList: ret || []
+          })
 
-    storage.load({
-        key: 'appointments',
-      }).then(ret =>{
-        this.setState({
-          appointmentList: ret
+
         })
 
-
-      })
+    } catch (error) {
+      console.log(error)
     }
+  }
+
 
 
 
@@ -84,11 +89,6 @@ componentDidMount(){
         key: 'appointments',
         data: sortedAppointmentList
       })
-      storage.load({
-          key: 'appointments',
-        }).then(ret =>{
-
-        })
 
         //Reloads form to refresh the input fields
         this.setState({
