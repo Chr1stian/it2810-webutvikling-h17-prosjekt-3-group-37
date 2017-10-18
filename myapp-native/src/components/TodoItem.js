@@ -16,6 +16,7 @@ export default class TodoItem extends React.Component {
 
     let { todoItem } = this.props;
 
+    //Prepare styles based on finished status
     let statusText = todoItem.finished ? "Undo" : "Done";
     let backgroundColor = todoItem.finished ? "#ddd" : "#fff";
     let redButton = "red"
@@ -24,7 +25,6 @@ export default class TodoItem extends React.Component {
       container: {
         flexDirection: 'row',
         justifyContent: 'space-between',
-        margin: 5,
         marginTop: 10,
         backgroundColor: backgroundColor,
         borderRadius: 1,
@@ -85,7 +85,7 @@ export default class TodoItem extends React.Component {
               onPress={this.deleteTodoItem}
               color={redButton}
 
-              
+
 
             />
           </View>

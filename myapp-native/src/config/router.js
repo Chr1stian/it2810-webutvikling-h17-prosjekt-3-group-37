@@ -1,11 +1,15 @@
+//Import React and useful components
 import React from 'react';
 import { TabNavigator, StackNavigator } from 'react-navigation';
 import { Icon } from 'react-native-elements';
 
+//Import components for screens
 import NoteContainer from '../containers/NoteContainer';
 import TodoContainer from '../containers/TodoContainer';
 import AppointmentContainer from '../containers/AppointmentContainer';
 
+
+//Defines the screens for each tab
 export const Tabs = TabNavigator({
   Note:{
     screen: NoteContainer,

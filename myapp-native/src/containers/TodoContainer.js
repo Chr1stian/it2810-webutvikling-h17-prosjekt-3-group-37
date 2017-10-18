@@ -25,7 +25,8 @@ export default class TodoContainer extends React.Component {
 
     })
     global.storage = storage;
-    
+
+    //Loads from storage using react-native-storage
     try {
       storage.load({
         key: 'todoitems'
@@ -40,6 +41,7 @@ export default class TodoContainer extends React.Component {
 
   }
 
+  //generates an unique ID
   guid = () => {
     function s4() {
       return Math.floor((1 + Math.random()) * 0x10000)
@@ -53,8 +55,10 @@ export default class TodoContainer extends React.Component {
   addTodoItem = () => {
     let {todolist, titleInput, textInput} = this.state;
     //Adds the new todo item to the list
-      if (titleInput !== ""){
+    if (titleInput !== ""){
       todolist.push({ID: this.guid(), title: titleInput, text: textInput, finished: false});
+
+      //Save and update
       this.setState({
         todolist: todolist,
         titleInput: "",
@@ -70,10 +74,13 @@ export default class TodoContainer extends React.Component {
   deleteTodoItem = (todoItem) => {
     let {todolist} = this.state;
     let i = todolist.indexOf(todoItem);
+    //Remove from list
     todolist.splice(i, 1);
+
+    //Save and update
     this.setState({todolist: todolist});
     storage.save({
-      key: 'todoitems', 
+      key: 'todoitems',
       data: todolist
     })
   }
@@ -81,15 +88,19 @@ export default class TodoContainer extends React.Component {
   setStatusTodoItem = (todoItem) => {
     let {todolist} = this.state;
     let i = todolist.indexOf(todoItem);
+    //Changes finished status of the specified element
     todolist[i].finished = !todolist[i].finished;
+
+    //Save and update
     this.setState({todolist: todolist});
     storage.save({
-      key: 'todoitems', 
+      key: 'todoitems',
       data: todolist
     })
   }
 
-  toggleDone = () => {    
+  //Show or hide done tasks in scrollview
+  toggleDone = () => {
     let {todolist, buttonText, toggleStatus} = this.state;
     let newButtonText = toggleStatus ? "Show finished tasks" : "Hide finished tasks";
     this.setState({todolist: todolist, buttonText: newButtonText, toggleStatus: !toggleStatus});
@@ -113,11 +124,11 @@ export default class TodoContainer extends React.Component {
     if (toggleStatus) {
       doneTodoList = todolist
       .filter(function (todoItem) {return todoItem.finished})
-      .map((todoItem) => 
-        <TodoItem 
-          key={todoItem.ID} 
-          todoItem={todoItem} 
-          setStatusTodoItem={this.setStatusTodoItem} 
+      .map((todoItem) =>
+        <TodoItem
+          key={todoItem.ID}
+          todoItem={todoItem}
+          setStatusTodoItem={this.setStatusTodoItem}
           deleteTodoItem={this.deleteTodoItem}
         />
       );
@@ -130,7 +141,6 @@ export default class TodoContainer extends React.Component {
       showTasks = null;
     } else {
       if (todolist.length-notDoneTodoList.length !== 0) {
-        //let buttonStyle = {backgroundColor: "#555555", height: "auto", marginTop: "20px", marginBottom: "-20px"}
         showTasks = <View style={{marginTop: 10}}><Button onPress={this.toggleDone} title={buttonText}
         /></View>;
       }
@@ -153,7 +163,7 @@ export default class TodoContainer extends React.Component {
           </View>
           <View style={{marginBottom: 15}}>
             <View style={{marginLeft: 10, marginRight: 10, alignItems: "flex-end"}}>
-              <Button 
+              <Button
                 onPress={this.addTodoItem}
                 title="Add todo"
                 style={{flex: 0.5}}
@@ -177,6 +187,7 @@ const styles = StyleSheet.create({
   container: {
     backgroundColor: '#ADD8E6',
     flex: 1,
+    padding: 20,
   },
   inputs: {
     flexDirection: 'row',
