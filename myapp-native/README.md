@@ -6,7 +6,7 @@ Hey! This application will revolutionize the way you see the week.
 
 ----------
 
-Below you'll find information about performing common tasks. The most recent version of this guide is available [here](https://github.com/react-community/create-react-native-app/blob/master/react-native-scripts/template/README.md).
+Below you'll find information about performing common tasks.
 
 Get started with the application
 -------------
