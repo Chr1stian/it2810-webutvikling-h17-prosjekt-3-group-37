@@ -9,10 +9,10 @@ import toJson from 'enzyme-to-json';
 import Adapter from 'enzyme-adapter-react-16';
 Enzyme.configure({ adapter: new Adapter() });
 
+//takes snapshot of component
 test('Home component should render as expected', () => {
     const component = shallow(<Home />);
     const tree = toJson(component);
-    //console.log(tree);
     //renders expected containers
     expect(component.contains(<InfoWidget />)).toBe(true);
     expect(component.contains(<HomeNavigation />)).toBe(true);

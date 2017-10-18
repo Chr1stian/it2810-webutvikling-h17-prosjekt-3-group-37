@@ -8,6 +8,7 @@ import toJson from "enzyme-to-json";
 //Importing component that will be tested
 import HomeNavigation from "./../containers/HomeNavigation.js";
 
+//takes snapshot of component
 test("Component renders as expected", () => {
   const component = shallow(<HomeNavigation />);
   let tree = toJson(component);

@@ -8,6 +8,7 @@ import toJson from "enzyme-to-json";
 //Importing component that will be tested
 import NavBar from './../containers/NavBar.js'
 
+//takes snapshot of component
 test('NavBar component should render as expected', () => {
     const component = shallow(<NavBar />);
     const tree = toJson(component);

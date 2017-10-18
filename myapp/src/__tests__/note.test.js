@@ -9,7 +9,7 @@ import toJson from "enzyme-to-json";
 import Note from "./../components/Note.js";
 import "./../test/mock-localstorage.js";
 
-
+//takes snapshot of component
 test("Component renders as expected", () => {
   const component = shallow(<Note />);
   let tree = toJson(component);

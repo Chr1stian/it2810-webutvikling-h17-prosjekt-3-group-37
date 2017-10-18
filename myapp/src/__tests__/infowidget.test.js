@@ -8,7 +8,7 @@ import toJson from "enzyme-to-json";
 //Importing component that will be tested
 import InfoWidget from "./../containers/InfoWidget.js";
 
-
+//takes snapshot of component
 test("Component renders as expected", () => {
   const component = shallow(<InfoWidget />);
   let tree = toJson(component);

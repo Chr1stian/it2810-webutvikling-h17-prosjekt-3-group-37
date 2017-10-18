@@ -2,7 +2,6 @@ import "jsdom-global/register"; //at the top of file , even  , before importing 
 //prevent errors from style rendering
 import getMuiTheme from "material-ui/styles/getMuiTheme";
 import raf from "./../test/tempPolyfills";
-
 import React from "react";
 //Import Enzyme with shallow to test component as a unit
 import Adapter from "enzyme-adapter-react-16";
@@ -20,6 +19,7 @@ navigator.__defineGetter__("userAgent", function() {
 
 navigator.userAgent; // 'foo'
 
+//takes snapshot of component
 test("Component renders as expected", () => {
   const component = shallow(<Router />);
   let tree = toJson(component);
