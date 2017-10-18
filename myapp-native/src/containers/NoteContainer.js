@@ -58,14 +58,13 @@ export default class NoteContainer extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    //backgroundColor: '#ADD8E6',
     alignItems: 'center',
     paddingTop: '5%',
   },
   textInputContainer: {
     height: '100%',
     borderColor: 'gray',
-    borderWidth: 1,
+    borderWidth: 2,
     width: '100%',
     backgroundColor: '#fff',
     paddingLeft: 3,
