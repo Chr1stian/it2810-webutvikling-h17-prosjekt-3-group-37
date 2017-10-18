@@ -180,6 +180,7 @@ const styles = StyleSheet.create({
   },
   inputs: {
     flexDirection: 'row',
-    margin: 10
+    margin: 10,
+    marginTop: 20,
   }
 });
