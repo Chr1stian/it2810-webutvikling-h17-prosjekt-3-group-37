@@ -60,8 +60,7 @@ export default class AppointmentContainer extends React.Component {
         let sortedAppointmentList = appointmentList.sort((a, b) => Date.parse(new Date(a.date.split("/").reverse().join("-"))) - Date.parse(new Date(b.date.split("/").reverse().join("-"))));
         //Sets the states list to the new sorted list
         this.setState({appointmentList: sortedAppointmentList});
-        //Saves the list to localStorage
-
+        //Saves the list to storage
         storage.save({
         key: 'appointments',
         data: sortedAppointmentList
@@ -71,7 +70,6 @@ export default class AppointmentContainer extends React.Component {
         }).then(ret =>{
 
         })
-
         //Reloads form to refresh the input fields
         this.setState({
           title:"",
@@ -85,7 +83,6 @@ export default class AppointmentContainer extends React.Component {
       alert("All fields must be filled");
     }
   }
-
   deleteAppointment = (appointment) => {
     let {appointmentList} = this.state;
     let i = appointmentList.indexOf(appointment);
@@ -97,7 +94,6 @@ export default class AppointmentContainer extends React.Component {
       data: appointmentList
     })
   }
-
   render() {
     let { title } = this.state;
     let { appointmentList } = this.state;
@@ -161,10 +157,12 @@ export default class AppointmentContainer extends React.Component {
             />
           </Card>
           { appointmentList.map((item) => <AppointmentListItem appointment={item} key={item.ID} deleteAppointment={this.deleteAppointment}/>)}
-        </ScrollView></View>
+        </ScrollView>
+      </View>
               );
             }
             }
+            //Stylesheet for elements.
             const styles = StyleSheet.create({
               container: {
                 flex: 1,
@@ -188,6 +186,7 @@ export default class AppointmentContainer extends React.Component {
                 flex:1,
                 alignItems: 'center',
                 justifyContent: 'center',
+
             },
               inputText:{
                 height: 40,

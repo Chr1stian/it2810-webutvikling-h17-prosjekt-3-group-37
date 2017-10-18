@@ -10,11 +10,9 @@ import Moment from 'moment';
 
 
 class AppointmentListItem extends Component {
-
   deleteAppointment = () => {
 		this.props.deleteAppointment(this.props.appointment);
 	}
-
   render() {
     let {appointment} = this.props;
   		let date = null;
@@ -27,8 +25,7 @@ class AppointmentListItem extends Component {
   	    }
   		return (
   				//Creates and returns the appointment tablerow to the Appointment.js Component
-
-            <Card title={date} wrapperStyle={styles.innerAppointments}>
+          <Card title={date} wrapperStyle={styles.innerAppointments}>
               <View style={styles.iconWrapper}>
                 <Icon iconStyle={{marginRight:'30%'}} name="title"/>
                 <Icon  name="access-time"/>
@@ -59,6 +56,7 @@ class AppointmentListItem extends Component {
       flex:1,
       alignItems: 'center',
       justifyContent: 'center',
+
     },
     iconWrapper:{
       flex:1,
@@ -72,7 +70,7 @@ class AppointmentListItem extends Component {
       alignItems: 'center',
       flexDirection: 'row',
       padding:5,
-      marginBottom:2,
+      marginBottom:'2%',
     },
   });
 
