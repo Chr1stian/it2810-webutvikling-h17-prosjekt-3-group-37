@@ -14,7 +14,7 @@ Get started with the application
 -------------
 
 ```
-Clone this repository and locate yourself to myapp-natvie
+Clone this repository and locate yourself to myapp-native
 ```
 ```
 npm install
