@@ -9,8 +9,8 @@ export default class TodoContainer extends React.Component {
     super(props);
     this.state = {
       todolist: [],
-      titleInput: "Add title",
-      textInput: "optional",
+      titleInput: "",
+      textInput: "",
       buttonText: "Show finished tasks",
       toggleStatus: false
     }
@@ -25,26 +25,14 @@ export default class TodoContainer extends React.Component {
 
     })
     global.storage = storage
-      /*storage.save({
-        key: 'todoitems2',
-        data: [{ID: "123", title: "qerqwe", text: "socool", finished: false}]
-      })*/
 
-
-      //const value = AsyncStorage.getItem('todoitems2');
-      storage.load({
-        key: 'todoitems2',
-      }).then(ret =>{
-        this.setState({
-          todolist: ret || []
-        })
-        //todolist = ret
+    storage.load({
+      key: 'todoitems',
+    }).then(ret =>{
+      this.setState({
+        todolist: ret || [];
       })
-      /*if (todolist !== null){
-        this.setState({
-          todolist: todolist || []
-        })
-      }*/
+    })
 
   }
 
@@ -59,45 +47,34 @@ export default class TodoContainer extends React.Component {
   }
 
   addTodoItem = () => {
-
     let {todolist, titleInput, textInput} = this.state;
     //Adds the new todo item to the list
     todolist.push({ID: this.guid(), title: titleInput, text: textInput, finished: false});
     this.setState({todolist: todolist});
-      storage.save({
-        key: 'todoitems2',
-        data: todolist
-      })
-    console.log("internal:" + todolist)
-     storage.load({
-    key: 'todoitems2',
-  }).then(ret =>{
-    console.log("load"+ret)
-    //todolist = ret
-  })
-
-    //Resets the new Todo item fields and hint text
-    //FIX THIS
+    storage.save({
+      key: 'todoitems',
+      data: todolist
+    })
   }
 
-    deleteTodoItem = (todoItem) => {
+  deleteTodoItem = (todoItem) => {
     let {todolist} = this.state;
     let i = todolist.indexOf(todoItem);
     todolist.splice(i, 1);
     this.setState({todolist: todolist});
     storage.save({
-      key: 'todoitems2', 
+      key: 'todoitems', 
       data: todolist
     })
   }
 
-    setStatusTodoItem = (todoItem) => {
+  setStatusTodoItem = (todoItem) => {
     let {todolist} = this.state;
     let i = todolist.indexOf(todoItem);
     todolist[i].finished = !todolist[i].finished;
     this.setState({todolist: todolist});
     storage.save({
-      key: 'todoitems2', 
+      key: 'todoitems', 
       data: todolist
     })
   }
@@ -140,7 +117,7 @@ export default class TodoContainer extends React.Component {
 
     let showTasks;
     if (todolist.length === 0) {
-      showTasks = <Text>"You have no items todo"</Text>;
+      showTasks = null;
     } else {
       if (todolist.length-notDoneTodoList.length !== 0) {
         //let buttonStyle = {backgroundColor: "#555555", height: "auto", marginTop: "20px", marginBottom: "-20px"}
@@ -151,27 +128,37 @@ export default class TodoContainer extends React.Component {
 
     return (
       <View style={styles.container}>
-        <View style={styles.inputs}>
-        <TextInput
-        style={{height: 40, flex: 1}}
-        onChangeText={(titleInput) => this.setState({titleInput})}
-        value={this.state.titleInput}
-        placeholder="Hei"/>
-        <TextInput
-        style={{height: 40, flex: 1}}
-        onChangeText={(textInput) => this.setState({textInput})}
-        value={this.state.textInput}
-        placeholder="Hei"/>
+        <View style={{backgroundColor: "#555555"}}>
+          <View style={styles.inputs}>
+            <TextInput
+            style={{height: 40, flex: 1, color: "#fff"}}
+            onChangeText={(titleInput) => this.setState({titleInput})}
+            value={this.state.titleInput}
+            placeholder="Add task"/>
+            <TextInput
+            style={{height: 40, flex: 1, color: "#fff"}}
+            onChangeText={(textInput) => this.setState({textInput})}
+            value={this.state.textInput}
+            placeholder="Optional comment"/>
+          </View>
+          <View style={{marginBottom: 15}}>
+            <View style={{marginLeft: 10, marginRight: 10, alignItems: "flex-end"}}>
+              <Button 
+                color={"#303030"}
+                onPress={this.addTodoItem}
+                title="Add todo"
+                style={{flex: 0.5}}
+              />
+            </View>
+          </View>
         </View>
-        <Button
-          onPress={this.addTodoItem}
-          title="Add todo"
-        />
         <ScrollView View style={{flex: 0.8}}>
           {notDoneTodoList}
           {showTasks}
           {doneTodoList}
-      </ScrollView>
+          <View style={{height: 100}}>
+          </View>
+        </ScrollView>
       </View>
     );
   }
@@ -179,10 +166,11 @@ export default class TodoContainer extends React.Component {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: '#fff',
+    backgroundColor: '#ADD8E6',
     flex: 1,
   },
   inputs: {
     flexDirection: 'row',
+    margin: 10
   }
 });

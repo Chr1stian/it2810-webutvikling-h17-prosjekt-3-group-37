@@ -27,6 +27,11 @@ export default class TodoItem extends React.Component {
         margin: 5,
         marginTop: 10,
         backgroundColor: backgroundColor,
+        borderRadius: 1,
+        paddingTop: 5,
+        paddingBottom: 5,
+        paddingLeft: 5,
+        paddingRight: 5,
       },
 
       buttonContainer: {
@@ -41,7 +46,8 @@ export default class TodoItem extends React.Component {
       textContainer: {
         flexDirection: 'column',
         justifyContent: 'space-around',
-        margin: 5
+        margin: 5,
+        flex: 1
 
       },
 
