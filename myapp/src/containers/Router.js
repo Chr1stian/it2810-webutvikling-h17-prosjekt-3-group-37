@@ -54,7 +54,7 @@ constructor(props){
     colorList: listWheather,
   };
 }
-// Changes backgroundColor. Interval runs snippets to update backgroundColor.
+// Changes backgroundColor. Interval runs snippets every 6'th minute to update backgroundColor.
 componentDidMount() {
   const {colorList} = this.state;
   this.intervalId = setInterval(() => {
