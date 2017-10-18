@@ -203,11 +203,13 @@ componentDidMount(){
                 flex:1,
                 alignItems: 'center',
                 justifyContent: 'center',
-
+                paddingRight:'15%',
+                paddingLeft:'15%',
+                width: '100%',
             },
               inputText:{
                 height: 40,
-                width: '60%',
+                width: '80%',
                 borderColor: 'gray',
                 borderWidth: 1,
                 textAlign: 'center',
@@ -216,7 +218,7 @@ componentDidMount(){
               },
               datePicker:{
                 height: 40,
-                width: '60%',
+                width: '80%',
                 backgroundColor:'#fff',
                 margin:2,
               }
