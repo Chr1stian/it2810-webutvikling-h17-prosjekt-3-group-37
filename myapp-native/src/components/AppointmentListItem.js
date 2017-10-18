@@ -29,7 +29,7 @@ class AppointmentListItem extends Component {
   	    const textColumnStyle = { width: 150}
   		return (
   				//Creates and returns the appointment tablerow to the Appointment.js Component
-            <View style={{width: 150, height: 200 }}>
+            <View style={{width: 150, height: 200, borderColor: 'gray', borderWidth: 1 }}>
               <Text>{date}</Text>
               <Text>{appointment.title}</Text>
               <Text>{appointment.sTime} - {appointment.eTime}</Text>

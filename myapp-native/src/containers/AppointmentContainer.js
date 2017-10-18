@@ -19,7 +19,8 @@ export default class AppointmentContainer extends React.Component {
       eTime:"",
       place:"",
       //List with appointments
-      appointmentList: [{ID: uuid.v4() , title: "Dette er første avtale", date: "10/10/2017", fromTime: "13:45", toTime: "14:00", place: "Gløshaugen"}, {ID: uuid.v4() , title: "Dette er andre avtale", date: "10/10/2017", fromTime: "14:30", toTime: "14:45", place: "Kalvskinnet"}]
+      appointmentList: []
+      //appointmentList: [{ID: uuid.v4() , title: "Dette er første avtale", date: "10/10/2017", fromTime: "13:45", toTime: "14:00", place: "Gløshaugen"}, {ID: uuid.v4() , title: "Dette er andre avtale", date: "10/10/2017", fromTime: "14:30", toTime: "14:45", place: "Kalvskinnet"}]
     }
   }
 
@@ -33,16 +34,17 @@ export default class AppointmentContainer extends React.Component {
       sync: {},
 
     })
-    global.storage = storage
 
-    storage.load({key: 'appointments'}).then(ret =>{console.log(ret)})
+    global.storage = storage
 
     storage.load({
         key: 'appointments',
       }).then(ret =>{
+        console.log(ret)
         this.setState({
           appointmentlist: ret || []
         })
+
         //todolist = ret
       })
   }
@@ -76,12 +78,21 @@ componentDidMount(){
         //Sets the states list to the new sorted list
         this.setState({appointmentList: sortedAppointmentList});
         //Saves the list to localStorage
-        console.log(sortedAppointmentList);
 
         storage.save({
         key: 'appointments',
-        data: appointmentList
+        data: sortedAppointmentList
       })
+      console.log(sortedAppointmentList)
+      storage.load({
+          key: 'appointments',
+        }).then(ret =>{
+          console.log(ret)
+          this.setState({
+            appointmentlist: ret || []
+          })
+
+        })
 
         //Reloads form to refresh the input fields
         this.setState({
@@ -119,6 +130,10 @@ componentDidMount(){
     this.setState({appointmentList: changedList});
 
     //AsyncStorage.setItem('appointments',changedList);
+    storage.save({
+      key: 'appointments',
+      data: changedList
+    })
 
 
   }
@@ -133,11 +148,13 @@ componentDidMount(){
           <Text style={styles.header}>Create Appointment</Text>
           <TextInput
             value= {this.state.title}
-            style={{height: 40, width: 150, borderColor: 'gray', borderWidth: 1}}
+            style={{height: 40, width: 150, borderColor: 'gray', borderWidth: 1, textAlign: 'center', backgroundColor:'#fff'}}
             placeholder="Enter title"
             onChangeText={(title) => {
               this.setState({title})} }/>
           <DatePicker
+            style={{height: 40, width: 150, backgroundColor:'#fff'}}
+
             showIcon= {false}
             date={this.state.date}
             format="DD/MM/YYYY"
@@ -145,6 +162,8 @@ componentDidMount(){
             onDateChange={(date) => {this.setState({date: date})}}
           />
           <DatePicker
+            style={{height: 40, width: 150, backgroundColor:'#fff'}}
+
             showIcon= {false}
             onDateChange={(sTime) => {this.setState({sTime: sTime})}}
             date={this.state.sTime}
@@ -152,6 +171,8 @@ componentDidMount(){
             format="HH:mm"
           placeholder="Enter start time"/>
           <DatePicker
+            style={{height: 40, width: 150, backgroundColor:'#fff'}}
+
             showIcon= {false}
             onDateChange={(eTime) => {this.setState({eTime: eTime})}}
             date={this.state.eTime}
@@ -160,45 +181,53 @@ componentDidMount(){
           placeholder="Enter end time"/>
           <TextInput
             value= {this.state.place}
-            style={{height: 40, width: 150, borderColor: 'gray', borderWidth: 1}}
+            style={{height: 40, width: 150, borderColor: 'gray', borderWidth: 1, textAlign: 'center', backgroundColor:'#fff'}}
             placeholder="enter place/address"
             onChangeText={(place) => {
               this.setState({place})} }/>
           <Button
             onPress={this.addAppointment}
-            style={{width: 150}}
-            title="Add"
+            style={styles.button}
+            title="Add appointment"
             backgroundColor="#841584"
           />
-          </View>
+        </View>
+        <Text style={{fontSize:20}}> Your appointments</Text>
         <ScrollView>
-          <Text> Your appointments</Text>
+
 
           { appointmentList.map((item) => <AppointmentListItem appointment={item} key={item.ID} deleteAppointment={this.deleteAppointment}/>) }
         </ScrollView>
 
 
       </View>
-    );
-  }
-}
+              );
+            }
+            }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  header:{
-    fontSize: 20,
-    margin:10,
-  },
-  form: {
-      flex:1,
-      alignItems: 'center',
-      justifyContent: 'center',
-      borderWidth: 1,
-      padding: 10,
-  }
+            const styles = StyleSheet.create({
+              container: {
+                flex: 1,
+                backgroundColor: '#fff',
+                alignItems: 'center',
+                justifyContent: 'center',
+                marginTop: 10,
+              },
+              header:{
+                fontSize: 20,
+                margin:10,
+                paddingTop:20,
+              },
+              form: {
+                backgroundColor:'#add8e6',
+                flex:1,
+                alignItems: 'center',
+                justifyContent: 'center',
+                borderWidth: 1,
+                padding: 10,
+                paddingBottom:30,
+                marginBottom: 20,
+              },
+              button:{
+              }
 });
