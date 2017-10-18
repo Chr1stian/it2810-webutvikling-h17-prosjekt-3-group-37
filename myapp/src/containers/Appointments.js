@@ -108,7 +108,7 @@ class Appointments extends Component {
         <Card className="SeeAppointment">
          <CardTitle title="Your Appointments"/>
          <Divider />
-            <Table className="AppointmentTable">
+            <Table className="AppointmentTable" height={'275px'}>
                 <TableHeader displaySelectAll={false} adjustForCheckbox={false}>
                 <TableRow>
                     <TableHeaderColumn style={{ width: 100, fontSize: '20px'}}>Date</TableHeaderColumn>
