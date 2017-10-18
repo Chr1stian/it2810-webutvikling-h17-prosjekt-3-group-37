@@ -129,46 +129,48 @@ componentDidMount(){
     //console.log("undeede " + appointmentList);
     return (
       <View style={styles.container}>
-        <Text>Create Appointment</Text>
-        <TextInput
-          value= {this.state.title}
-
-          style={{height: 40, width: 150, borderColor: 'gray', borderWidth: 1}}
-          placeholder="Enter title"
-          onChangeText={(title) => {
-            this.setState({title})} }/>
-        <DatePicker
-          date={this.state.date}
-          format="DD/MM/YYYY"
-          placeholder="Enter date"
-
-          onDateChange={(date) => {this.setState({date: date})}}
-        />
-        <DatePicker
-          onDateChange={(sTime) => {this.setState({sTime: sTime})}}
-          date={this.state.sTime}
-
-          mode="time"
-          format="HH:mm"
-        placeholder="Enter start time"/>
-        <DatePicker
-          onDateChange={(eTime) => {this.setState({eTime: eTime})}}
-          date={this.state.eTime}
-          mode="time"
-          format="HH:mm"
-        placeholder="Enter end time"/>
-        <TextInput
-          value= {this.state.place}
-          style={{height: 40, width: 150, borderColor: 'gray', borderWidth: 1}}
-          placeholder="enter place/address"
-          onChangeText={(place) => {
-            this.setState({place})} }/>
-        <Button
-          onPress={this.addAppointment}
-          style={{width: 150}}
-          title="Add"
-          backgroundColor="#841584"
-        />
+        <View style={styles.form}>
+          <Text style={styles.header}>Create Appointment</Text>
+          <TextInput
+            value= {this.state.title}
+            style={{height: 40, width: 150, borderColor: 'gray', borderWidth: 1}}
+            placeholder="Enter title"
+            onChangeText={(title) => {
+              this.setState({title})} }/>
+          <DatePicker
+            showIcon= {false}
+            date={this.state.date}
+            format="DD/MM/YYYY"
+            placeholder="Enter date"
+            onDateChange={(date) => {this.setState({date: date})}}
+          />
+          <DatePicker
+            showIcon= {false}
+            onDateChange={(sTime) => {this.setState({sTime: sTime})}}
+            date={this.state.sTime}
+            mode="time"
+            format="HH:mm"
+          placeholder="Enter start time"/>
+          <DatePicker
+            showIcon= {false}
+            onDateChange={(eTime) => {this.setState({eTime: eTime})}}
+            date={this.state.eTime}
+            mode="time"
+            format="HH:mm"
+          placeholder="Enter end time"/>
+          <TextInput
+            value= {this.state.place}
+            style={{height: 40, width: 150, borderColor: 'gray', borderWidth: 1}}
+            placeholder="enter place/address"
+            onChangeText={(place) => {
+              this.setState({place})} }/>
+          <Button
+            onPress={this.addAppointment}
+            style={{width: 150}}
+            title="Add"
+            backgroundColor="#841584"
+          />
+          </View>
         <ScrollView>
           <Text> Your appointments</Text>
 
@@ -188,4 +190,15 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  header:{
+    fontSize: 20,
+    margin:10,
+  },
+  form: {
+      flex:1,
+      alignItems: 'center',
+      justifyContent: 'center',
+      borderWidth: 1,
+      padding: 10,
+  }
 });
