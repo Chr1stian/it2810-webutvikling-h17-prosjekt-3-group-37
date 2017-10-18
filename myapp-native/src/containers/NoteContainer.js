@@ -60,6 +60,7 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     paddingTop: '5%',
+    backgroundColor: '#ADD8E6',
   },
   textInputContainer: {
     height: '100%',
