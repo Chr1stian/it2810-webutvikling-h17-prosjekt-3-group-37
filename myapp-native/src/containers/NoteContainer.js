@@ -1,3 +1,4 @@
+//Import React and useful components
 import React from 'react';
 import { StyleSheet, Text, View, TextInput, Keyboard, TouchableWithoutFeedback, AsyncStorage } from 'react-native';
 import { TextField } from 'react-native-material-textfield'
@@ -8,18 +9,20 @@ export default class NoteContainer extends React.Component {
     super(props);
     this.state = { text: '' };
   }
-
+  //Gets AsyncStorage and sets the state
   componentDidMount(){
     AsyncStorage.getItem('text', (err, result) => {
       this.setState({text: result})
     });
   }
 
+  //Changes the state and  AsyncStorage when text changes
   handleChange = (text) => {
     this.setState({text: text.text});
     AsyncStorage.setItem('text', text.text);
   }
 
+  //Deletes the content in the state and AsyncStorage
   handleDelete = (text) => {
     this.setState({text: ""});
     AsyncStorage.setItem('text', "");
@@ -54,12 +57,13 @@ export default class NoteContainer extends React.Component {
     );
   }
 }
-
+//Defines styles for the elements
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: 'center',
     paddingTop: '5%',
+    backgroundColor: '#ADD8E6',
   },
   textInputContainer: {
     height: '100%',
