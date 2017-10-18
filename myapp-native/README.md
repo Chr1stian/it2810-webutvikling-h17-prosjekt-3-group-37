@@ -11,6 +11,8 @@ Below you'll find information about performing common tasks.
 Get started with the application
 -------------
 
+Ps. This application is designed based on android but all functionality works on both platforms.
+
 ```
 Clone this repository and locate yourself to myapp-native
 ```
