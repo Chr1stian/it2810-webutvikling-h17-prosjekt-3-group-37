@@ -25,7 +25,7 @@ export default class TodoContainer extends React.Component {
 
     })
     global.storage = storage;
-    
+
     try {
       storage.load({
         key: 'todoitems'
@@ -73,7 +73,7 @@ export default class TodoContainer extends React.Component {
     todolist.splice(i, 1);
     this.setState({todolist: todolist});
     storage.save({
-      key: 'todoitems', 
+      key: 'todoitems',
       data: todolist
     })
   }
@@ -84,12 +84,12 @@ export default class TodoContainer extends React.Component {
     todolist[i].finished = !todolist[i].finished;
     this.setState({todolist: todolist});
     storage.save({
-      key: 'todoitems', 
+      key: 'todoitems',
       data: todolist
     })
   }
 
-  toggleDone = () => {    
+  toggleDone = () => {
     let {todolist, buttonText, toggleStatus} = this.state;
     let newButtonText = toggleStatus ? "Show finished tasks" : "Hide finished tasks";
     this.setState({todolist: todolist, buttonText: newButtonText, toggleStatus: !toggleStatus});
@@ -113,11 +113,11 @@ export default class TodoContainer extends React.Component {
     if (toggleStatus) {
       doneTodoList = todolist
       .filter(function (todoItem) {return todoItem.finished})
-      .map((todoItem) => 
-        <TodoItem 
-          key={todoItem.ID} 
-          todoItem={todoItem} 
-          setStatusTodoItem={this.setStatusTodoItem} 
+      .map((todoItem) =>
+        <TodoItem
+          key={todoItem.ID}
+          todoItem={todoItem}
+          setStatusTodoItem={this.setStatusTodoItem}
           deleteTodoItem={this.deleteTodoItem}
         />
       );
@@ -177,6 +177,7 @@ const styles = StyleSheet.create({
   container: {
     backgroundColor: '#ADD8E6',
     flex: 1,
+    padding: 20,
   },
   inputs: {
     flexDirection: 'row',
