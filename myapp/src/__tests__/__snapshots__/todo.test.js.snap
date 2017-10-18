@@ -1,0 +1,75 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component renders without crashing 1`] = `
+<div>
+  <div
+    className="CreatorContainer"
+  >
+    <Card
+      className="TodoItemCreator"
+      expandable={false}
+      expanded={null}
+      initiallyExpanded={false}
+    >
+      <CardActions
+        className="TodoItemCreatorContent"
+      >
+        <TextField
+          disabled={false}
+          floatingLabelFixed={false}
+          fullWidth={false}
+          hintText="What task?"
+          id="TitleField"
+          multiLine={false}
+          rows={1}
+          type="text"
+          underlineShow={true}
+        />
+        <TextField
+          disabled={false}
+          floatingLabelFixed={false}
+          fullWidth={false}
+          hintText="Optional comment"
+          id="CommentField"
+          multiLine={false}
+          rows={1}
+          type="text"
+          underlineShow={true}
+        />
+        <FlatButton
+          disabled={false}
+          fullWidth={false}
+          labelPosition="after"
+          labelStyle={Object {}}
+          onClick={[Function]}
+          onKeyboardFocus={[Function]}
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
+          onTouchStart={[Function]}
+          primary={false}
+          secondary={false}
+          style={
+            Object {
+              "backgroundColor": "#555555",
+            }
+          }
+        >
+          Add
+        </FlatButton>
+      </CardActions>
+    </Card>
+  </div>
+  <div
+    className="TodoItemContainer"
+    id="NotDone"
+  >
+    <div>
+      You have no items todo
+    </div>
+  </div>
+  <div
+    className="TodoItemContainer"
+    id="Done"
+  />
+</div>
+`;

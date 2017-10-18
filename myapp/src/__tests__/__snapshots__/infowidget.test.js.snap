@@ -1,0 +1,59 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component renders as expected 1`] = `
+<Card
+  className="infoWidget"
+  expandable={false}
+  expanded={null}
+  initiallyExpanded={false}
+>
+  <CardMedia
+    className="weatherIconDiv"
+  >
+    <WeatherIcon
+      className="weatherIconPosition"
+      imgSrc="loading"
+    />
+  </CardMedia>
+  <CardTitle
+    title="Trondheim"
+    titleColor="#fff"
+  />
+  <CardText
+    style={
+      Object {
+        "fontSize": "20px",
+        "paddingTop": "0",
+      }
+    }
+  >
+    <span
+      id="cardTextLeft"
+    >
+       Loading
+    </span>
+    <span
+      id="cardTextRight"
+    >
+       
+      Loading 
+    </span>
+  </CardText>
+  <Divider
+    inset={false}
+  />
+  <CardText
+    style={
+      Object {
+        "textAlign": "center",
+      }
+    }
+  >
+    Not so good weather today, so stay inside!
+  </CardText>
+  <Divider
+    inset={false}
+  />
+  <Clock />
+</Card>
+`;

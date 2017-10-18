@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Home component should render as expected 1`] = `
+<div
+  className="infoHere"
+>
+  <InfoWidget />
+  <HomeNavigation />
+</div>
+`;

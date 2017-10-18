@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component renders as expected 1`] = `
+<div>
+  <Card
+    className="navigationCard"
+    expandable={false}
+    expanded={null}
+    initiallyExpanded={false}
+  >
+    <AppointmentsHome />
+  </Card>
+  <Card
+    className="navigationCard"
+    expandable={false}
+    expanded={null}
+    initiallyExpanded={false}
+  >
+    <NotesHome />
+  </Card>
+  <Card
+    className="navigationCard"
+    expandable={false}
+    expanded={null}
+    initiallyExpanded={false}
+  >
+    <ToDoHome />
+  </Card>
+</div>
+`;
