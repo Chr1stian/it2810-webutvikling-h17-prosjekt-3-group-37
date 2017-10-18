@@ -9,42 +9,45 @@ import Storage from 'react-native-storage';
 
 
 
-
 export default class AppointmentContainer extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-      //List with appointments
       title:"",
       date:"",
       sTime:"",
       eTime:"",
       place:"",
+      //List with appointments
       appointmentList: [{ID: uuid.v4() , title: "Dette er første avtale", date: "10/10/2017", fromTime: "13:45", toTime: "14:00", place: "Gløshaugen"}, {ID: uuid.v4() , title: "Dette er andre avtale", date: "10/10/2017", fromTime: "14:30", toTime: "14:45", place: "Kalvskinnet"}]
     }
   }
 
 
   //Sets the states appointmentlist from the users localStorage
+
   componentWillMount = () => {
     var storage = new Storage({
-          storageBackend: AsyncStorage,
-          defaultExpires: null,
-          sync: {},
+      storageBackend: AsyncStorage,
+      defaultExpires: null,
+      sync: {},
 
-        })
+    })
     global.storage = storage
+
+    storage.load({key: 'appointments'}).then(ret =>{console.log(ret)})
+
     storage.load({
         key: 'appointments',
       }).then(ret =>{
         this.setState({
-          appointmentList: ret || []
+          appointmentlist: ret || []
         })
         //todolist = ret
       })
-
-
   }
+
+
 
 
 
@@ -73,10 +76,14 @@ componentDidMount(){
         //Sets the states list to the new sorted list
         this.setState({appointmentList: sortedAppointmentList});
         //Saves the list to localStorage
+        console.log(sortedAppointmentList);
+
         storage.save({
         key: 'appointments',
-        data: sortedAppointmentList
+        data: appointmentList
       })
+
+        //Reloads form to refresh the input fields
         this.setState({
           title:"",
           date:"",
@@ -99,8 +106,8 @@ componentDidMount(){
     //Sets the state and localStorage to the new list without the deleted appointment
     this.setState({appointmentList: appointmentList});
     storage.save({
-      key: 'appointments', 
-      data: todolist
+      key: 'appointments',
+      data: appointmentList
     })
   }
 
