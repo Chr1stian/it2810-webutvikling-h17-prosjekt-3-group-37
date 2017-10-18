@@ -1,0 +1,205 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component renders as expected 1`] = `
+<div
+  className="Appointment"
+>
+  <Card
+    className="SeeAppointment"
+    expandable={false}
+    expanded={null}
+    initiallyExpanded={false}
+  >
+    <CardTitle
+      title="Your Appointments"
+    />
+    <Divider
+      inset={false}
+    />
+    <Table
+      allRowsSelected={false}
+      className="AppointmentTable"
+      fixedFooter={true}
+      fixedHeader={true}
+      height="inherit"
+      multiSelectable={false}
+      selectable={true}
+    >
+      <TableHeader
+        adjustForCheckbox={false}
+        displaySelectAll={false}
+        enableSelectAll={true}
+        selectAllSelected={false}
+      >
+        <TableRow
+          displayBorder={true}
+          hoverable={false}
+          hovered={false}
+          selectable={true}
+          striped={false}
+        >
+          <TableHeaderColumn
+            style={
+              Object {
+                "fontSize": "20px",
+                "width": 100,
+              }
+            }
+          >
+            Date
+          </TableHeaderColumn>
+          <TableHeaderColumn
+            style={
+              Object {
+                "fontSize": "20px",
+                "width": 150,
+              }
+            }
+          >
+            Title
+          </TableHeaderColumn>
+          <TableHeaderColumn
+            style={
+              Object {
+                "fontSize": "20px",
+                "width": 100,
+              }
+            }
+          >
+            Time
+          </TableHeaderColumn>
+          <TableHeaderColumn
+            style={
+              Object {
+                "fontSize": "20px",
+                "width": 150,
+              }
+            }
+          >
+            Place
+          </TableHeaderColumn>
+          <TableHeaderColumn>
+            <RaisedButton
+              disabled={false}
+              fullWidth={false}
+              labelPosition="after"
+              primary={true}
+              secondary={false}
+              style={
+                Object {
+                  "visibility": "hidden",
+                }
+              }
+            >
+              Delete
+            </RaisedButton>
+          </TableHeaderColumn>
+        </TableRow>
+      </TableHeader>
+      <TableBody
+        allRowsSelected={false}
+        deselectOnClickaway={true}
+        displayRowCheckbox={true}
+        multiSelectable={false}
+        preScanRows={true}
+        selectable={true}
+        style={Object {}}
+      />
+    </Table>
+  </Card>
+  <Card
+    className="CreateAppointment"
+    expandable={false}
+    expanded={null}
+    initiallyExpanded={false}
+  >
+    <CardTitle
+      title="Create Appointment"
+    />
+    <Divider
+      inset={false}
+    />
+    <div
+      className="FormFields"
+    >
+      <TextField
+        disabled={false}
+        floatingLabelFixed={false}
+        fullWidth={false}
+        hintText="Enter title"
+        id="titleText"
+        multiLine={false}
+        rows={1}
+        type="text"
+        underlineShow={true}
+      />
+      <DatePicker
+        DateTimeFormat={[Function]}
+        autoOk={false}
+        container="dialog"
+        disableYearSelection={false}
+        disabled={false}
+        firstDayOfWeek={1}
+        hideCalendarDate={false}
+        hintText="Select date"
+        id="dateValue"
+        locale="en-GB"
+        minDate={2017-10-18T10:31:31.280Z}
+        openToYearSelection={false}
+        style={Object {}}
+      />
+      <TimePicker
+        autoOk={false}
+        cancelLabel="Cancel"
+        defaultTime={null}
+        disabled={false}
+        format="24hr"
+        hintText="Select start-time"
+        id="fromTime"
+        minutesStep={15}
+        okLabel="OK"
+        pedantic={false}
+        style={Object {}}
+        value={null}
+      />
+       
+      <TimePicker
+        autoOk={false}
+        cancelLabel="Cancel"
+        defaultTime={null}
+        disabled={false}
+        format="24hr"
+        hintText="Select end-time"
+        id="toTime"
+        minutesStep={15}
+        okLabel="OK"
+        pedantic={false}
+        style={Object {}}
+        value={null}
+      />
+      <TextField
+        disabled={false}
+        floatingLabelFixed={false}
+        fullWidth={false}
+        hintText="Enter place/address"
+        id="placeText"
+        multiLine={false}
+        rows={1}
+        type="text"
+        underlineShow={true}
+      />
+      <RaisedButton
+        disabled={false}
+        fullWidth={false}
+        id="addAppointment"
+        labelPosition="after"
+        onClick={[Function]}
+        primary={true}
+        secondary={false}
+      >
+        Add Appointment
+      </RaisedButton>
+    </div>
+  </Card>
+</div>
+`;

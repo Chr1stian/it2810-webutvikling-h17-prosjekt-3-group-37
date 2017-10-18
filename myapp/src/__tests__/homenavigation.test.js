@@ -6,11 +6,10 @@ Enzyme.configure({ adapter: new Adapter() });
 import { shallow } from "enzyme";
 import toJson from "enzyme-to-json";
 //Importing component that will be tested
-import NavBar from './../containers/NavBar.js'
+import HomeNavigation from "./../containers/HomeNavigation.js";
 
-test('NavBar component should render as expected', () => {
-    const component = shallow(<NavBar />);
-    const tree = toJson(component);
-   //take snapshots to be noticed about changes tht might be unexpected
-    expect(tree).toMatchSnapshot();
-})
+test("Component renders as expected", () => {
+  const component = shallow(<HomeNavigation />);
+  let tree = toJson(component);
+  expect(tree).toMatchSnapshot();
+});

@@ -12,7 +12,7 @@ Enzyme.configure({ adapter: new Adapter() });
 test('Home component should render as expected', () => {
     const component = shallow(<Home />);
     const tree = toJson(component);
-    console.log(tree);
+    //console.log(tree);
     //renders expected containers
     expect(component.contains(<InfoWidget />)).toBe(true);
     expect(component.contains(<HomeNavigation />)).toBe(true);
