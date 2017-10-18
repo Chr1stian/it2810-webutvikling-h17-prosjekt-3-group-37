@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, TextInput, AsyncStorage, StyleSheet, Text, View } from 'react-native';
+import { ScrollView, Button, TextInput, AsyncStorage, StyleSheet, Text, View } from 'react-native';
 import TodoItem from './../components/TodoItem';
 import Storage from 'react-native-storage';
 
@@ -29,8 +29,6 @@ export default class TodoContainer extends React.Component {
         key: 'todoitems2',
         data: [{ID: "123", title: "qerqwe", text: "socool", finished: false}]
       })*/
-
-      storage.load({key: 'todoitems2'}).then(ret =>{console.log(ret)})
 
 
       //const value = AsyncStorage.getItem('todoitems2');
@@ -70,6 +68,14 @@ export default class TodoContainer extends React.Component {
         key: 'todoitems2',
         data: todolist
       })
+    console.log("internal:" + todolist)
+     storage.load({
+    key: 'todoitems2',
+  }).then(ret =>{
+    console.log("load"+ret)
+    //todolist = ret
+  })
+
     //Resets the new Todo item fields and hint text
     //FIX THIS
   }
@@ -98,7 +104,7 @@ export default class TodoContainer extends React.Component {
 
   toggleDone = () => {    
     let {todolist, buttonText, toggleStatus} = this.state;
-    let newButtonText = toggleStatus ? "Hide finished tasks" : "Show finished tasks";
+    let newButtonText = toggleStatus ? "Show finished tasks" : "Hide finished tasks";
     this.setState({todolist: todolist, buttonText: newButtonText, toggleStatus: !toggleStatus});
 
   }
@@ -138,7 +144,7 @@ export default class TodoContainer extends React.Component {
     } else {
       if (todolist.length-notDoneTodoList.length !== 0) {
         //let buttonStyle = {backgroundColor: "#555555", height: "auto", marginTop: "20px", marginBottom: "-20px"}
-        showTasks = <Button onPress={this.toggleDone} title={buttonText}
+        showTasks = <Button color={"#303030"} onPress={this.toggleDone} title={buttonText}
         />;
       }
     }
@@ -161,16 +167,17 @@ export default class TodoContainer extends React.Component {
           onPress={this.addTodoItem}
           title="Add todo"
         />
-
+        <ScrollView>
         <View>
           {notDoneTodoList}
         </View>
-        <View>
+        <View style={{marginTop: 10}}>
           {showTasks}
         </View>
         <View>
           {doneTodoList}
         </View>
+      </ScrollView>
       </View>
     );
   }
