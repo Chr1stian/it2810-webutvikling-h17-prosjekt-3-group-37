@@ -24,13 +24,13 @@ export default class TodoContainer extends React.Component {
       sync: {},
 
     })
-    global.storage = storage
+    global.storage = storage;
 
     storage.load({
-      key: 'todoitems',
+      key: 'todoitems'
     }).then(ret =>{
       this.setState({
-        todolist: ret || [];
+        todolist: ret || []
       })
     })
 
