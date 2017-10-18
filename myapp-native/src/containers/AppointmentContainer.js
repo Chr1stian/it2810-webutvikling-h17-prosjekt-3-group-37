@@ -37,24 +37,26 @@ export default class AppointmentContainer extends React.Component {
 
     global.storage = storage
 
+
     storage.load({
         key: 'appointments',
       }).then(ret =>{
         console.log(ret)
         this.setState({
-          appointmentlist: ret || []
+          appointmentList: ret
         })
 
-        //todolist = ret
+
       })
-  }
+    }
+
 
 
 
 
 
 componentDidMount(){
-  this.removeOldAppointments();
+  //this.removeOldAppointments();
 
 }
 
@@ -83,14 +85,11 @@ componentDidMount(){
         key: 'appointments',
         data: sortedAppointmentList
       })
-      console.log(sortedAppointmentList)
+      //console.log(sortedAppointmentList)
       storage.load({
           key: 'appointments',
         }).then(ret =>{
-          console.log(ret)
-          this.setState({
-            appointmentlist: ret || []
-          })
+          //console.log(ret)
 
         })
 
