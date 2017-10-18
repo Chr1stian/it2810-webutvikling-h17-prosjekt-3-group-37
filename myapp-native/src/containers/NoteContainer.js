@@ -31,15 +31,18 @@ export default class NoteContainer extends React.Component {
       <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
         <View style={styles.container}>
           <Text style={styles.text}>Notes</Text>
-          <TextInput
-            style={styles.textInputContainer}
+          <TextField
+            label=""
+            inputContainerStyle = {styles.textInputContainer}
+            containerStyle = {styles.textContainer}
+            //style={styles.textInputContainer}
             onChangeText={(text) => this.handleChange({text})}
             value={this.state.text}
             multiline={true}
             placeholder="Do you have anything on your mind?"
           />
           <Button
-            backgroundColor={'red'}
+            backgroundColor={'#d32f2f'}
             icon={{name: 'delete-sweep'}}
             onPress={this.handleDelete}
             title="Delete note"
@@ -55,27 +58,30 @@ export default class NoteContainer extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#ADD8E6',
     alignItems: 'center',
     paddingTop: '5%',
   },
   textInputContainer: {
-    height: '60%',
+    height: '100%',
     borderColor: 'gray',
-    borderWidth: 1,
-    maxWidth: '90%',
+    borderWidth: 2,
     width: '100%',
     backgroundColor: '#fff',
     paddingLeft: 3,
+    paddingTop: 3,
   },
   textContainer: {
+    paddingTop: 0,
     width: '100%',
-    maxWidth: '90%',
+    maxWidth: '80%',
+    height: '50%',
+    marginBottom: 15,
+    marginTop: 5,
   },
   text: {
     fontSize: 25,
   },
   button: {
-    marginTop: 15,
+    //marginTop: 15,
   },
 });
