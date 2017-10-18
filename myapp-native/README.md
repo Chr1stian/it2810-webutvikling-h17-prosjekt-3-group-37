@@ -1,6 +1,29 @@
-This project was bootstrapped with [Create React Native App](https://github.com/react-community/create-react-native-app).
+Welcome to the Personal Planner application!
+===================
 
-Below you'll find information about performing common tasks. The most recent version of this guide is available [here](https://github.com/react-community/create-react-native-app/blob/master/react-native-scripts/template/README.md).
+
+Hey! This application will revolutionize the way you see the week.
+
+----------
+
+Below you'll find information about performing common tasks.
+
+Get started with the application
+-------------
+
+```
+Clone this repository and locate yourself to myapp-native
+```
+```
+npm install
+```
+```
+npm start
+```
+Then download expo (https://expo.io/) on your personal device (Android/iOs)
+and use this app to scan the QR-code you will get in the terminal.
+You will now be able to use our application on your device.
+
 
 ## Table of Contents
 
