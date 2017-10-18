@@ -17,8 +17,8 @@ export default class TodoItem extends React.Component {
     let { todoItem } = this.props;
 
     let statusText = todoItem.finished ? "Undo" : "Done";
-    let backgroundColor = todoItem.finished ? "#007a87" : "#555555";
-    let buttonColor = todoItem.finished ? "#0097a7" : "#303030";
+    let backgroundColor = todoItem.finished ? "#ddd" : "#fff";
+    let redButton = "red"
 
     const styles = StyleSheet.create({
       container: {
@@ -52,13 +52,13 @@ export default class TodoItem extends React.Component {
       },
 
       title: {
-        color: 'white',
+        color: 'black',
         fontWeight: 'bold'
 
       },
 
       text: {
-        color: 'white',
+        color: 'black',
 
       }
 
@@ -76,7 +76,6 @@ export default class TodoItem extends React.Component {
             <Button
               title={statusText}
               onPress={this.setStatusTodoItem}
-              color={buttonColor}
 
             />
           </View>
@@ -84,7 +83,7 @@ export default class TodoItem extends React.Component {
             <Button
               title="Delete"
               onPress={this.deleteTodoItem}
-              color={buttonColor}
+              color={redButton}
 
               
 
