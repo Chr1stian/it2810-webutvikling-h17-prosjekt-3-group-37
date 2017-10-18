@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, View, TextInput, AsyncStorage, ScrollView } from 'react-native';
 import DatePicker from 'react-native-datepicker';
-import { Button } from 'react-native-elements';
+import { Button, Card } from 'react-native-elements';
 import uuid from 'uuid';
 import Moment from 'moment';
 import AppointmentListItem from './../components/AppointmentListItem';
@@ -123,64 +123,63 @@ componentDidMount(){
     let { appointmentList } = this.state;
     return (
       <View style={styles.container}>
-        <View style={styles.form}>
-          <Text style={styles.header}>Create Appointment</Text>
-          <TextInput
-            value= {this.state.title}
-            style={{height: 40, width: 150, borderColor: 'gray', borderWidth: 1, textAlign: 'center', backgroundColor:'#fff'}}
-            placeholder="Enter title"
-            onChangeText={(title) => {
-              this.setState({title})} }/>
-          <DatePicker
-            style={{height: 40, width: 150, backgroundColor:'#fff'}}
-            confirmBtnText="Confirm"
-            cancelBtnText="Cancel"
-            showIcon= {false}
-            date={this.state.date}
-            format="DD/MM/YYYY"
-            placeholder="Enter date"
-            onDateChange={(date) => {this.setState({date: date})}}
-          />
-          <DatePicker
-            style={{height: 40, width: 150, backgroundColor:'#fff'}}
-            confirmBtnText="Confirm"
-            cancelBtnText="Cancel"
-            showIcon= {false}
-            onDateChange={(sTime) => {this.setState({sTime: sTime})}}
-            date={this.state.sTime}
-            mode="time"
-            format="HH:mm"
-          placeholder="Enter start time"/>
-          <DatePicker
-            style={{height: 40, width: 150, backgroundColor:'#fff'}}
-            confirmBtnText="Confirm"
-            cancelBtnText="Cancel"
-            showIcon= {false}
-            onDateChange={(eTime) => {this.setState({eTime: eTime})}}
-            date={this.state.eTime}
-            mode="time"
-            format="HH:mm"
-          placeholder="Enter end time"/>
-          <TextInput
-            value= {this.state.place}
-            style={{height: 40, width: 150, borderColor: 'gray', borderWidth: 1, textAlign: 'center', backgroundColor:'#fff'}}
-            placeholder="enter place/address"
-            onChangeText={(place) => {
-              this.setState({place})} }/>
-          <Button
-            onPress={this.addAppointment}
-            style={styles.button}
-            title="Add appointment"
-            backgroundColor="#841584"
-          />
-        </View>
-        <Text style={{fontSize:20}}> Your appointments</Text>
         <ScrollView>
+          <Card title="Create Appointment" containerStyle={styles.form} wrapperStyle={styles.innerForm}>
 
+            <TextInput
+              value= {this.state.title}
+              style={{height: 40, width: 200, borderColor: 'gray', borderWidth: 1, textAlign: 'center', backgroundColor:'#fff', margin:2}}
+              placeholder="Enter title"
+              onChangeText={(title) => {
+                this.setState({title})} }/>
+            <DatePicker
+              style={{height: 40, width: 200, backgroundColor:'#fff', margin:2}}
+              confirmBtnText="Confirm"
+              cancelBtnText="Cancel"
+              showIcon= {false}
+              date={this.state.date}
+              format="DD/MM/YYYY"
+              placeholder="Enter date"
+              onDateChange={(date) => {this.setState({date: date})}}
+            />
+            <DatePicker
+              style={{height: 40, width: 200, backgroundColor:'#fff', margin:2}}
+              confirmBtnText="Confirm"
+              cancelBtnText="Cancel"
+              showIcon= {false}
+              onDateChange={(sTime) => {this.setState({sTime: sTime})}}
+              date={this.state.sTime}
+              mode="time"
+              format="HH:mm"
+            placeholder="Enter start time"/>
+            <DatePicker
+              style={{height: 40, width: 200, backgroundColor:'#fff', margin:2}}
+              confirmBtnText="Confirm"
+              cancelBtnText="Cancel"
+              showIcon= {false}
+              onDateChange={(eTime) => {this.setState({eTime: eTime})}}
+              date={this.state.eTime}
+              mode="time"
+              format="HH:mm"
+            placeholder="Enter end time"/>
+            <TextInput
+              value= {this.state.place}
+              style={{height: 40, width: 200, borderColor: 'gray', borderWidth: 1, textAlign: 'center', backgroundColor:'#fff', margin:2}}
+              placeholder="Enter place/address"
+              onChangeText={(place) => {
+                this.setState({place})} }/>
+
+            <Button
+              onPress={this.addAppointment}
+              buttonStyle={styles.button}
+              title="Add appointment"
+              backgroundColor="#841584"
+            />
+          </Card>
 
           { appointmentList.map((item) => <AppointmentListItem appointment={item} key={item.ID} deleteAppointment={this.deleteAppointment}/>) }
-        </ScrollView>
 
+        </ScrollView>
 
       </View>
               );
@@ -193,23 +192,27 @@ componentDidMount(){
                 backgroundColor: '#fff',
                 alignItems: 'center',
                 justifyContent: 'center',
-                marginTop: 10,
+
               },
-              header:{
-                fontSize: 20,
-                margin:10,
-                paddingTop:20,
-              },
+
               form: {
-                backgroundColor:'#add8e6',
+                height: 400,
+                width:350,
+                padding:0,
+
+              },
+              button:{
+              height: 50,
+              width: 200,
+              margin:2,
+
+            },
+              innerForm:{
                 flex:1,
                 alignItems: 'center',
                 justifyContent: 'center',
-                borderWidth: 1,
-                padding: 10,
-                paddingBottom:30,
-                marginBottom: 20,
-              },
-              button:{
+
+
               }
+
 });

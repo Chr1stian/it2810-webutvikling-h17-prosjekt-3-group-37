@@ -1,8 +1,8 @@
 
 
 import React, { Component } from 'react';
-import { Button } from 'react-native-elements';
 import { StyleSheet, Text, View, ScrollView } from 'react-native';
+import { Button, Card } from 'react-native-elements';
 
 import Moment from 'moment';
 
@@ -29,18 +29,30 @@ class AppointmentListItem extends Component {
   	    const textColumnStyle = { width: 150}
   		return (
   				//Creates and returns the appointment tablerow to the Appointment.js Component
-            <View style={{width: 150, height: 200, borderColor: 'gray', borderWidth: 1 }}>
-              <Text>{date}</Text>
-              <Text>{appointment.title}</Text>
-              <Text>{appointment.sTime} - {appointment.eTime}</Text>
-              <Text>{appointment.place}</Text>
+
+            <Card wrapperStyle={styles.innerAppointments}>
+              <Text style={{fontSize:20}}>{date}</Text>
+              <Text style={{fontSize:15}}>{appointment.title}</Text>
+              <Text style={{fontSize:15}}>{appointment.sTime} - {appointment.eTime}</Text>
+              <Text style={{fontSize:15}}>{appointment.place}</Text>
               <Button
                 onPress={this.deleteAppointment}
                 title= "Delete"
                 backgroundColor="#ff0000"
+                buttonStyle={{width: 200}}
+
               />
-              </View>
+            </Card>
             )
   	}
   }
+
+  const styles = StyleSheet.create({
+    innerAppointments: {
+      flex:1,
+      alignItems: 'center',
+      justifyContent: 'center',
+    }
+  });
+
 export default AppointmentListItem;
