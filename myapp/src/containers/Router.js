@@ -21,7 +21,7 @@ import Moment from 'moment';
 class Router extends Component {
 constructor(props){
   super();
-
+ // A list of all background gradients.
   const listWheather = ["linear-gradient(to bottom, #020111 85%,#191621 100%)",
               "linear-gradient(to bottom, #020111 85%,#191621 100%)",
               "linear-gradient(to bottom, #020111 60%,#20202c 100%)",
@@ -47,18 +47,18 @@ constructor(props){
               "linear-gradient(to bottom, #090401 50%,#4B1D06 100%)",
               "linear-gradient(to bottom, #090401 50%,#4B1D06 100%)"
             ]
+  //Initialize color depending on time of day. set date and colorlist from listWeather.
   this.state = {
     color : listWheather[parseInt(Moment().format('H'), 10)],
     date: Moment().format('H'),
     colorList: listWheather,
   };
 }
-
+// Changes backgroundColor. Interval runs snippets every 6'th minute to update backgroundColor.
 componentDidMount() {
   const {colorList} = this.state;
   this.intervalId = setInterval(() => {
     this.setState({ date: Moment().format('H'), color: colorList[parseInt(this.state.date, 10)]});
-
   }, 360000);
 }
 
