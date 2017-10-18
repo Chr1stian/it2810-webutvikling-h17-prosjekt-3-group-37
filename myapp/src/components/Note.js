@@ -48,8 +48,8 @@ Rendering note with material-ui elements.
               rowsMax={13}
               multiLine={true}
               id="textarena"
-              value= {localStorage.getItem('value', this.state.value)}
-              onChange={this.handleChange}>  
+              value= {localStorage.getItem('value', this.state.value) || ''}
+              onChange={this.handleChange}>
             </TextField>
             <FlatButton onClick={this.handleDelete}>Delete</FlatButton>
           </Card>
