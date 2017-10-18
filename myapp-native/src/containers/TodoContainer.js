@@ -167,16 +167,10 @@ export default class TodoContainer extends React.Component {
           onPress={this.addTodoItem}
           title="Add todo"
         />
-        <ScrollView>
-        <View>
+        <ScrollView View style={{flex: 0.8}}>
           {notDoneTodoList}
-        </View>
-        <View style={{marginTop: 10}}>
           {showTasks}
-        </View>
-        <View>
           {doneTodoList}
-        </View>
       </ScrollView>
       </View>
     );
@@ -186,6 +180,7 @@ export default class TodoContainer extends React.Component {
 const styles = StyleSheet.create({
   container: {
     backgroundColor: '#fff',
+    flex: 1,
   },
   inputs: {
     flexDirection: 'row',
