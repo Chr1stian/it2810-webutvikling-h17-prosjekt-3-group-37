@@ -1,5 +1,5 @@
 //import "jsdom-global/register"; //at the top of file , even  , before importing react
-//import raf from "./../testSetup/tempPolyfills";
+//import raf from "./../test/tempPolyfills";
 //setup file for testing to avoid duplicate code.
 //import setupTest from './../testSetup/setupTest.js';
 import React from "react";
@@ -11,6 +11,8 @@ import { shallow, mount, render } from "enzyme";
 import toJson from "enzyme-to-json";
 //Importing component that will be tested
 import Todo from "./../containers/Todo.js";
+import TodoItem from "./../components/TodoItem.js";
+
 import "./../test/mock-localstorage.js";
 
 test("Component renders without crashing", () => {
@@ -20,14 +22,25 @@ test("Component renders without crashing", () => {
   expect(tree).toMatchSnapshot();
 });
 
-describe("another test in same file", () => {
+test("Checking if a div is being rendered", () => {
   const wrapper = shallow(<Todo />);
-  it("renders the correct html", () => {
-    expect(wrapper.type()).toEqual("div");
-  });
-  it("has working functions to add todos", () => {
-    //console.log("todo");
-    //console.log(wrapper.instance());
-    wrapper.instance();
-  });
+  expect(wrapper.type()).toEqual("div");
+});
+
+test("Attempting to render child", () => {
+  const wrapper = shallow(<Todo />);
+  try {
+      const todoitem = shallow(<TodoItem />);
+  }
+  catch (e) {
+    console.log("couldnt render todoitem");
+    return undefined;
+  }
+  //console.log(wrapper.instance().props);
+  console.log(wrapper.instance().state);
+  wrapper.instance().setState({title: "title", text: "string"});
+  console.log("Trying to run a function from the component");
+  console.log(wrapper.instance().state);
+  //wrapper.setProps({title: 'Dette er første avtale'});
+  //expect(wrapper.contains('Dette er første avtale')).to.equal(true);
 });

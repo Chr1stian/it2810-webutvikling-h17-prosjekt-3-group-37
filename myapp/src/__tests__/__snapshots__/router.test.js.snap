@@ -429,7 +429,7 @@ exports[`Component renders as expected 1`] = `
           id="app-area"
           style={
             Object {
-              "background": "linear-gradient(to bottom, #90dffe 0%,#38a3d1 100%)",
+              "background": "linear-gradient(to bottom, #2d91c2 0%,#1e528e 100%)",
             }
           }
         >

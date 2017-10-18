@@ -144,7 +144,7 @@ exports[`Component renders as expected 1`] = `
         hintText="Select date"
         id="dateValue"
         locale="en-GB"
-        minDate={2017-10-18T10:31:31.280Z}
+        minDate={2017-10-18T12:29:23.410Z}
         openToYearSelection={false}
         style={Object {}}
       />

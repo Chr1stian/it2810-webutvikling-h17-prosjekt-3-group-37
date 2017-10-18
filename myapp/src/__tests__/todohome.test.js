@@ -6,11 +6,11 @@ Enzyme.configure({ adapter: new Adapter() });
 import { shallow } from "enzyme";
 import toJson from "enzyme-to-json";
 //Importing component that will be tested
-import NotesHome from "./../components/NotesHome.js";
+import ToDoHome from "./../components/ToDoHome.js";
 import "./../test/mock-localstorage.js";
 
 test("Component renders as expected", () => {
-  const component = shallow(<NotesHome />);
+  const component = shallow(<ToDoHome />);
   let tree = toJson(component);
   expect(tree).toMatchSnapshot();
 });

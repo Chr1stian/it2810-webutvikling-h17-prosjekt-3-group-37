@@ -1,0 +1,44 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component renders as expected 1`] = `
+<div>
+  <CardTitle
+    style={
+      Object {
+        "paddingBottom": "0",
+        "paddingTop": "4px",
+        "textAlign": "center",
+      }
+    }
+    title="ToDo"
+  />
+  <Divider
+    inset={false}
+  />
+  <CardText
+    className="todoHomeText"
+  >
+    Lucky you, have nothing todo
+  </CardText>
+  <RaisedButton
+    disabled={false}
+    fullWidth={false}
+    labelPosition="after"
+    primary={false}
+    secondary={true}
+    style={
+      Object {
+        "display": "flex",
+      }
+    }
+  >
+    <Link
+      className="navLink"
+      replace={false}
+      to="/todo"
+    >
+      EDIT YOUR TODOS
+    </Link>
+  </RaisedButton>
+</div>
+`;
