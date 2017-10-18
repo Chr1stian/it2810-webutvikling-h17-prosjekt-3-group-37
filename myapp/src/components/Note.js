@@ -40,7 +40,17 @@ Rendering note with material-ui elements.
         <div className="noteContainer">
           <Card className="textArea">
             <CardTitle style={{textAlign: "center"}} title="Your notes" />
-            <TextField placeholder="Do you have anything on your mind?" style={{width: "30vw"}} spellCheck={false} rows={13} rowsMax={13} multiLine={true} id="textarena" value= {localStorage.getItem('value', this.state.value)} onChange={this.handleChange}></TextField>
+            <TextField
+              placeholder="Do you have anything on your mind?"
+              style={{width: "30vw"}}
+              spellCheck={false}
+              rows={13}
+              rowsMax={13}
+              multiLine={true}
+              id="textarena"
+              value= {localStorage.getItem('value', this.state.value)}
+              onChange={this.handleChange}>  
+            </TextField>
             <FlatButton onClick={this.handleDelete}>Delete</FlatButton>
           </Card>
         </div>
