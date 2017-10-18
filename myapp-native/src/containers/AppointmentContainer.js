@@ -55,7 +55,7 @@ export default class AppointmentContainer extends React.Component {
 
 
 componentDidMount(){
-  this.removeOldAppointments();
+
 
 }
 
@@ -118,22 +118,6 @@ componentDidMount(){
     })
   }
 
-  removeOldAppointments = () => {
-    let {appointmentList} = this.state;
-    let today = new Date();
-    //Creates a new list with appointments with a date today or later
-    let changedList = appointmentList.filter(function (appointment) {return (appointment.date.split("/").join("-")) >= (Moment(today).format("DD/MM/YYYY")).split("/").join("-")});
-    this.setState({appointmentList: changedList});
-
-    //AsyncStorage.setItem('appointments',changedList);
-    storage.save({
-      key: 'appointments',
-      data: changedList
-    })
-
-
-  }
-
   render() {
     let { title } = this.state;
     let { appointmentList } = this.state;
@@ -149,7 +133,8 @@ componentDidMount(){
               this.setState({title})} }/>
           <DatePicker
             style={{height: 40, width: 150, backgroundColor:'#fff'}}
-
+            confirmBtnText="Confirm"
+            cancelBtnText="Cancel"
             showIcon= {false}
             date={this.state.date}
             format="DD/MM/YYYY"
@@ -158,7 +143,8 @@ componentDidMount(){
           />
           <DatePicker
             style={{height: 40, width: 150, backgroundColor:'#fff'}}
-
+            confirmBtnText="Confirm"
+            cancelBtnText="Cancel"
             showIcon= {false}
             onDateChange={(sTime) => {this.setState({sTime: sTime})}}
             date={this.state.sTime}
@@ -167,7 +153,8 @@ componentDidMount(){
           placeholder="Enter start time"/>
           <DatePicker
             style={{height: 40, width: 150, backgroundColor:'#fff'}}
-
+            confirmBtnText="Confirm"
+            cancelBtnText="Cancel"
             showIcon= {false}
             onDateChange={(eTime) => {this.setState({eTime: eTime})}}
             date={this.state.eTime}
