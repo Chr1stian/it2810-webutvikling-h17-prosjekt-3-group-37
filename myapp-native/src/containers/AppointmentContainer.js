@@ -1,3 +1,4 @@
+//Import React and useful components
 import React from 'react';
 import { StyleSheet, Text, View, TextInput, AsyncStorage, ScrollView } from 'react-native';
 import DatePicker from 'react-native-datepicker';
@@ -24,9 +25,7 @@ export default class AppointmentContainer extends React.Component {
     }
   }
 
-
   //Sets the states appointmentlist from the users localStorage
-
   componentWillMount = () => {
     var storage = new Storage({
       storageBackend: AsyncStorage,
@@ -42,26 +41,11 @@ export default class AppointmentContainer extends React.Component {
           this.setState({
             appointmentList: ret || []
           })
-
-
         })
-
     } catch (error) {
       console.log(error)
     }
   }
-
-
-
-
-
-
-
-componentDidMount(){
-
-
-}
-
 
   addAppointment = () => {
     let {title} = this.state;
