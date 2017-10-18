@@ -28,4 +28,4 @@ export const Tabs = TabNavigator({
       tabBarIcon: ({ tintColor }) => <Icon name="event" size={35} color={tintColor}/>
     },
   }
-});
+},{ tabBarOptions: { style: {marginTop: 24 }, } });
