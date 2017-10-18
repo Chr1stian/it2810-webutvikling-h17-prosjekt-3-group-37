@@ -49,12 +49,18 @@ export default class TodoContainer extends React.Component {
   addTodoItem = () => {
     let {todolist, titleInput, textInput} = this.state;
     //Adds the new todo item to the list
-    todolist.push({ID: this.guid(), title: titleInput, text: textInput, finished: false});
-    this.setState({todolist: todolist});
-    storage.save({
-      key: 'todoitems',
-      data: todolist
-    })
+      if (titleInput !== ""){
+      todolist.push({ID: this.guid(), title: titleInput, text: textInput, finished: false});
+      this.setState({
+        todolist: todolist,
+        titleInput: "",
+        textInput: ""
+      });
+      storage.save({
+        key: 'todoitems',
+        data: todolist
+      })
+    }
   }
 
   deleteTodoItem = (todoItem) => {
@@ -121,22 +127,22 @@ export default class TodoContainer extends React.Component {
     } else {
       if (todolist.length-notDoneTodoList.length !== 0) {
         //let buttonStyle = {backgroundColor: "#555555", height: "auto", marginTop: "20px", marginBottom: "-20px"}
-        showTasks = <Button color={"#303030"} onPress={this.toggleDone} title={buttonText}
-        />;
+        showTasks = <View style={{marginTop: 10}}><Button onPress={this.toggleDone} title={buttonText}
+        /></View>;
       }
     }
 
     return (
       <View style={styles.container}>
-        <View style={{backgroundColor: "#555555"}}>
+        <View style={{backgroundColor: "#fff"}}>
           <View style={styles.inputs}>
             <TextInput
-            style={{height: 40, flex: 1, color: "#fff"}}
+            style={{height: 40, flex: 1, color: "#000"}}
             onChangeText={(titleInput) => this.setState({titleInput})}
             value={this.state.titleInput}
-            placeholder="Add task"/>
+            placeholder="What task?"/>
             <TextInput
-            style={{height: 40, flex: 1, color: "#fff"}}
+            style={{height: 40, flex: 1, color: "#000"}}
             onChangeText={(textInput) => this.setState({textInput})}
             value={this.state.textInput}
             placeholder="Optional comment"/>
@@ -144,7 +150,6 @@ export default class TodoContainer extends React.Component {
           <View style={{marginBottom: 15}}>
             <View style={{marginLeft: 10, marginRight: 10, alignItems: "flex-end"}}>
               <Button 
-                color={"#303030"}
                 onPress={this.addTodoItem}
                 title="Add todo"
                 style={{flex: 0.5}}
