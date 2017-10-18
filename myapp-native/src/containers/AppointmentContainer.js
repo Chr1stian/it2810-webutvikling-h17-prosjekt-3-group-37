@@ -127,13 +127,14 @@ componentDidMount(){
           <Card title="Create Appointment" containerStyle={styles.form} wrapperStyle={styles.innerForm}>
 
             <TextInput
+              underlineColorAndroid= 'transparent'
               value= {this.state.title}
-              style={{height: 40, width: 200, borderColor: 'gray', borderWidth: 1, textAlign: 'center', backgroundColor:'#fff', margin:2}}
+              style={{height: 40, width: '60%', borderColor: 'gray', borderWidth: 1, textAlign: 'center', backgroundColor:'#fff', margin:2}}
               placeholder="Enter title"
               onChangeText={(title) => {
                 this.setState({title})} }/>
             <DatePicker
-              style={{height: 40, width: 200, backgroundColor:'#fff', margin:2}}
+              style={{height: 40, width: '60%', backgroundColor:'#fff', margin:2}}
               confirmBtnText="Confirm"
               cancelBtnText="Cancel"
               showIcon= {false}
@@ -143,7 +144,7 @@ componentDidMount(){
               onDateChange={(date) => {this.setState({date: date})}}
             />
             <DatePicker
-              style={{height: 40, width: 200, backgroundColor:'#fff', margin:2}}
+              style={{height: 40, width: '60%', backgroundColor:'#fff', margin:2}}
               confirmBtnText="Confirm"
               cancelBtnText="Cancel"
               showIcon= {false}
@@ -153,7 +154,7 @@ componentDidMount(){
               format="HH:mm"
             placeholder="Enter start time"/>
             <DatePicker
-              style={{height: 40, width: 200, backgroundColor:'#fff', margin:2}}
+              style={{height: 40, width: '60%', backgroundColor:'#fff', margin:2}}
               confirmBtnText="Confirm"
               cancelBtnText="Cancel"
               showIcon= {false}
@@ -163,8 +164,9 @@ componentDidMount(){
               format="HH:mm"
             placeholder="Enter end time"/>
             <TextInput
+              underlineColorAndroid= 'transparent'
               value= {this.state.place}
-              style={{height: 40, width: 200, borderColor: 'gray', borderWidth: 1, textAlign: 'center', backgroundColor:'#fff', margin:2}}
+              style={{height: 40, width: '60%', borderColor: 'gray', borderWidth: 1, textAlign: 'center', backgroundColor:'#fff', margin:2}}
               placeholder="Enter place/address"
               onChangeText={(place) => {
                 this.setState({place})} }/>
@@ -172,8 +174,9 @@ componentDidMount(){
             <Button
               onPress={this.addAppointment}
               buttonStyle={styles.button}
+
               title="Add appointment"
-              backgroundColor="#841584"
+              backgroundColor="#1976D2"
             />
           </Card>
 
@@ -192,19 +195,22 @@ componentDidMount(){
                 backgroundColor: '#fff',
                 alignItems: 'center',
                 justifyContent: 'center',
+                paddingBottom:10,
+                width:'100%',
 
               },
 
               form: {
                 height: 400,
-                width:350,
                 padding:0,
 
               },
               button:{
               height: 50,
-              width: 200,
-              margin:2,
+              paddingRight:'10%',
+              paddingLeft:'10%',
+              marginTop:2,
+
 
             },
               innerForm:{
