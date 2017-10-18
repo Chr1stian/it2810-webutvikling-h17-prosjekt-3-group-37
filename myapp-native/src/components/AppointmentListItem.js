@@ -50,6 +50,7 @@ class AppointmentListItem extends Component {
               <Button
                 onPress={this.deleteAppointment}
                 title= "Delete"
+                icon={{name:'delete-sweep'}}
                 backgroundColor="#d32f2f"
                 buttonStyle={{marginTop:10, paddingRight:'20%', paddingLeft:'20%'}}
 
