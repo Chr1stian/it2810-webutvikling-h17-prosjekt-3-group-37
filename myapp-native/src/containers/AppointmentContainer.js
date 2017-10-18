@@ -41,7 +41,6 @@ export default class AppointmentContainer extends React.Component {
     storage.load({
         key: 'appointments',
       }).then(ret =>{
-        console.log(ret)
         this.setState({
           appointmentList: ret
         })
@@ -56,7 +55,7 @@ export default class AppointmentContainer extends React.Component {
 
 
 componentDidMount(){
-  //this.removeOldAppointments();
+  this.removeOldAppointments();
 
 }
 
@@ -85,11 +84,9 @@ componentDidMount(){
         key: 'appointments',
         data: sortedAppointmentList
       })
-      //console.log(sortedAppointmentList)
       storage.load({
           key: 'appointments',
         }).then(ret =>{
-          //console.log(ret)
 
         })
 
@@ -140,7 +137,6 @@ componentDidMount(){
   render() {
     let { title } = this.state;
     let { appointmentList } = this.state;
-    //console.log("undeede " + appointmentList);
     return (
       <View style={styles.container}>
         <View style={styles.form}>
