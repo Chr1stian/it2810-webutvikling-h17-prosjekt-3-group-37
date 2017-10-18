@@ -34,14 +34,35 @@ export default class AppointmentContainer extends React.Component {
       sync: {},
     })
     global.storage = storage
-    storage.load({
-        key: 'appointments',
-      }).then(ret =>{
-        this.setState({
-          appointmentList: ret
+
+    try {
+      storage.load({
+          key: 'appointments'
+        }).then(ret =>{
+          this.setState({
+            appointmentList: ret || []
+          })
+
+
         })
-      })
+
+    } catch (error) {
+      console.log(error)
     }
+  }
+
+
+
+
+
+
+
+componentDidMount(){
+
+
+}
+
+
   addAppointment = () => {
     let {title} = this.state;
     let {date} = this.state;
@@ -65,11 +86,7 @@ export default class AppointmentContainer extends React.Component {
         key: 'appointments',
         data: sortedAppointmentList
       })
-      storage.load({
-          key: 'appointments',
-        }).then(ret =>{
 
-        })
         //Reloads form to refresh the input fields
         this.setState({
           title:"",

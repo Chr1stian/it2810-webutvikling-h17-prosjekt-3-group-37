@@ -25,14 +25,18 @@ export default class TodoContainer extends React.Component {
 
     })
     global.storage = storage;
-
-    storage.load({
-      key: 'todoitems'
-    }).then(ret =>{
-      this.setState({
-        todolist: ret || []
+    
+    try {
+      storage.load({
+        key: 'todoitems'
+      }).then(ret =>{
+        this.setState({
+          todolist: ret || []
+        })
       })
-    })
+    } catch (error) {
+      console.log(error)
+    }
 
   }
 
